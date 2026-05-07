@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/badge/Tests-267%20Passing-brightgreen.svg)](#-testing--evaluation)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg)](https://python.org)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](https://dotnet.microsoft.com)
-[![Microsoft Agentic Framework](https://img.shields.io/badge/Semantic%20Kernel-1.37%2B-orange.svg)](https://docs.microsoft.com/semantic-kernel)
+[![Microsoft Agentic Framework](https://img.shields.io/badge/Microsoft%20Agentic%20Framework-1.0%2B-orange.svg)](https://learn.microsoft.com/agent-framework/)
 
 ---
 

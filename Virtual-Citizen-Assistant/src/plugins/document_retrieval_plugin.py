@@ -1,6 +1,6 @@
 import os
 from typing import Annotated
-from agent_framework.functions import kernel_function
+from agent_framework import tool as kernel_function
 from azure.search.documents import SearchClient
 from azure.core.credentials import AzureKeyCredential
 from dotenv import load_dotenv

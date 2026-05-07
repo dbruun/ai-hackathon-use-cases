@@ -1,6 +1,6 @@
 import os
 from typing import Annotated
-from agent_framework.functions import kernel_function
+from agent_framework import tool as kernel_function
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 import json

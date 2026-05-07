@@ -1306,19 +1306,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\segayle\\.nuget\\packages\\": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\AzureSearchUploader\\AzureSearchUploader.csproj",
+      "projectUniqueName": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/AzureSearchUploader/AzureSearchUploader.csproj",
       "projectName": "AzureSearchUploader",
-      "projectPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\AzureSearchUploader\\AzureSearchUploader.csproj",
-      "packagesPath": "C:\\Users\\segayle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\AzureSearchUploader\\obj\\",
+      "projectPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/AzureSearchUploader/AzureSearchUploader.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/AzureSearchUploader/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\segayle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1342,7 +1342,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -1389,7 +1389,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

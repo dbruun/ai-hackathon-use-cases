@@ -5,9 +5,8 @@ Updated for Microsoft Agentic Framework 1.37.0 and Pydantic v2 compatibility
 import asyncio
 import os
 from typing import Optional
-from agent_framework import Kernel
-from agent_framework.connectors.ai.open_ai import AzureChatCompletion
-from agent_framework.contents import ChatHistory
+from agent_framework import Agent
+from agent_framework.openai import OpenAIChatCompletionClient
 from src.plugins.document_retrieval_plugin import DocumentRetrievalPlugin
 from dotenv import load_dotenv
 
@@ -16,82 +15,56 @@ load_dotenv()
 
 class VirtualCitizenAssistant:
     def __init__(self):
-        self.kernel: Optional[Kernel] = None
-        self.chat_history = ChatHistory()
+        self.agent: Optional[Agent] = None
+        self.chat_history: list[dict[str, str]] = []
         
     async def initialize(self):
-        """Initialize the kernel and plugins"""
+        """Initialize the agent and plugins"""
         print("Initializing Virtual Citizen Assistant...")
-        
-        # Create kernel
-        self.kernel = Kernel()
-        
-        # Add Azure OpenAI service
-        chat_service = AzureChatCompletion(
-            deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-35-turbo"),
-            endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-        )
-        self.kernel.add_service(chat_service)
-        
-        # Add document retrieval plugin
-        document_plugin = DocumentRetrievalPlugin()
-        self.kernel.add_plugin(document_plugin, plugin_name="DocumentRetrieval")
-        
-        # Add scheduling plugin
+
         from src.plugins.scheduling_plugin import SchedulingPlugin
+        document_plugin = DocumentRetrievalPlugin()
         scheduling_plugin = SchedulingPlugin()
-        self.kernel.add_plugin(scheduling_plugin, plugin_name="Scheduling")
-        
+
+        chat_client = OpenAIChatCompletionClient(
+            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o-mini"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+        )
+
+        self.agent = Agent(
+            client=chat_client,
+            instructions="You are a helpful virtual assistant for Georgia city services.",
+            tools=[
+                document_plugin.search_city_services,
+                document_plugin.get_service_by_category,
+                scheduling_plugin.check_availability,
+                scheduling_plugin.scheduling_info,
+                scheduling_plugin.list_schedulable_services,
+            ]
+        )
+
         print("✅ Virtual Citizen Assistant initialized successfully!")
         print("   - DocumentRetrieval plugin loaded")
         print("   - Scheduling plugin loaded")
         
     async def chat(self, user_message: str) -> str:
         """Process a user message and return a response"""
-        if not self.kernel:
+        if not self.agent:
             raise RuntimeError("Assistant not initialized. Call initialize() first.")
-        
-        # Add user message to history
-        self.chat_history.add_user_message(user_message)
-        
-        # Create a prompt that includes available functions
-        system_prompt = """
-You are a helpful virtual assistant for city services. You can help citizens with:
-1. Finding information about city services (DocumentRetrieval plugin)
-2. Getting service information by category (DocumentRetrieval plugin)
-3. Checking appointment availability (Scheduling plugin)
-4. Getting scheduling information (Scheduling plugin)
-5. Answering general questions about municipal services
 
-Available plugins and functions:
-- DocumentRetrieval.search_city_services: for general service searches
-- DocumentRetrieval.get_service_by_category: for category-specific searches
-- Scheduling.check_availability: check appointment slots
-- Scheduling.scheduling_info: general scheduling information
-- Scheduling.list_schedulable_services: list all services that can be scheduled
+        self.chat_history.append({"role": "user", "content": user_message})
 
-Available service categories: sanitation, licensing, safety, recreation
+        response = await self.agent.run(user_message)
+        assistant_response = response.text or str(response.value)
 
-Be helpful, friendly, and informative.
-"""
-        
-        # Get chat completion with function calling
-        response = await self.kernel.invoke_prompt(
-            function_name="chat",
-            plugin_name="chat",
-            prompt=f"{system_prompt}\n\nUser: {user_message}\nAssistant:",
-        )
-        
-        # Add assistant response to history
-        assistant_response = str(response)
-        self.chat_history.add_assistant_message(assistant_response)
-        
+        self.chat_history.append({"role": "assistant", "content": assistant_response})
         return assistant_response
     
     def get_chat_history(self) -> list:
         """Get the current chat history"""
-        return [{"role": msg.role.value, "content": msg.content} for msg in self.chat_history.messages]
+        return self.chat_history
 
 async def main():
     """Main function for testing the assistant"""
