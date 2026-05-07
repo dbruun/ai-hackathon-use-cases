@@ -181,6 +181,6 @@ class ReviewPendingResponse(BaseModel):
         description="Estimated time for review",
     )
     contact_email: str = Field(
-        default="support@agency.ny.gov",
+        default="support@agency.ga.gov",
         description="Contact for inquiries",
     )

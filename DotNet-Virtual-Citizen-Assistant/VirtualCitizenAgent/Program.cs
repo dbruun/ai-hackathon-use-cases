@@ -1,6 +1,4 @@
-using Microsoft.SemanticKernel;
 using VirtualCitizenAgent.Configuration;
-using VirtualCitizenAgent.Plugins;
 using VirtualCitizenAgent.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,25 +13,6 @@ builder.Services.Configure<OpenAIConfiguration>(
 builder.Services.AddSingleton<ISearchService, SearchService>();
 builder.Services.AddSingleton<IChatService, ChatService>();
 builder.Services.AddSingleton<ICategoryService, CategoryService>();
-
-// Semantic Kernel setup
-var openAiConfig = builder.Configuration.GetSection(OpenAIConfiguration.SectionName).Get<OpenAIConfiguration>();
-if (openAiConfig != null && !openAiConfig.UseMockService && !string.IsNullOrEmpty(openAiConfig.Endpoint))
-{
-    var kernelBuilder = Kernel.CreateBuilder();
-    kernelBuilder.AddAzureOpenAIChatCompletion(
-        deploymentName: openAiConfig.DeploymentName,
-        endpoint: openAiConfig.Endpoint,
-        apiKey: openAiConfig.ApiKey);
-
-    var kernel = kernelBuilder.Build();
-
-    // Register DocumentSearchPlugin
-    var searchService = builder.Services.BuildServiceProvider().GetRequiredService<ISearchService>();
-    kernel.Plugins.AddFromObject(new DocumentSearchPlugin(searchService));
-
-    builder.Services.AddSingleton(kernel);
-}
 
 // MVC
 builder.Services.AddControllersWithViews();

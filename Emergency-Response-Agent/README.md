@@ -1,6 +1,6 @@
 # Emergency Response Agent
 
-Multi-agent AI system for emergency response planning and coordination. Generates coordinated response plans across multiple NY State agencies using weather data integration and resource management.
+Multi-agent AI system for emergency response planning and coordination. Generates coordinated response plans across multiple Georgia State agencies using weather data integration and resource management.
 
 ## Quick Start
 
@@ -121,7 +121,7 @@ NWS_API_ENDPOINT=https://api.weather.gov
 
 ## Tech Stack
 
-- **Semantic Kernel**: Multi-agent orchestration
+- **Microsoft Agentic Framework**: Multi-agent orchestration
 - **Azure OpenAI**: Planning and analysis
 - **NWS API**: Weather data integration
 - **Flask**: Web API framework
@@ -129,4 +129,4 @@ NWS_API_ENDPOINT=https://api.weather.gov
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

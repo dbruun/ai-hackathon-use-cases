@@ -22,7 +22,7 @@ def hurricane_scenario():
     return EmergencyScenario(
         incident_type=EmergencyType.HURRICANE,
         severity_level=SeverityLevel.SEVERE,
-        location="Manhattan, NYC",
+        location="Manhattan, Georgia",
         coordinates=(40.7128, -74.0060),
         affected_area_radius=10.0,
         estimated_population_affected=500000,
@@ -36,7 +36,7 @@ def fire_scenario():
     return EmergencyScenario(
         incident_type=EmergencyType.FIRE,
         severity_level=SeverityLevel.MODERATE,
-        location="Bronx, NYC",
+        location="Bronx, Georgia",
         affected_area_radius=2.0,
         estimated_population_affected=5000,
         duration_hours=8,

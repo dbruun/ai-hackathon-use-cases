@@ -1,4 +1,4 @@
-# NYC Citizen Assistant Configuration Settings
+# Georgia Citizen Assistant Configuration Settings
 
 import os
 import secrets

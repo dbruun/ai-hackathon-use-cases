@@ -25,7 +25,7 @@ class ConversationStatus(str, Enum):
 
 
 class Agency(str, Enum):
-    """NY State agency codes."""
+    """Georgia State agency codes."""
 
     DMV = "DMV"
     DOL = "DOL"

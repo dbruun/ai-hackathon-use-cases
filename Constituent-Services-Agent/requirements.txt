@@ -13,7 +13,7 @@ azure-cosmos>=4.7.0
 azure-identity>=1.15.0
 
 # AI/ML
-semantic-kernel>=1.45.0
+agent-framework>=1.45.0
 
 # Configuration
 python-dotenv>=1.0.0

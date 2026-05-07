@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document outlines the retention policy for audit logs in the Inter-Agency Knowledge Hub, ensuring compliance with the LOADinG Act and NYS records retention requirements.
+This document outlines the retention policy for audit logs in the Inter-Agency Knowledge Hub, ensuring compliance with the LOADinG Act and Georgia records retention requirements.
 
 ## Retention Period
 
@@ -69,7 +69,7 @@ After the 7-year retention period:
 ## Compliance
 
 This policy complies with:
-- NYS Arts and Cultural Affairs Law Section 57.05
+- Georgia Arts and Cultural Affairs Law Section 57.05
 - LOADinG Act requirements for AI transparency
 - NIST SP 800-53 AU controls
 

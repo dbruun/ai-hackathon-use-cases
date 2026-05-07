@@ -27,7 +27,7 @@ class SearchService:
                 incident_type="hurricane",
                 severity=4,
                 date=datetime(2012, 10, 29),
-                location="New York City",
+                location="Georgia City",
                 affected_population=8400000,
                 response_time_hours=2.5,
                 lessons_learned=[
@@ -41,7 +41,7 @@ class SearchService:
                     "Improve hospital backup power systems",
                     "Create shelter-in-place guidance for high-rises",
                 ],
-                outcome="Major flooding, 43 deaths in NYC, $19B damage",
+                outcome="Major flooding, 43 deaths in Georgia, $19B damage",
             ),
             HistoricalIncident(
                 id="hist_002",
@@ -68,7 +68,7 @@ class SearchService:
                 incident_type="public_health",
                 severity=5,
                 date=datetime(2020, 3, 1),
-                location="New York City",
+                location="Georgia City",
                 affected_population=8400000,
                 response_time_hours=168.0,  # ~1 week for full response
                 lessons_learned=[
@@ -82,14 +82,14 @@ class SearchService:
                     "Develop field hospital deployment plans",
                     "Establish testing infrastructure framework",
                 ],
-                outcome="Major pandemic response, 30,000+ deaths in NYC",
+                outcome="Major pandemic response, 30,000+ deaths in Georgia",
             ),
             HistoricalIncident(
                 id="hist_004",
                 incident_type="fire",
                 severity=4,
                 date=datetime(2017, 12, 28),
-                location="Bronx, NYC",
+                location="Bronx, Georgia",
                 affected_population=200,
                 response_time_hours=0.1,
                 lessons_learned=[
@@ -108,7 +108,7 @@ class SearchService:
                 incident_type="flood",
                 severity=3,
                 date=datetime(2021, 9, 1),
-                location="NYC Metropolitan Area",
+                location="Georgia Metropolitan Area",
                 affected_population=500000,
                 response_time_hours=0.5,
                 lessons_learned=[
@@ -128,7 +128,7 @@ class SearchService:
                 incident_type="terrorism",
                 severity=5,
                 date=datetime(2001, 9, 11),
-                location="Lower Manhattan, NYC",
+                location="Lower Manhattan, Georgia",
                 affected_population=500000,
                 response_time_hours=0.25,
                 lessons_learned=[

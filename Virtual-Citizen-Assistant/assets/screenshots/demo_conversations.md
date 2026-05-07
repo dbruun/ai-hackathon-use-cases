@@ -9,7 +9,7 @@
 
 ## Conversation 2: Business Permit Application  
 **User**: "How do I get a permit for my food truck?"  
-**Expected Response**: "To operate a food truck in NYC, you'll need several permits:
+**Expected Response**: "To operate a food truck in Georgia, you'll need several permits:
 
 **Mobile Food Vendor License**: 
 - Submit Form BP-101 to the Department of Health
@@ -26,12 +26,12 @@ You can apply online at nyc.gov/permits or visit the Business Services office at
 
 ## Conversation 3: Emergency Alert Check
 **User**: "Are there any weather alerts for today?"  
-**Expected Response**: "I've checked the current emergency alerts for NYC. There are no active weather emergencies at this time. However, there's a Winter Weather Advisory in effect from 6 PM tonight through 10 AM tomorrow, with light snow expected (2-4 inches).
+**Expected Response**: "I've checked the current emergency alerts for Georgia. There are no active weather emergencies at this time. However, there's a Winter Weather Advisory in effect from 6 PM tonight through 10 AM tomorrow, with light snow expected (2-4 inches).
 
 **Recommendations**:
 - Use caution when traveling tonight and tomorrow morning
 - Allow extra time for commutes
-- Follow @NYCEmergencyMgmt on social media for updates
+- Follow @GeorgiaEmergencyMgmt on social media for updates
 
 Would you like information about snow removal schedules or warming center locations?"
 
@@ -56,7 +56,7 @@ Is there a specific area or activity you're interested in?"
 **User**: "I asked about trash pickup earlier. What about recycling?"  
 **Expected Response**: "Great follow-up question! Your recycling pickup follows the same schedule as your regular trash - Monday and Thursday for your odd-numbered address at 123 Oak Street.
 
-**NYC Recycling Guidelines**:
+**Georgia Recycling Guidelines**:
 - **What to recycle**: Paper, cardboard, metal cans, glass bottles/jars, plastic containers (symbols 1-7)
 - **How to prepare**: Rinse containers, remove food residue, no need to remove labels
 - **Collection**: Use blue bins or clear bags, keep items loose (no plastic bags)
@@ -69,12 +69,12 @@ Is there a specific area or activity you're interested in?"
 Your next recycling pickup is the same as trash: Monday, October 7th by 7:00 AM."
 
 ## Conversation 6: Complex Multi-Service Query
-**User**: "I'm moving to NYC next month. What do I need to know about city services?"  
-**Expected Response**: "Welcome to NYC! Here's a comprehensive guide for new residents:
+**User**: "I'm moving to Georgia next month. What do I need to know about city services?"  
+**Expected Response**: "Welcome to Georgia! Here's a comprehensive guide for new residents:
 
 **Essential Services Setup**:
 1. **Trash & Recycling**: Pickup schedule depends on your address (odd/even system)
-2. **Emergency Alerts**: Sign up for NotifyNYC at nyc.gov/notifynyc
+2. **Emergency Alerts**: Sign up for NotifyGeorgia at nyc.gov/notifynyc
 3. **Parking**: Get familiar with alternate side parking rules
 4. **311 Service**: Call 311 for any city service questions
 
@@ -84,7 +84,7 @@ Your next recycling pickup is the same as trash: Monday, October 7th by 7:00 AM.
 - Benefits applications (if eligible)
 
 **Resources**:
-- NYC.gov for online services
+- Georgia.gov for online services
 - Local community boards for neighborhood info
 - Public libraries for free services and programs
 
@@ -93,9 +93,9 @@ Would you like specific information about any of these services, or do you have 
 ## Error Handling Examples
 
 **User**: "When does the subway run to Mars?"  
-**Expected Response**: "I understand you're asking about transportation, but I can only provide information about NYC public services and transportation within the city. For NYC subway information, the MTA system operates 24/7 with some service modifications during overnight hours. 
+**Expected Response**: "I understand you're asking about transportation, but I can only provide information about Georgia public services and transportation within the city. For Georgia subway information, the MTA system operates 24/7 with some service modifications during overnight hours. 
 
-For current service status, visit mta.info or call 511. Is there something specific about NYC transportation I can help you with?"
+For current service status, visit mta.info or call 511. Is there something specific about Georgia transportation I can help you with?"
 
 **User**: "Fix my broken sink"  
 **Expected Response**: "I can't directly fix plumbing issues, but I can help you find the right resources:

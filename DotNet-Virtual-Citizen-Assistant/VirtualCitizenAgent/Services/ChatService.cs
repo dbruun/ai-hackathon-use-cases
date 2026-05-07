@@ -1,19 +1,20 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using Azure;
+using Azure.AI.OpenAI;
 using Microsoft.Extensions.Options;
-using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
+using OpenAI.Chat;
 using VirtualCitizenAgent.Configuration;
 using VirtualCitizenAgent.Models;
 
 namespace VirtualCitizenAgent.Services;
 
 /// <summary>
-/// Chat service implementation with RAG pipeline using Semantic Kernel.
+/// Chat service implementation with RAG pipeline using Microsoft Agentic Framework.
 /// </summary>
 public class ChatService : IChatService
 {
-    private readonly Kernel? _kernel;
+    private readonly ChatClient? _chatClient;
     private readonly ISearchService _searchService;
     private readonly OpenAIConfiguration _config;
     private readonly ILogger<ChatService> _logger;
@@ -23,7 +24,7 @@ public class ChatService : IChatService
     private static readonly ConcurrentDictionary<string, ChatSession> Sessions = new();
 
     private const string SystemPrompt = """
-        You are a helpful NYC Virtual Citizen Assistant. Your role is to help citizens find information about NYC government services.
+        You are a helpful Georgia Virtual Citizen Assistant. Your role is to help citizens find information about Georgia government services.
 
         Guidelines:
         - Always be helpful, accurate, and respectful
@@ -31,7 +32,7 @@ public class ChatService : IChatService
         - If you're not sure about something, say so
         - Cite your sources when providing information
         - Keep responses concise but complete
-        - If a question is outside NYC government services, politely redirect
+        - If a question is outside Georgia government services, politely redirect
 
         When answering questions:
         1. Search for relevant documents using the provided context
@@ -43,14 +44,19 @@ public class ChatService : IChatService
     public ChatService(
         ISearchService searchService,
         IOptions<OpenAIConfiguration> config,
-        ILogger<ChatService> logger,
-        Kernel? kernel = null)
+        ILogger<ChatService> logger)
     {
         _searchService = searchService;
         _config = config.Value;
         _logger = logger;
-        _kernel = kernel;
-        _useMock = _config.UseMockService || string.IsNullOrEmpty(_config.Endpoint) || kernel == null;
+
+        if (!_config.UseMockService && !string.IsNullOrEmpty(_config.Endpoint) && !string.IsNullOrEmpty(_config.ApiKey))
+        {
+            var azureClient = new AzureOpenAIClient(new Uri(_config.Endpoint), new AzureKeyCredential(_config.ApiKey));
+            _chatClient = azureClient.GetChatClient(_config.DeploymentName);
+        }
+
+        _useMock = _config.UseMockService || _chatClient is null;
     }
 
     public async Task<ChatResponse> SendMessageAsync(ChatRequest request, CancellationToken cancellationToken = default)
@@ -79,7 +85,7 @@ public class ChatService : IChatService
         }
 
         // Add user message to session
-        var userMessage = new ChatMessage
+        var userMessage = new VirtualCitizenAgent.Models.ChatMessage
         {
             SessionId = session.SessionId,
             Role = MessageRole.User,
@@ -111,11 +117,11 @@ public class ChatService : IChatService
         }
         else
         {
-            (responseContent, confidence) = await GenerateKernelResponseAsync(request.Message, searchResponse.Results, session, cancellationToken);
+            (responseContent, confidence) = await GenerateAgenticResponseAsync(request.Message, searchResponse.Results, session, cancellationToken);
         }
 
         // Add assistant message to session
-        var assistantMessage = new ChatMessage
+        var assistantMessage = new VirtualCitizenAgent.Models.ChatMessage
         {
             SessionId = session.SessionId,
             Role = MessageRole.Assistant,
@@ -161,7 +167,7 @@ public class ChatService : IChatService
 
         if (results.Count == 0)
         {
-            return "I couldn't find specific information about that in my knowledge base. Could you please rephrase your question or ask about a specific NYC government service?";
+            return "I couldn't find specific information about that in my knowledge base. Could you please rephrase your question or ask about a specific Georgia government service?";
         }
 
         var topResult = results.First();
@@ -185,7 +191,7 @@ public class ChatService : IChatService
         return response;
     }
 
-    private async Task<(string content, float? confidence)> GenerateKernelResponseAsync(
+    private async Task<(string content, float? confidence)> GenerateAgenticResponseAsync(
         string query,
         List<SearchResult> results,
         ChatSession session,
@@ -193,9 +199,10 @@ public class ChatService : IChatService
     {
         try
         {
-            var chatCompletionService = _kernel!.GetRequiredService<IChatCompletionService>();
-
-            var chatHistory = new ChatHistory(SystemPrompt);
+            var messages = new List<OpenAI.Chat.ChatMessage>
+            {
+                new SystemChatMessage(SystemPrompt)
+            };
 
             // Add context from search results
             if (results.Count > 0)
@@ -211,32 +218,34 @@ public class ChatService : IChatService
                     }
                     context += "\n---\n\n";
                 }
-                chatHistory.AddSystemMessage($"Use the following context to answer the user's question:\n\n{context}");
+                messages.Add(new SystemChatMessage($"Use the following context to answer the user's question:\n\n{context}"));
             }
 
             // Add conversation history (last 10 messages for context window management)
             foreach (var msg in session.Messages.TakeLast(10))
             {
                 if (msg.Role == MessageRole.User)
-                    chatHistory.AddUserMessage(msg.Content);
+                    messages.Add(new UserChatMessage(msg.Content));
                 else if (msg.Role == MessageRole.Assistant)
-                    chatHistory.AddAssistantMessage(msg.Content);
+                    messages.Add(new AssistantChatMessage(msg.Content));
             }
 
             // Add current query
-            chatHistory.AddUserMessage(query);
+            messages.Add(new UserChatMessage(query));
 
-            var response = await chatCompletionService.GetChatMessageContentAsync(
-                chatHistory,
-                cancellationToken: cancellationToken);
+            var response = await _chatClient!.CompleteChatAsync(messages, cancellationToken: cancellationToken);
 
             var confidence = results.Count > 0 ? 0.9f : 0.5f;
 
-            return (response.Content ?? "I apologize, but I couldn't generate a response. Please try again.", confidence);
+            var content = response.Value.Content.Count > 0
+                ? response.Value.Content[0].Text
+                : null;
+
+            return (content ?? "I apologize, but I couldn't generate a response. Please try again.", confidence);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to generate response with Semantic Kernel");
+            _logger.LogError(ex, "Failed to generate response with Microsoft Agentic Framework");
             return await GenerateMockResponseAsync(query, results, cancellationToken)
                 .ContinueWith(t => (t.Result, (float?)0.5f), cancellationToken);
         }

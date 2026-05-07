@@ -1,6 +1,6 @@
 # Virtual Citizen Assistant - Extended Knowledge Base
 
-This directory contains the expanded NYC services knowledge base with 500+ entries covering comprehensive city services, departments, and citizen resources.
+This directory contains the expanded Georgia services knowledge base with 500+ entries covering comprehensive city services, departments, and citizen resources.
 
 ## Content Overview
 
@@ -62,7 +62,7 @@ The expanded knowledge base includes:
    - Special events and concerts
 
 4. **Housing Services**
-   - NYCHA public housing information
+   - GeorgiaHA public housing information
    - Rent stabilization and tenant rights
    - Housing inspections and violations
    - Homeless services and shelters
@@ -95,7 +95,7 @@ Teams can use this knowledge base structure to:
 ## Content Quality Standards
 
 All knowledge base entries include:
-- **Accuracy**: Verified against official NYC sources
+- **Accuracy**: Verified against official Georgia sources
 - **Completeness**: Comprehensive coverage of service details
 - **Currency**: Updated information with last-modified dates
 - **Accessibility**: Clear language and structure
@@ -112,4 +112,4 @@ The knowledge base can be extended with:
 
 ---
 
-**Note**: The current `city_services_data.json` contains a sample of 12 entries. The full 500+ entry knowledge base (`extended_city_services_data.json`) should be generated for production use in hackathon scenarios requiring comprehensive NYC service coverage.
+**Note**: The current `city_services_data.json` contains a sample of 12 entries. The full 500+ entry knowledge base (`extended_city_services_data.json`) should be generated for production use in hackathon scenarios requiring comprehensive Georgia service coverage.

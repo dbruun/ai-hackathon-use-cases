@@ -86,11 +86,11 @@ class MockDocumentIntelligenceService(DocumentIntelligenceService):
             "fields": [
                 ExtractedField("provider_name", "Con Edison", 0.94),
                 ExtractedField("account_number", "9876543210", 0.91, is_pii=True, pii_type=PIIType.BANK_ACCOUNT),
-                ExtractedField("service_address", "123 Main St, Albany, NY 12207", 0.93, is_pii=True, pii_type=PIIType.ADDRESS),
+                ExtractedField("service_address", "123 Main St, Albany, GA 12207", 0.93, is_pii=True, pii_type=PIIType.ADDRESS),
                 ExtractedField("billing_date", "12/15/2025", 0.96),
                 ExtractedField("amount_due", "145.67", 0.97),
             ],
-            "raw_text": "Con Edison Bill\n123 Main St, Albany, NY 12207\nAmount Due: $145.67",
+            "raw_text": "Con Edison Bill\n123 Main St, Albany, GA 12207\nAmount Due: $145.67",
         },
         DocumentType.BANK_STATEMENT: {
             "model_id": "prebuilt-document",
@@ -108,7 +108,7 @@ class MockDocumentIntelligenceService(DocumentIntelligenceService):
                 ExtractedField("full_name", "JOHN DOE", 0.96),
                 ExtractedField("date_of_birth", "01/15/1985", 0.94, is_pii=True, pii_type=PIIType.DATE_OF_BIRTH),
                 ExtractedField("license_number", "D123-4567-8901", 0.95, is_pii=True, pii_type=PIIType.DRIVERS_LICENSE_NUMBER),
-                ExtractedField("address", "123 Main St, Albany, NY 12207", 0.92, is_pii=True, pii_type=PIIType.ADDRESS),
+                ExtractedField("address", "123 Main St, Albany, GA 12207", 0.92, is_pii=True, pii_type=PIIType.ADDRESS),
                 ExtractedField("expiration_date", "01/15/2028", 0.97),
             ],
             "raw_text": "NEW YORK STATE DRIVER LICENSE\nJOHN DOE\nDOB: 01/15/1985",

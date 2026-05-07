@@ -33,7 +33,7 @@ def print_section(text: str):
 async def run_demo():
     """Run the interactive demonstration."""
     print_header("Emergency Response Planning Agent - Demo")
-    print("NY State AI Hackathon")
+    print("Georgia State AI Hackathon")
 
     # Initialize components
     settings = Settings()
@@ -52,12 +52,12 @@ async def run_demo():
     scenario = EmergencyScenario(
         incident_type=EmergencyType.HURRICANE,
         severity_level=SeverityLevel.SEVERE,
-        location="Manhattan, NYC",
+        location="Manhattan, Georgia",
         coordinates=(40.7128, -74.0060),
         affected_area_radius=10.0,
         estimated_population_affected=500000,
         duration_hours=72,
-        description="Category 4 Hurricane approaching NYC metropolitan area",
+        description="Category 4 Hurricane approaching Georgia metropolitan area",
     )
 
     print(f"Creating scenario: Category 4 Hurricane - Manhattan")
@@ -92,7 +92,7 @@ async def run_demo():
     print_section("Demo 2: Weather Integration")
 
     lat, lon = 40.7128, -74.0060
-    print(f"Fetching weather for NYC ({lat}, {lon})...")
+    print(f"Fetching weather for Georgia ({lat}, {lon})...")
 
     weather = weather_service.get_current_conditions(lat, lon)
     print(f"  Temperature: {weather.temperature_f:.0f}°F")

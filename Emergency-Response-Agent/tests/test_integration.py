@@ -50,7 +50,7 @@ class TestScenarioEndpoints:
         response = client.post("/api/v1/scenarios", json={
             "incident_type": "hurricane",
             "severity_level": 4,
-            "location": "Manhattan, NYC",
+            "location": "Manhattan, Georgia",
             "affected_area_radius": 10.0,
             "estimated_population_affected": 500000,
             "duration_hours": 72,
@@ -270,7 +270,7 @@ class TestEndToEnd:
         create_response = client.post("/api/v1/scenarios", json={
             "incident_type": "fire",
             "severity_level": 3,
-            "location": "Brooklyn, NYC",
+            "location": "Brooklyn, Georgia",
             "coordinates": [40.6782, -73.9442],
             "affected_area_radius": 2.0,
             "estimated_population_affected": 10000,

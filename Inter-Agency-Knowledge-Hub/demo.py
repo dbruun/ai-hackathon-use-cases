@@ -31,13 +31,13 @@ async def demo_search_service():
     users = {
         "admin": UserPermissions.from_groups(
             user_id="admin-001",
-            email="admin@oti.ny.gov",
+            email="admin@oti.ga.gov",
             groups=["AllAgencies_Admin"],
             display_name="System Admin",
         ),
         "dmv_staff": UserPermissions.from_groups(
             user_id="dmv-001",
-            email="staff@dmv.ny.gov",
+            email="staff@dmv.ga.gov",
             groups=["DMV_Staff"],
             display_name="DMV Staff",
         ),
@@ -104,7 +104,7 @@ async def demo_cross_references():
 
     admin = UserPermissions.from_groups(
         user_id="admin-001",
-        email="admin@oti.ny.gov",
+        email="admin@oti.ga.gov",
         groups=["AllAgencies_Admin"],
     )
 
@@ -149,7 +149,7 @@ async def demo_review_flagging():
 
     user = UserPermissions.from_groups(
         user_id="user-001",
-        email="user@agency.ny.gov",
+        email="user@agency.ga.gov",
         groups=["DMV_Staff", "DOL_Staff", "DOH_Staff"],
     )
 
@@ -208,13 +208,13 @@ async def demo_permission_filter():
     # Different user types
     users = {
         "Admin": UserPermissions.from_groups(
-            "admin", "admin@ny.gov", ["AllAgencies_Admin"]
+            "admin", "admin@ga.gov", ["AllAgencies_Admin"]
         ),
         "DMV Manager": UserPermissions.from_groups(
-            "mgr", "mgr@dmv.ny.gov", ["DMV_Manager"]
+            "mgr", "mgr@dmv.ga.gov", ["DMV_Manager"]
         ),
         "DMV Staff": UserPermissions.from_groups(
-            "staff", "staff@dmv.ny.gov", ["DMV_Staff"]
+            "staff", "staff@dmv.ga.gov", ["DMV_Staff"]
         ),
         "Public": UserPermissions.from_groups(
             "public", "citizen@email.com", []

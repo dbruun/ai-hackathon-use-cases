@@ -1,6 +1,6 @@
 # Constituent Services Agent
 
-AI-powered conversational agent for NY State constituent services. Provides accurate, citation-backed answers about government services with multi-language support.
+AI-powered conversational agent for Georgia State constituent services. Provides accurate, citation-backed answers about government services with multi-language support.
 
 ## Quick Start
 
@@ -38,7 +38,7 @@ Open http://localhost:5000 in your browser.
 
 ## Features
 
-- **Basic Q&A**: Ask questions about NY State services in plain language
+- **Basic Q&A**: Ask questions about Georgia State services in plain language
 - **Citation Support**: All responses include source citations
 - **Confidence Scoring**: Shows confidence level for responses
 - **Escalation**: Offers human agent escalation when confidence is low
@@ -100,4 +100,4 @@ AZURE_AI_PROJECT_CONNECTION_STRING=your-connection-string
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

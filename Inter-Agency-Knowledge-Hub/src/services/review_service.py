@@ -288,5 +288,5 @@ class ReviewService:
             review_id=str(flag.id),
             message="Your query has been flagged for review due to: " + flag.flag_reason,
             estimated_review_time="24 hours",
-            contact_email="knowledge-hub-support@oti.ny.gov",
+            contact_email="knowledge-hub-support@oti.ga.gov",
         )

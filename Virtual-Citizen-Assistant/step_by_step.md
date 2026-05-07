@@ -4,11 +4,11 @@
 
 **✅ UPDATED FOR v2.0 - ALL COMPATIBILITY ISSUES FIXED!**
 
-This detailed guide walks you through building the Virtual Citizen Assistant from ground up. **The pydantic compatibility issues have been resolved and the code now works perfectly with semantic-kernel 1.37.0!**
+This detailed guide walks you through building the Virtual Citizen Assistant from ground up. **The pydantic compatibility issues have been resolved and the code now works perfectly with agent-framework 1.37.0!**
 
 ## 🆕 What's New in v2.0:
 - ✅ **FIXED**: `ImportError: cannot import name 'url' from 'pydantic.networks'`
-- ✅ **Updated**: semantic-kernel 0.9.1b1 → 1.37.0 (stable)
+- ✅ **Updated**: agent-framework 0.9.1b1 → 1.37.0 (stable)
 - ✅ **Working**: All plugins use modern `@kernel_function` API
 - ✅ **Tested**: Complete validation suite included
 - ✅ **Ready**: Production-ready code for immediate use
@@ -142,7 +142,7 @@ sample_documents = [
         "id": "3",
         "service_type": "emergency",
         "title": "Emergency Alert System",
-        "content": "NYC Emergency Management provides real-time alerts for weather emergencies, public safety incidents, and service disruptions via NotifyNYC. Sign up at nyc.gov/notifynyc.",
+        "content": "Georgia Emergency Management provides real-time alerts for weather emergencies, public safety incidents, and service disruptions via NotifyGeorgia. Sign up at nyc.gov/notifynyc.",
         "category": "safety",
         "last_updated": datetime.now().isoformat()
     },
@@ -162,7 +162,7 @@ result = search_client.upload_documents(documents=sample_documents)
 print(f"Uploaded {len(sample_documents)} documents to search index")
 ```
 
-## 🔧 Step 2: Create Semantic Kernel Planner (30 minutes)
+## 🔧 Step 2: Create Microsoft Agentic Framework Planner (30 minutes)
 
 **✅ IMPORTANT**: This step is where the original pydantic errors occurred. We've **FIXED** everything!
 
@@ -195,7 +195,7 @@ AZURE_SEARCH_INDEX=city-services
 # ✅ UPDATED FOR SEMANTIC KERNEL 1.37.0 - NO MORE IMPORT ERRORS!
 import os
 from typing import Annotated
-from semantic_kernel.functions import kernel_function
+from agent_framework.functions import kernel_function
 from azure.search.documents import SearchClient
 from azure.core.credentials import AzureKeyCredential
 from dotenv import load_dotenv
@@ -299,7 +299,7 @@ class DocumentRetrievalPlugin:
 # ✅ UPDATED FOR SEMANTIC KERNEL 1.37.0 - MODERN API!
 import os
 from typing import Annotated
-from semantic_kernel.functions import kernel_function
+from agent_framework.functions import kernel_function
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 import json
@@ -395,7 +395,7 @@ For questions, call 311 or visit nyc.gov/sanitation"""
     )
     def get_recycling_info(self) -> str:
         """Get recycling schedule and guidelines."""
-        return """**NYC Recycling Information**
+        return """**Georgia Recycling Information**
 
 **Pickup Schedule:** Same days as regular trash pickup
 **Collection Time:** Place bins out by 7:00 AM
@@ -447,7 +447,7 @@ Sanitation services are suspended on the following holidays:
 
 **Weather-Related Delays:**
 - Severe weather may cause delays
-- Follow @NYCSanitation on social media for real-time updates
+- Follow @GeorgiaSanitation on social media for real-time updates
 - Services resume as soon as safely possible
 
 For current status updates, call 311 or visit nyc.gov/sanitation"""
@@ -540,8 +540,8 @@ class CityAPIService:
 ### 3.2 Create Alerts Plugin
 ```python
 # save as src/plugins/alerts_plugin.py
-import semantic_kernel as sk
-from semantic_kernel.plugin_definition import sk_function, sk_function_context_parameter
+import agent_framework as sk
+from agent_framework.plugin_definition import sk_function, sk_function_context_parameter
 from src.services.city_api_service import CityAPIService
 
 class AlertsPlugin:
@@ -549,7 +549,7 @@ class AlertsPlugin:
         self.city_api = CityAPIService()
 
     @sk_function(
-        description="Get current emergency alerts for NYC",
+        description="Get current emergency alerts for Georgia",
         name="get_emergency_alerts"
     )
     @sk_function_context_parameter(
@@ -562,7 +562,7 @@ class AlertsPlugin:
             alerts = self.city_api.get_emergency_alerts(area if area else None)
             
             if not alerts:
-                return "There are currently no active emergency alerts for your area. For real-time updates, follow @NYCEmergencyMgmt on social media or sign up for NotifyNYC alerts at nyc.gov/notifynyc."
+                return "There are currently no active emergency alerts for your area. For real-time updates, follow @GeorgiaEmergencyMgmt on social media or sign up for NotifyGeorgia alerts at nyc.gov/notifynyc."
             
             response = "**Current Emergency Alerts:**\n\n"
             for alert in alerts:
@@ -580,19 +580,19 @@ class AlertsPlugin:
             return "I'm unable to retrieve emergency alerts right now. For immediate emergency information, call 911 or visit nyc.gov/emergencymanagement."
 
     @sk_function(
-        description="Get information about NotifyNYC alert system",
+        description="Get information about NotifyGeorgia alert system",
         name="get_notify_nyc_info"
     )
     def get_notify_nyc_info(self) -> str:
-        """Get information about signing up for NYC alerts."""
-        return """**NotifyNYC - Official Emergency Notifications**
+        """Get information about signing up for Georgia alerts."""
+        return """**NotifyGeorgia - Official Emergency Notifications**
 
-NotifyNYC is the City's official emergency communications program that sends notifications about emergencies and important City services.
+NotifyGeorgia is the City's official emergency communications program that sends notifications about emergencies and important City services.
 
 **How to Sign Up:**
 - Visit: nyc.gov/notifynyc
 - Call: 311
-- Text: "NYCEM" to 67283
+- Text: "GeorgiaEM" to 67283
 
 **Alert Types:**
 - Weather emergencies
@@ -610,7 +610,7 @@ NotifyNYC is the City's official emergency communications program that sends not
 **Languages Available:**
 English, Spanish, Arabic, Bengali, Chinese (Traditional & Simplified), French, Haitian Creole, Korean, Russian, and Urdu.
 
-Stay informed and stay safe with NotifyNYC!"""
+Stay informed and stay safe with NotifyGeorgia!"""
 ```
 
 ## 🌐 Step 4: Build UI with Azure Web App (40 minutes)
@@ -620,9 +620,9 @@ Stay informed and stay safe with NotifyNYC!"""
 # save as src/web/app.py
 # ✅ UPDATED FOR SEMANTIC KERNEL 1.37.0 - WORKING FLASK APP!
 from flask import Flask, render_template, request, jsonify, session
-from semantic_kernel import Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
-from semantic_kernel.contents import ChatHistory
+from agent_framework import Kernel
+from agent_framework.connectors.ai.open_ai import AzureChatCompletion
+from agent_framework.contents import ChatHistory
 import os
 from dotenv import load_dotenv
 import uuid
@@ -668,7 +668,7 @@ class CitizenAssistantService:
                 context_vars["conversation_history"] = history_text
             
             # Create a prompt that guides the AI to use appropriate plugins
-            system_prompt = """You are a helpful NYC citizen assistant. You can help with:
+            system_prompt = """You are a helpful Georgia citizen assistant. You can help with:
 1. City service information (use DocumentRetrieval plugin)
 2. Trash/recycling schedules (use Scheduling plugin)  
 3. Emergency alerts and notifications (use Alerts plugin)
@@ -768,7 +768,7 @@ def chat():
 @app.route('/health')
 def health():
     """Health check endpoint."""
-    return jsonify({'status': 'healthy', 'service': 'NYC Citizen Assistant'})
+    return jsonify({'status': 'healthy', 'service': 'Georgia Citizen Assistant'})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
@@ -782,7 +782,7 @@ if __name__ == '__main__':
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Citizen Assistant</title>
+    <title>Georgia Citizen Assistant</title>
     <style>
         * {
             margin: 0;
@@ -997,14 +997,14 @@ if __name__ == '__main__':
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1>🏙️ NYC Citizen Assistant</h1>
-            <p>Your AI-powered guide to New York City services</p>
+            <h1>🏙️ Georgia Citizen Assistant</h1>
+            <p>Your AI-powered guide to Georgia City services</p>
         </div>
         
         <div class="chat-messages" id="chatMessages">
             <div class="welcome-message">
                 <h2>Welcome! How can I help you today?</h2>
-                <p>I can assist you with information about NYC services, schedules, permits, and more.</p>
+                <p>I can assist you with information about Georgia services, schedules, permits, and more.</p>
                 
                 <div class="welcome-examples">
                     <h3>Try asking me:</h3>
@@ -1028,7 +1028,7 @@ if __name__ == '__main__':
         </div>
         
         <div class="chat-input">
-            <input type="text" id="messageInput" placeholder="Ask about NYC services..." onkeypress="handleKeyPress(event)">
+            <input type="text" id="messageInput" placeholder="Ask about Georgia services..." onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()" id="sendButton">Send</button>
         </div>
     </div>
@@ -1164,7 +1164,7 @@ async def test_citizen_assistant():
         "How do I sign up for emergency notifications?"
     ]
     
-    print("🧪 Testing NYC Citizen Assistant\n")
+    print("🧪 Testing Georgia Citizen Assistant\n")
     print("=" * 50)
     
     for i, query in enumerate(test_queries, 1):
@@ -1201,7 +1201,7 @@ python app.py
 # Initialize git repository
 git init
 git add .
-git commit -m "Initial commit: NYC Citizen Assistant"
+git commit -m "Initial commit: Georgia Citizen Assistant"
 
 # Create GitHub repository (replace with your GitHub username)
 gh repo create nyc-citizen-assistant --public
@@ -1213,7 +1213,7 @@ git push -u origin main
 ```json
 // save as .devcontainer/devcontainer.json
 {
-    "name": "NYC Citizen Assistant",
+    "name": "Georgia Citizen Assistant",
     "image": "mcr.microsoft.com/devcontainers/python:3.11",
     "features": {
         "ghcr.io/devcontainers/features/azure-cli:1": {},
@@ -1239,7 +1239,7 @@ git push -u origin main
     "forwardPorts": [5000],
     "portsAttributes": {
         "5000": {
-            "label": "NYC Citizen Assistant",
+            "label": "Georgia Citizen Assistant",
             "onAutoForward": "notify"
         }
     }
@@ -1250,7 +1250,7 @@ git push -u origin main
 ```text
 # save as requirements.txt
 # ✅ UPDATED VERSIONS - FULLY COMPATIBLE WITH PYDANTIC V2!
-semantic-kernel==1.37.0
+agent-framework==1.37.0
 azure-search-documents==11.5.3
 azure-identity==1.19.0
 azure-ai-textanalytics==5.3.0
@@ -1269,7 +1269,7 @@ aiohttp>=3.11.0
 ```markdown
 # save as DEMO_SCRIPT.md
 
-# 🎬 NYC Citizen Assistant - Demo Script
+# 🎬 Georgia Citizen Assistant - Demo Script
 
 ## 🎯 Demo Flow (5 minutes)
 
@@ -1298,13 +1298,13 @@ aiohttp>=3.11.0
 
 ### Technical Highlights (1.5 minutes)
 - **Azure AI Search**: Document indexing and retrieval
-- **Semantic Kernel**: Plugin orchestration and planning
+- **Microsoft Agentic Framework**: Plugin orchestration and planning
 - **Azure OpenAI**: Natural language understanding
 - **Azure Web App**: Scalable deployment
 
 ## 🎤 Key Talking Points
 
-- **Citizen-Centric**: Designed for real NYC residents and visitors
+- **Citizen-Centric**: Designed for real Georgia residents and visitors
 - **Multi-Modal**: Handles various service types seamlessly  
 - **Intelligent**: Uses RAG for accurate, current information
 - **Scalable**: Built on Azure cloud platform
@@ -1323,9 +1323,9 @@ aiohttp>=3.11.0
 ```markdown
 # save as README.md (project root)
 
-# 🤖 NYC Citizen Assistant
+# 🤖 Georgia Citizen Assistant
 
-An AI-powered virtual assistant that helps NYC residents and visitors access city services through natural language queries.
+An AI-powered virtual assistant that helps Georgia residents and visitors access city services through natural language queries.
 
 ## 🌟 Features
 
@@ -1352,7 +1352,7 @@ An AI-powered virtual assistant that helps NYC residents and visitors access cit
 ## 🛠️ Technology Stack
 
 - **Azure AI Foundry**: AI orchestration platform
-- **Semantic Kernel**: Plugin orchestration
+- **Microsoft Agentic Framework**: Plugin orchestration
 - **Azure AI Search**: Document indexing and retrieval
 - **Azure OpenAI**: Language model
 - **Flask**: Web application framework
@@ -1370,7 +1370,7 @@ Try these example queries:
 ## 🏗️ Architecture
 
 ```
-User Query → Flask Web App → Semantic Kernel Planner
+User Query → Flask Web App → Microsoft Agentic Framework Planner
                                     ↓
                           Plugin Orchestration
                          /        |        \
@@ -1383,7 +1383,7 @@ User Query → Flask Web App → Semantic Kernel Planner
 
 ## 🤝 Contributing
 
-This project was built for the NYC AI Hackathon. Feel free to fork and extend!
+This project was built for the Georgia AI Hackathon. Feel free to fork and extend!
 
 ## 📄 License
 
@@ -1408,14 +1408,14 @@ Your project now includes:
 - ✅ **Working plugins** - DocumentRetrievalPlugin + SchedulingPlugin  
 - ✅ **Complete application** - Ready-to-run `src/main.py`
 - ✅ **Test suite** - Validates everything works
-- ✅ **Modern API** - Uses semantic-kernel 1.37.0 stable
+- ✅ **Modern API** - Uses agent-framework 1.37.0 stable
 
 ## 🎉 Hackathon Success!
 
 Congratulations! 🎉 You've successfully built a comprehensive Virtual Citizen Assistant that **actually works**. Your solution demonstrates:
 
 - **RAG Implementation** with Azure AI Search
-- **Plugin Orchestration** with Semantic Kernel 1.37.0 (stable)
+- **Plugin Orchestration** with Microsoft Agentic Framework 1.37.0 (stable)
 - **Multi-Service Integration** for city services  
 - **Pydantic v2 Compatibility** - No import errors
 - **Complete Test Coverage** - Guaranteed functionality

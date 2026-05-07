@@ -65,7 +65,7 @@ class WeatherService:
 
     def _generate_mock_weather_data(self, lat: float, lon: float) -> WeatherCondition:
         """Generate realistic mock weather data."""
-        # NYC-based mock data with some randomization
+        # Georgia-based mock data with some randomization
         conditions_options = [
             "clear sky",
             "partly cloudy",

@@ -49,7 +49,7 @@ def main():
         print("\n✅ Ready for hackathon use:")
         print("   - DocumentRetrievalPlugin: Search city services")
         print("   - SchedulingPlugin: Check appointments and scheduling info")
-        print("   - Both plugins use updated Semantic Kernel 1.37.0 API")
+        print("   - Both plugins use updated Microsoft Agentic Framework 1.37.0 API")
         print("   - Pydantic v2 compatibility confirmed")
         print("\n🔧 To run the full assistant:")
         print("   python src/main.py")

@@ -1,12 +1,11 @@
 using System.ComponentModel;
-using Microsoft.SemanticKernel;
 using VirtualCitizenAgent.Models;
 using VirtualCitizenAgent.Services;
 
 namespace VirtualCitizenAgent.Plugins;
 
 /// <summary>
-/// Semantic Kernel plugin for document search operations.
+/// Document search operations used by chat orchestration.
 /// </summary>
 public class DocumentSearchPlugin
 {
@@ -17,8 +16,7 @@ public class DocumentSearchPlugin
         _searchService = searchService;
     }
 
-    [KernelFunction("search_documents")]
-    [Description("Search for NYC government service documents using semantic search")]
+    [Description("Search for Georgia government service documents using semantic search")]
     public async Task<string> SearchDocumentsAsync(
         [Description("The search query describing what information the user is looking for")] string query,
         [Description("Optional category filter (e.g., Transportation, Housing, Business)")] string? category = null,
@@ -47,7 +45,6 @@ public class DocumentSearchPlugin
         return response;
     }
 
-    [KernelFunction("get_document")]
     [Description("Get the full content of a specific document by its ID")]
     public async Task<string> GetDocumentAsync(
         [Description("The unique identifier of the document")] string documentId)
@@ -71,7 +68,6 @@ public class DocumentSearchPlugin
             """;
     }
 
-    [KernelFunction("list_categories")]
     [Description("List all available service categories")]
     public async Task<string> ListCategoriesAsync()
     {
@@ -91,7 +87,6 @@ public class DocumentSearchPlugin
         return response;
     }
 
-    [KernelFunction("get_category_documents")]
     [Description("Get all documents in a specific category")]
     public async Task<string> GetCategoryDocumentsAsync(
         [Description("The category name (e.g., Transportation, Housing)")] string categoryName)
@@ -117,7 +112,6 @@ public class DocumentSearchPlugin
         return response;
     }
 
-    [KernelFunction("get_recent_updates")]
     [Description("Get recently updated documents")]
     public async Task<string> GetRecentUpdatesAsync(
         [Description("Number of days to look back (default 30)")] int days = 30,
@@ -139,7 +133,6 @@ public class DocumentSearchPlugin
         return response;
     }
 
-    [KernelFunction("keyword_search")]
     [Description("Search for documents using keyword matching (useful for specific terms)")]
     public async Task<string> KeywordSearchAsync(
         [Description("Keywords to search for")] string keywords,

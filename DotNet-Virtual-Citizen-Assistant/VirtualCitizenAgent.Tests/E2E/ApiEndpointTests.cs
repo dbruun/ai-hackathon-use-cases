@@ -46,7 +46,7 @@ public class ApiEndpointTests : IClassFixture<WebApplicationFactory<Program>>
     public async Task ChatEndpoint_WithValidMessage_ReturnsOk()
     {
         // Arrange
-        var chatRequest = new { message = "What services does NYC offer?" };
+        var chatRequest = new { message = "What services does Georgia offer?" };
 
         // Act
         var response = await _client.PostAsJsonAsync("/api/chat", chatRequest);

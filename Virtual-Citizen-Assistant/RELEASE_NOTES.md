@@ -6,8 +6,8 @@
 **FIXED**: The dreaded `ImportError: cannot import name 'url' from 'pydantic.networks'` that was blocking all hackathon participants at Step 2.3.
 
 ### 🔧 Root Cause & Solution
-- **Issue**: semantic-kernel 0.9.1b1 (beta) incompatible with pydantic v2
-- **Fix**: Upgraded to semantic-kernel 1.37.0 (stable) + updated all dependencies
+- **Issue**: agent-framework 0.9.1b1 (beta) incompatible with pydantic v2
+- **Fix**: Upgraded to agent-framework 1.37.0 (stable) + updated all dependencies
 - **Result**: 100% compatibility with modern Python ecosystem
 
 ## 📦 Updated Files

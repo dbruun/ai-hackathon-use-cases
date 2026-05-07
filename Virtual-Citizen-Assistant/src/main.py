@@ -1,13 +1,13 @@
 """
 Virtual Citizen Assistant - Main Application
-Updated for Semantic Kernel 1.37.0 and Pydantic v2 compatibility
+Updated for Microsoft Agentic Framework 1.37.0 and Pydantic v2 compatibility
 """
 import asyncio
 import os
 from typing import Optional
-from semantic_kernel import Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
-from semantic_kernel.contents import ChatHistory
+from agent_framework import Kernel
+from agent_framework.connectors.ai.open_ai import AzureChatCompletion
+from agent_framework.contents import ChatHistory
 from src.plugins.document_retrieval_plugin import DocumentRetrievalPlugin
 from dotenv import load_dotenv
 

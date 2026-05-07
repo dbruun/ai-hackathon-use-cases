@@ -21,7 +21,7 @@ def user():
     """Create test user."""
     return UserPermissions.from_groups(
         user_id="test-001",
-        email="test@agency.ny.gov",
+        email="test@agency.ga.gov",
         groups=["DMV_Staff"],
     )
 

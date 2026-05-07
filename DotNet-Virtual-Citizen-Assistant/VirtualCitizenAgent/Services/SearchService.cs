@@ -25,8 +25,8 @@ public class SearchService : ISearchService
         {
             Id = "doc-001",
             Title = "How to Get a Parking Permit",
-            Content = "To obtain a parking permit in NYC, you need to provide proof of residency, vehicle registration, and a valid driver's license. Visit your local DMV office or apply online at nyc.gov/parking. Permits are valid for one year and must be renewed annually.",
-            Summary = "Guide to obtaining NYC parking permits",
+            Content = "To obtain a parking permit in Georgia, you need to provide proof of residency, vehicle registration, and a valid driver's license. Visit your local DMV office or apply online at nyc.gov/parking. Permits are valid for one year and must be renewed annually.",
+            Summary = "Guide to obtaining Georgia parking permits",
             Category = "Transportation",
             SubCategory = "Parking",
             Tags = ["parking", "permit", "DMV", "vehicle"],
@@ -37,7 +37,7 @@ public class SearchService : ISearchService
         {
             Id = "doc-002",
             Title = "Business License Application Process",
-            Content = "Starting a business in NYC requires obtaining the appropriate licenses and permits. The type of license depends on your business activity. Common licenses include General Vendor License, Food Service Establishment Permit, and Home Occupation Permit. Apply through NYC Business Express portal.",
+            Content = "Starting a business in Georgia requires obtaining the appropriate licenses and permits. The type of license depends on your business activity. Common licenses include General Vendor License, Food Service Establishment Permit, and Home Occupation Permit. Apply through Georgia Business Express portal.",
             Summary = "Step-by-step guide to business licensing",
             Category = "Business",
             SubCategory = "Licensing",
@@ -49,7 +49,7 @@ public class SearchService : ISearchService
         {
             Id = "doc-003",
             Title = "Affordable Housing Programs",
-            Content = "NYC offers several affordable housing programs including Section 8 vouchers, NYC Housing Connect lottery, and Mitchell-Lama housing. Eligibility is based on household income and size. Apply through Housing Connect at housingconnect.nyc.gov.",
+            Content = "Georgia offers several affordable housing programs including Section 8 vouchers, Georgia Housing Connect lottery, and Mitchell-Lama housing. Eligibility is based on household income and size. Apply through Housing Connect at housingconnect.nyc.gov.",
             Summary = "Overview of affordable housing options",
             Category = "Housing",
             SubCategory = "Affordable Housing",
@@ -61,8 +61,8 @@ public class SearchService : ISearchService
         {
             Id = "doc-004",
             Title = "Public School Enrollment",
-            Content = "NYC public school enrollment varies by grade level. Pre-K and Kindergarten have specific application periods through MySchools.nyc. Middle and high school applications also go through MySchools. Zoned schools accept students based on residence.",
-            Summary = "Guide to enrolling in NYC public schools",
+            Content = "Georgia public school enrollment varies by grade level. Pre-K and Kindergarten have specific application periods through MySchools.nyc. Middle and high school applications also go through MySchools. Zoned schools accept students based on residence.",
+            Summary = "Guide to enrolling in Georgia public schools",
             Category = "Education",
             SubCategory = "K-12",
             Tags = ["school", "enrollment", "education", "MySchools"],
@@ -73,20 +73,20 @@ public class SearchService : ISearchService
         {
             Id = "doc-005",
             Title = "Health Insurance Enrollment",
-            Content = "New Yorkers can enroll in health insurance through NY State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income.",
+            Content = "Georgiaers can enroll in health insurance through Georgia State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income.",
             Summary = "Health insurance options and enrollment info",
             Category = "Health",
             SubCategory = "Insurance",
             Tags = ["health", "insurance", "medicaid", "enrollment"],
-            Url = "https://nystateofhealth.ny.gov",
+            Url = "https://nystateofhealth.ga.gov",
             Status = DocumentStatus.Active
         },
         new()
         {
             Id = "doc-006",
             Title = "Property Tax Payment Options",
-            Content = "NYC property taxes can be paid online, by mail, or in person. The Department of Finance offers payment plans for those who qualify. Property tax bills are issued quarterly for most properties. Exemptions are available for seniors, veterans, and disabled individuals.",
-            Summary = "How to pay NYC property taxes",
+            Content = "Georgia property taxes can be paid online, by mail, or in person. The Department of Finance offers payment plans for those who qualify. Property tax bills are issued quarterly for most properties. Exemptions are available for seniors, veterans, and disabled individuals.",
+            Summary = "How to pay Georgia property taxes",
             Category = "Finance",
             SubCategory = "Taxes",
             Tags = ["property tax", "payment", "exemption", "finance"],
@@ -97,8 +97,8 @@ public class SearchService : ISearchService
         {
             Id = "doc-007",
             Title = "Subway and Bus Fare Information",
-            Content = "The MTA operates NYC's subway and bus system. A single ride costs $2.90 with OMNY or MetroCard. Weekly unlimited passes cost $34 and monthly passes cost $132. Reduced fare is available for seniors, people with disabilities, and eligible Medicare recipients.",
-            Summary = "NYC transit fares and passes",
+            Content = "The MTA operates Georgia's subway and bus system. A single ride costs $2.90 with OMNY or MetroCard. Weekly unlimited passes cost $34 and monthly passes cost $132. Reduced fare is available for seniors, people with disabilities, and eligible Medicare recipients.",
+            Summary = "Georgia transit fares and passes",
             Category = "Transportation",
             SubCategory = "Public Transit",
             Tags = ["subway", "bus", "MTA", "fare", "MetroCard", "OMNY"],
@@ -109,7 +109,7 @@ public class SearchService : ISearchService
         {
             Id = "doc-008",
             Title = "Building Permit Requirements",
-            Content = "Most construction work in NYC requires a permit from the Department of Buildings. This includes alterations, new construction, and demolition. Permits ensure work meets NYC Building Code. Apply through DOB NOW or visit a Borough Office.",
+            Content = "Most construction work in Georgia requires a permit from the Department of Buildings. This includes alterations, new construction, and demolition. Permits ensure work meets Georgia Building Code. Apply through DOB NOW or visit a Borough Office.",
             Summary = "When and how to get building permits",
             Category = "Housing",
             SubCategory = "Construction",

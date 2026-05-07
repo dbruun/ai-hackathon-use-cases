@@ -1,10 +1,10 @@
-# NYC Virtual Citizen Assistant
+# Georgia Virtual Citizen Assistant
 
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](#)
 [![Tests](https://img.shields.io/badge/Tests-22%20Passing-brightgreen.svg)](#running-tests)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](https://dotnet.microsoft.com)
 
-A RAG-powered AI assistant for NYC government services built with .NET 9, Semantic Kernel, and Azure AI Services.
+A RAG-powered AI assistant for Georgia government services built with .NET 9, Microsoft Agentic Framework, and Azure AI Services.
 
 ## Features
 
@@ -22,7 +22,7 @@ DotNet-Virtual-Citizen-Assistant/
 │   ├── Controllers/               # MVC and API controllers
 │   ├── Models/                    # Data models
 │   ├── Services/                  # Business logic
-│   ├── Plugins/                   # Semantic Kernel plugins
+│   ├── Plugins/                   # Microsoft Agentic Framework plugins
 │   ├── Views/                     # Razor views
 │   └── wwwroot/                   # Static assets
 ├── AzureSearchUploader/           # Data upload utility
@@ -139,7 +139,7 @@ dotnet test
 
 - **.NET 9.0** - Web framework
 - **ASP.NET Core MVC** - Web application
-- **Semantic Kernel 1.65** - AI orchestration
+- **Microsoft Agentic Framework 1.65** - AI orchestration
 - **Azure AI Search** - Document search
 - **Azure OpenAI** - Chat completions
 - **Bootstrap 5.3** - UI framework
@@ -169,10 +169,10 @@ dotnet test
          ▼
 ┌─────────────────┐
 │  Azure OpenAI   │
-│ (Semantic Kernel)│
+│ (Microsoft Agentic Framework)│
 └─────────────────┘
 ```
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

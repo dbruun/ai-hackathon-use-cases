@@ -15,11 +15,11 @@ class CitationBuilder:
 
     # Agency base URLs for document links
     AGENCY_BASE_URLS = {
-        Agency.DMV: "https://dmv.ny.gov/documents",
-        Agency.DOL: "https://dol.ny.gov/policies",
-        Agency.OTDA: "https://otda.ny.gov/resources",
-        Agency.DOH: "https://health.ny.gov/regulations",
-        Agency.OGS: "https://ogs.ny.gov/procurement",
+        Agency.DMV: "https://dmv.ga.gov/documents",
+        Agency.DOL: "https://dol.ga.gov/policies",
+        Agency.OTDA: "https://otda.ga.gov/resources",
+        Agency.DOH: "https://health.ga.gov/regulations",
+        Agency.OGS: "https://ogs.ga.gov/procurement",
     }
 
     def __init__(self):
@@ -38,7 +38,7 @@ class CitationBuilder:
         """Build a citation for a document."""
         # Generate URL if not provided
         if not source_url:
-            base_url = self.AGENCY_BASE_URLS.get(agency, "https://ny.gov")
+            base_url = self.AGENCY_BASE_URLS.get(agency, "https://ga.gov")
             source_url = f"{base_url}/{document_id}"
 
         citation = DocumentCitation(

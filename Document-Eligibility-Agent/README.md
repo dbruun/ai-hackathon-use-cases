@@ -1,6 +1,6 @@
 # Document Eligibility Agent
 
-AI-powered document processing system for NY State social services. Automatically processes eligibility documents (W-2s, pay stubs, utility bills) using Azure Document Intelligence and Semantic Kernel.
+AI-powered document processing system for Georgia State social services. Automatically processes eligibility documents (W-2s, pay stubs, utility bills) using Azure Document Intelligence and Microsoft Agentic Framework.
 
 ## Quick Start
 
@@ -65,7 +65,7 @@ Document-Eligibility-Agent/
 │   ├── config/          # Settings
 │   ├── models/          # Document models
 │   ├── services/        # OCR, email, storage services
-│   └── plugins/         # Semantic Kernel plugins
+│   └── plugins/         # Microsoft Agentic Framework plugins
 ├── sample_documents/    # Test documents
 ├── static/              # Web interface assets
 ├── tests/               # Test suite (86 tests)
@@ -107,11 +107,11 @@ AZURE_DOCUMENT_INTELLIGENCE_KEY=your-key
 
 - **Azure Document Intelligence**: OCR and document parsing
 - **Microsoft Graph**: Email processing
-- **Semantic Kernel**: AI orchestration
+- **Microsoft Agentic Framework**: AI orchestration
 - **Azure OpenAI**: Intelligent extraction
 - **Flask**: Web API framework
 - **Pydantic**: Data validation
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

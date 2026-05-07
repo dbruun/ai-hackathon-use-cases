@@ -10,10 +10,10 @@ def test_imports():
     print("=== Testing Imports ===")
     
     try:
-        import semantic_kernel
-        print(f"✅ Semantic Kernel {semantic_kernel.__version__} imported successfully")
+        import agent_framework
+        print(f"✅ Microsoft Agentic Framework {agent_framework.__version__} imported successfully")
     except Exception as e:
-        print(f"❌ Semantic Kernel import failed: {e}")
+        print(f"❌ Microsoft Agentic Framework import failed: {e}")
         return False
     
     try:
@@ -64,7 +64,7 @@ def test_kernel_function_decorators():
     print("\n=== Testing Kernel Function Decorators ===")
     
     try:
-        from semantic_kernel.functions import kernel_function
+        from agent_framework.functions import kernel_function
         from typing import Annotated
         
         @kernel_function(description="Test function", name="test_func")
@@ -101,7 +101,7 @@ def main():
     if all_passed:
         print("🎉 ALL TESTS PASSED! The Virtual Citizen Assistant is ready to use.")
         print("\nKey fixes applied:")
-        print("- Updated semantic-kernel from 0.9.1b1 to 1.37.0")
+        print("- Updated agent-framework from 0.9.1b1 to 1.37.0")
         print("- Updated all dependencies to compatible versions")
         print("- Fixed pydantic v2 compatibility issues")
         print("- Updated plugin decorators to use new API")

@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "constituent-services-agent"
 version = "0.1.0"
-description = "AI-powered conversational agent for NY State constituent services"
+description = "AI-powered conversational agent for Georgia State constituent services"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.11"
 authors = [
-    {name = "NY State AI Hackathon Team"}
+    {name = "Georgia State AI Hackathon Team"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -29,7 +29,7 @@ dependencies = [
     "azure-identity>=1.15.0",
     "python-dotenv>=1.0.0",
     "pydantic>=2.5.0",
-    "semantic-kernel>=1.45.0",
+    "agent-framework>=1.45.0",
 ]
 
 [project.optional-dependencies]

@@ -28,11 +28,11 @@ class AgencySource(BaseModel):
     def from_agency(cls, agency: Agency) -> "AgencySource":
         """Create AgencySource from Agency enum."""
         base_urls = {
-            Agency.DMV: "https://dmv.ny.gov",
-            Agency.DOL: "https://dol.ny.gov",
-            Agency.OTDA: "https://otda.ny.gov",
-            Agency.DOH: "https://health.ny.gov",
-            Agency.OGS: "https://ogs.ny.gov",
+            Agency.DMV: "https://dmv.ga.gov",
+            Agency.DOL: "https://dol.ga.gov",
+            Agency.OTDA: "https://otda.ga.gov",
+            Agency.DOH: "https://health.ga.gov",
+            Agency.OGS: "https://ogs.ga.gov",
         }
 
         descriptions = {
