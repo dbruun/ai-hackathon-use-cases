@@ -7,6 +7,7 @@ using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Options;
 using VirtualCitizenAgent.Configuration;
 using VirtualCitizenAgent.Models;
+using ModelChatResponse = VirtualCitizenAgent.Models.ChatResponse;
 
 namespace VirtualCitizenAgent.Services;
 
@@ -65,7 +66,7 @@ public class ChatService : IChatService
         _useMock = _config.UseMockService || _agent is null;
     }
 
-    public async Task<VirtualCitizenAgent.Models.ChatResponse> SendMessageAsync(ChatRequest request, CancellationToken cancellationToken = default)
+    public async Task<ModelChatResponse> SendMessageAsync(ChatRequest request, CancellationToken cancellationToken = default)
     {
         var stopwatch = Stopwatch.StartNew();
 
@@ -82,7 +83,7 @@ public class ChatService : IChatService
 
         if (session.IsAtCapacity)
         {
-            return new VirtualCitizenAgent.Models.ChatResponse
+            return new ModelChatResponse
             {
                 SessionId = session.SessionId,
                 Content = "This session has reached its message limit. Please start a new conversation.",
@@ -139,7 +140,7 @@ public class ChatService : IChatService
 
         stopwatch.Stop();
 
-        return new VirtualCitizenAgent.Models.ChatResponse
+        return new ModelChatResponse
         {
             SessionId = session.SessionId,
             Content = responseContent,

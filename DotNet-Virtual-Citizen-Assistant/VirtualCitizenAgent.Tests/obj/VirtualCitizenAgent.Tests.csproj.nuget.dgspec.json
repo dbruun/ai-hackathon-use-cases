@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent.Tests\\VirtualCitizenAgent.Tests.csproj": {}
+    "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent.Tests/VirtualCitizenAgent.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent.Tests\\VirtualCitizenAgent.Tests.csproj": {
+    "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent.Tests/VirtualCitizenAgent.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent.Tests\\VirtualCitizenAgent.Tests.csproj",
+        "projectUniqueName": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent.Tests/VirtualCitizenAgent.Tests.csproj",
         "projectName": "VirtualCitizenAgent.Tests",
-        "projectPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent.Tests\\VirtualCitizenAgent.Tests.csproj",
-        "packagesPath": "C:\\Users\\segayle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent.Tests\\obj\\",
+        "projectPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent.Tests/VirtualCitizenAgent.Tests.csproj",
+        "packagesPath": "/tmp/codeql-scratch-b588a682cc8f0a28/dbs/csharp/working/packages",
+        "outputPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\segayle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/runner/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\VirtualCitizenAgent.csproj": {
-                "projectPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\VirtualCitizenAgent.csproj"
+              "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/VirtualCitizenAgent.csproj": {
+                "projectPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/VirtualCitizenAgent.csproj"
               }
             }
           }
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -95,26 +95,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.14, 9.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.14, 9.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\VirtualCitizenAgent.csproj": {
+    "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/VirtualCitizenAgent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\VirtualCitizenAgent.csproj",
+        "projectUniqueName": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/VirtualCitizenAgent.csproj",
         "projectName": "VirtualCitizenAgent",
-        "projectPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\VirtualCitizenAgent.csproj",
-        "packagesPath": "C:\\Users\\segayle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\segayle\\repos\\hackathon\\newyork\\DotNet-Virtual-Citizen-Assistant\\VirtualCitizenAgent\\obj\\",
+        "projectPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/VirtualCitizenAgent.csproj",
+        "packagesPath": "/tmp/codeql-scratch-b588a682cc8f0a28/dbs/csharp/working/packages",
+        "outputPath": "/home/runner/work/ai-hackathon-use-cases/ai-hackathon-use-cases/DotNet-Virtual-Citizen-Assistant/VirtualCitizenAgent/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\segayle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/runner/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -141,15 +151,15 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Azure.AI.OpenAI": {
+            "Azure.AI.Inference": {
               "target": "Package",
-              "version": "[2.1.0-beta.1, )"
+              "version": "[1.0.0-beta.4, )"
             },
             "Azure.Identity": {
               "target": "Package",
@@ -159,9 +169,13 @@
               "target": "Package",
               "version": "[11.6.0, )"
             },
-            "Microsoft.SemanticKernel": {
+            "Microsoft.Agents.AI": {
               "target": "Package",
-              "version": "[1.25.0, )"
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.Extensions.AI.AzureAIInference": {
+              "target": "Package",
+              "version": "[9.6.0-preview.1.25310.2, )"
             }
           },
           "imports": [
@@ -175,6 +189,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.14, 9.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[9.0.14, 9.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.14, 9.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -183,7 +211,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
