@@ -1,27 +1,29 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using Azure;
-using Azure.AI.OpenAI;
+using Azure.AI.Inference;
+using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Options;
-using OpenAI.Chat;
 using VirtualCitizenAgent.Configuration;
 using VirtualCitizenAgent.Models;
 
 namespace VirtualCitizenAgent.Services;
 
 /// <summary>
-/// Chat service implementation with RAG pipeline using Microsoft Agentic Framework.
+/// Chat service implementation with RAG pipeline using Microsoft Agentic Framework and Azure AI Foundry.
 /// </summary>
 public class ChatService : IChatService
 {
-    private readonly ChatClient? _chatClient;
+    private readonly ChatClientAgent? _agent;
     private readonly ISearchService _searchService;
-    private readonly OpenAIConfiguration _config;
+    private readonly FoundryConfiguration _config;
     private readonly ILogger<ChatService> _logger;
     private readonly bool _useMock;
 
     // In-memory session storage (use distributed cache in production)
     private static readonly ConcurrentDictionary<string, ChatSession> Sessions = new();
+    private static readonly ConcurrentDictionary<string, AgentSession> AgentSessions = new();
 
     private const string SystemPrompt = """
         You are a helpful Georgia Virtual Citizen Assistant. Your role is to help citizens find information about Georgia government services.
@@ -43,7 +45,7 @@ public class ChatService : IChatService
 
     public ChatService(
         ISearchService searchService,
-        IOptions<OpenAIConfiguration> config,
+        IOptions<FoundryConfiguration> config,
         ILogger<ChatService> logger)
     {
         _searchService = searchService;
@@ -52,14 +54,18 @@ public class ChatService : IChatService
 
         if (!_config.UseMockService && !string.IsNullOrEmpty(_config.Endpoint) && !string.IsNullOrEmpty(_config.ApiKey))
         {
-            var azureClient = new AzureOpenAIClient(new Uri(_config.Endpoint), new AzureKeyCredential(_config.ApiKey));
-            _chatClient = azureClient.GetChatClient(_config.DeploymentName);
+            var foundryClient = new ChatCompletionsClient(new Uri(_config.Endpoint), new AzureKeyCredential(_config.ApiKey));
+            Microsoft.Extensions.AI.IChatClient chatClient = foundryClient.AsIChatClient(_config.ModelDeploymentName);
+            _agent = chatClient.AsAIAgent(
+                name: "GeorgiaVirtualCitizenAssistant",
+                description: "AI assistant for Georgia government services",
+                instructions: SystemPrompt);
         }
 
-        _useMock = _config.UseMockService || _chatClient is null;
+        _useMock = _config.UseMockService || _agent is null;
     }
 
-    public async Task<ChatResponse> SendMessageAsync(ChatRequest request, CancellationToken cancellationToken = default)
+    public async Task<VirtualCitizenAgent.Models.ChatResponse> SendMessageAsync(ChatRequest request, CancellationToken cancellationToken = default)
     {
         var stopwatch = Stopwatch.StartNew();
 
@@ -76,7 +82,7 @@ public class ChatService : IChatService
 
         if (session.IsAtCapacity)
         {
-            return new ChatResponse
+            return new VirtualCitizenAgent.Models.ChatResponse
             {
                 SessionId = session.SessionId,
                 Content = "This session has reached its message limit. Please start a new conversation.",
@@ -117,7 +123,8 @@ public class ChatService : IChatService
         }
         else
         {
-            (responseContent, confidence) = await GenerateAgenticResponseAsync(request.Message, searchResponse.Results, session, cancellationToken);
+            var agentSession = await GetOrCreateAgentSessionAsync(session.SessionId, cancellationToken);
+            (responseContent, confidence) = await GenerateAgenticResponseAsync(request.Message, searchResponse.Results, agentSession, cancellationToken);
         }
 
         // Add assistant message to session
@@ -132,7 +139,7 @@ public class ChatService : IChatService
 
         stopwatch.Stop();
 
-        return new ChatResponse
+        return new VirtualCitizenAgent.Models.ChatResponse
         {
             SessionId = session.SessionId,
             Content = responseContent,
@@ -158,6 +165,7 @@ public class ChatService : IChatService
     public Task<bool> DeleteSessionAsync(string sessionId, CancellationToken cancellationToken = default)
     {
         var removed = Sessions.TryRemove(sessionId, out _);
+        AgentSessions.TryRemove(sessionId, out _);
         return Task.FromResult(removed);
     }
 
@@ -194,17 +202,12 @@ public class ChatService : IChatService
     private async Task<(string content, float? confidence)> GenerateAgenticResponseAsync(
         string query,
         List<SearchResult> results,
-        ChatSession session,
+        AgentSession agentSession,
         CancellationToken cancellationToken)
     {
         try
         {
-            var messages = new List<OpenAI.Chat.ChatMessage>
-            {
-                new SystemChatMessage(SystemPrompt)
-            };
-
-            // Add context from search results
+            var prompt = query;
             if (results.Count > 0)
             {
                 var context = "Relevant documents found:\n\n";
@@ -218,33 +221,33 @@ public class ChatService : IChatService
                     }
                     context += "\n---\n\n";
                 }
-                messages.Add(new SystemChatMessage($"Use the following context to answer the user's question:\n\n{context}"));
+                prompt = $"Use the following context to answer the user's question.\n\n{context}\nUser question: {query}";
             }
 
-            // Add conversation history (last 10 messages for context window management)
-            foreach (var msg in session.Messages.TakeLast(10))
-            {
-                if (msg.Role == MessageRole.User)
-                    messages.Add(new UserChatMessage(msg.Content));
-                else if (msg.Role == MessageRole.Assistant)
-                    messages.Add(new AssistantChatMessage(msg.Content));
-            }
-
-            var response = await _chatClient!.CompleteChatAsync(messages, cancellationToken: cancellationToken);
+            var response = await _agent!.RunAsync(prompt, agentSession, cancellationToken: cancellationToken);
 
             var confidence = results.Count > 0 ? 0.9f : 0.5f;
-
-            var content = response.Value.Content.Count > 0
-                ? response.Value.Content[0].Text
-                : null;
+            var content = response.Text;
 
             return (content ?? "I apologize, but I couldn't generate a response. Please try again.", confidence);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to generate response with Microsoft Agentic Framework");
+            _logger.LogError(ex, "Failed to generate response with Microsoft Agentic Framework and Azure AI Foundry");
             return await GenerateMockResponseAsync(query, results, cancellationToken)
                 .ContinueWith(t => (t.Result, (float?)0.5f), cancellationToken);
         }
+    }
+
+    private async Task<AgentSession> GetOrCreateAgentSessionAsync(string sessionId, CancellationToken cancellationToken)
+    {
+        if (AgentSessions.TryGetValue(sessionId, out var existingSession))
+        {
+            return existingSession;
+        }
+
+        var createdSession = await _agent!.CreateSessionAsync(sessionId, cancellationToken);
+        AgentSessions[sessionId] = createdSession;
+        return createdSession;
     }
 }

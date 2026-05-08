@@ -242,7 +242,7 @@ python demo.py
 - 🛠️ Data upload utility for Azure AI Search
 - 🎨 Bootstrap 5.3 responsive UI
 
-**🛠️ Tech Stack**: .NET 9 + ASP.NET Core MVC + Microsoft Agentic Framework 1.65 + Azure AI Search + Azure OpenAI
+**🛠️ Tech Stack**: .NET 9 + ASP.NET Core MVC + Microsoft Agentic Framework 1.65 + Azure AI Search + Azure AI Foundry Models
 
 **▶️ Demo Command**:
 ```bash

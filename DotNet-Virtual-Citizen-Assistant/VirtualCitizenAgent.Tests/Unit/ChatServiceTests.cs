@@ -16,7 +16,7 @@ public class ChatServiceTests
     public ChatServiceTests()
     {
         _searchServiceMock = new Mock<ISearchService>();
-        var config = Options.Create(new OpenAIConfiguration
+        var config = Options.Create(new FoundryConfiguration
         {
             UseMockService = true
         });

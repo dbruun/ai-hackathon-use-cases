@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Configuration
 builder.Services.Configure<SearchConfiguration>(
     builder.Configuration.GetSection(SearchConfiguration.SectionName));
-builder.Services.Configure<OpenAIConfiguration>(
-    builder.Configuration.GetSection(OpenAIConfiguration.SectionName));
+builder.Services.Configure<FoundryConfiguration>(
+    builder.Configuration.GetSection(FoundryConfiguration.SectionName));
 
 // Services
 builder.Services.AddSingleton<ISearchService, SearchService>();
