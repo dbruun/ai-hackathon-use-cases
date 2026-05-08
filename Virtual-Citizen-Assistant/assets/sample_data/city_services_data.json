@@ -43,7 +43,7 @@
     "id": "6",
     "service_type": "emergency", 
     "title": "Georgia Emergency Alert System - NotifyGeorgia",
-    "content": "NotifyGeorgia is the City's official emergency communications program. Residents can receive alerts about weather emergencies, public safety incidents, transportation disruptions, and important city service announcements. Sign up online at nyc.gov/notifynyc, call 311, or text 'GeorgiaEM' to 67283. Alerts are available in multiple languages including English, Spanish, Arabic, Bengali, Chinese, French, Haitian Creole, Korean, Russian, and Urdu. Choose delivery method: text, email, phone call, or mobile app push notifications.",
+    "content": "NotifyGeorgia is the state's official emergency communications program. Residents can receive alerts about weather emergencies, public safety incidents, transportation disruptions, and important state service announcements. Sign up online at georgia.gov/emergency-alerts or text 'GeorgiaEM' to 67283. Alerts are available in multiple languages including English, Spanish, Arabic, Bengali, Chinese, French, Haitian Creole, Korean, Russian, and Urdu. Choose delivery method: text, email, phone call, or mobile app push notifications.",
     "category": "safety",
     "last_updated": "2024-01-15T10:00:00Z"
   },
