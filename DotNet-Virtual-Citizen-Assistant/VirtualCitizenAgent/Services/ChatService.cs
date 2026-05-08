@@ -78,6 +78,8 @@ public class ChatService : IChatService
         // Check session limits
         if (session.IsExpired)
         {
+            Sessions.TryRemove(session.SessionId, out _);
+            AgentSessions.TryRemove(session.SessionId, out _);
             session = await CreateSessionAsync(cancellationToken);
         }
 
@@ -247,7 +249,7 @@ public class ChatService : IChatService
             return existingSession;
         }
 
-        var createdSession = await _agent!.CreateSessionAsync(sessionId, cancellationToken);
+        var createdSession = await _agent!.CreateSessionAsync(cancellationToken: cancellationToken);
         AgentSessions[sessionId] = createdSession;
         return createdSession;
     }
