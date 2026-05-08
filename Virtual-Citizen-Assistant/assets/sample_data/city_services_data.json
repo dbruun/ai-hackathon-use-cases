@@ -75,7 +75,7 @@
     "id": "10",
     "service_type": "health",
     "title": "Georgia Health Department Services",
-    "content": "The Georgia Department of Health and Mental Hygiene provides various public health services including immunizations, health inspections, vital records, and health education programs. Services available at neighborhood health centers include family planning, STD testing and treatment, immunizations for children and adults, and health screenings. Birth certificates, death certificates, and marriage licenses can be obtained through the Office of Vital Records. Many services are available regardless of immigration status. Call 311 or visit nyc.gov/health for locations and hours.",
+    "content": "The Georgia Department of Public Health provides various public health services including immunizations, health inspections, vital records, and health education programs. Services available at neighborhood health centers include family planning, STD testing and treatment, immunizations for children and adults, and health screenings. Birth certificates, death certificates, and marriage licenses can be obtained through the Office of Vital Records. Many services are available regardless of immigration status. Call 311 or visit georgia.gov/health for locations and hours.",
     "category": "health",
     "last_updated": "2024-01-15T10:00:00Z"
   },
@@ -83,7 +83,7 @@
     "id": "11",
     "service_type": "housing",
     "title": "Georgia Housing Authority (GeorgiaHA) Services",
-    "content": "GeorgiaHA provides public housing and rental assistance to eligible Georgia residents. Services include public housing applications, Section 8 Housing Choice Voucher Program, and housing maintenance requests. Applications can be submitted online at nyc.gov/nycha or at GeorgiaHA customer service centers. Wait times for housing assistance vary significantly based on family size and priority status. Emergency repairs can be reported 24/7 through the MyGeorgiaHA app or by calling the Customer Contact Center. GeorgiaHA also offers resident services including job training, educational programs, and senior services.",
+    "content": "GeorgiaHA provides public housing and rental assistance to eligible Georgia residents. Services include public housing applications, Section 8 Housing Choice Voucher Program, and housing maintenance requests. Applications can be submitted online at georgia.gov/housing-assistance or at GeorgiaHA customer service centers. Wait times for housing assistance vary significantly based on family size and priority status. Emergency repairs can be reported 24/7 through the MyGeorgiaHA app or by calling the Customer Contact Center. GeorgiaHA also offers resident services including job training, educational programs, and senior services.",
     "category": "housing",
     "last_updated": "2024-01-15T10:00:00Z"
   },
@@ -91,7 +91,7 @@
     "id": "12",
     "service_type": "education",
     "title": "Georgia Department of Education School Enrollment",
-    "content": "Georgia public school enrollment is handled through the Department of Education's SchoolSearch website and StudentFirst centers. Elementary and middle school students are typically assigned to their zoned school, while high school requires an application process. Required documents for enrollment include proof of address, immunization records, birth certificate, and previous school records (if applicable). English Language Learners receive additional assessment and support services. Special needs students can access Individualized Education Program (IEP) services. Call 311 or visit schools.nyc.gov for information about school zones, enrollment periods, and required documentation.",
+    "content": "Georgia public school enrollment is handled through the Department of Education's SchoolSearch website and StudentFirst centers. Elementary and middle school students are typically assigned to their zoned school, while high school requires an application process. Required documents for enrollment include proof of address, immunization records, birth certificate, and previous school records (if applicable). English Language Learners receive additional assessment and support services. Special needs students can access Individualized Education Program (IEP) services. Call 311 or visit georgia.gov/k-12-enrollment for information about school zones, enrollment periods, and required documentation.",
     "category": "education", 
     "last_updated": "2024-01-15T10:00:00Z"
   }

@@ -56,7 +56,16 @@ class VirtualCitizenAssistant:
 
         self.chat_history.append({"role": "user", "content": user_message})
 
-        response = await self.agent.run(user_message)
+        recent_history = self.chat_history[-10:]
+        conversation_context = "\n".join(
+            f"{message['role'].capitalize()}: {message['content']}" for message in recent_history
+        )
+        prompt = (
+            "Use this conversation history to answer the latest user request.\n\n"
+            f"{conversation_context}"
+        )
+
+        response = await self.agent.run(prompt)
         assistant_response = response.text or str(response.value)
 
         self.chat_history.append({"role": "assistant", "content": assistant_response})

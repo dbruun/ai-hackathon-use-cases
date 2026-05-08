@@ -142,7 +142,7 @@ sample_documents = [
         "id": "3",
         "service_type": "emergency",
         "title": "Emergency Alert System",
-        "content": "Georgia Emergency Management provides real-time alerts for weather emergencies, public safety incidents, and service disruptions via NotifyGeorgia. Sign up at nyc.gov/notifynyc.",
+        "content": "Georgia Emergency Management provides real-time alerts for weather emergencies, public safety incidents, and service disruptions via NotifyGeorgia. Sign up at georgia.gov/emergency-alerts.",
         "category": "safety",
         "last_updated": datetime.now().isoformat()
     },
@@ -384,7 +384,7 @@ Since you have an {schedule_type} address, your trash pickup days are {pickup_da
 - Separate recyclables from regular trash
 - No pickup on major holidays (service delayed by one day)
 
-For questions, call 311 or visit nyc.gov/sanitation"""
+For questions, call 311 or visit georgia.gov/sanitation"""
             
         except Exception as e:
             return "I'm sorry, I couldn't determine the pickup schedule. Please verify your address and try again, or call 311 for assistance."
@@ -418,7 +418,7 @@ For questions, call 311 or visit nyc.gov/sanitation"""
 - Keep items loose in bins (no plastic bags)
 - Place recycling in blue bins or clear bags
 
-For more information, visit nyc.gov/recycle or call 311."""
+For more information, visit georgia.gov/recycling or call 311."""
 
     @sk_function(
         description="Check for service disruptions or holiday schedules",
@@ -442,15 +442,15 @@ Sanitation services are suspended on the following holidays:
 
 **When holidays occur:**
 - Service is delayed by one day for the rest of the week
-- Check nyc.gov/sanitation for specific holiday schedules
-- Sign up for text alerts at nyc.gov/notifynyc
+- Check georgia.gov/sanitation for specific holiday schedules
+- Sign up for text alerts at georgia.gov/emergency-alerts
 
 **Weather-Related Delays:**
 - Severe weather may cause delays
 - Follow @GeorgiaSanitation on social media for real-time updates
 - Services resume as soon as safely possible
 
-For current status updates, call 311 or visit nyc.gov/sanitation"""
+For current status updates, call 311 or visit georgia.gov/sanitation"""
 ```
 
 ## 🔌 Step 3: Connect to Scheduling APIs (20 minutes)
@@ -500,7 +500,7 @@ class CityAPIService:
                 "Site plan (for construction permits)"
             ],
             "fees": "Varies by permit type - see fee schedule",
-            "contact": "Call 311 or visit nyc.gov/permits"
+            "contact": "Call 311 or visit georgia.gov/permits-licenses"
         }
 
     def get_emergency_alerts(self, area: Optional[str] = None) -> List[Dict]:
@@ -562,7 +562,7 @@ class AlertsPlugin:
             alerts = self.city_api.get_emergency_alerts(area if area else None)
             
             if not alerts:
-                return "There are currently no active emergency alerts for your area. For real-time updates, follow @GeorgiaEmergencyMgmt on social media or sign up for NotifyGeorgia alerts at nyc.gov/notifynyc."
+                return "There are currently no active emergency alerts for your area. For real-time updates, follow @GeorgiaEmergencyMgmt on social media or sign up for NotifyGeorgia alerts at georgia.gov/emergency-alerts."
             
             response = "**Current Emergency Alerts:**\n\n"
             for alert in alerts:
@@ -573,24 +573,24 @@ class AlertsPlugin:
                 response += f"   **Message:** {alert['message']}\n"
                 response += f"   **Expires:** {alert['expires']}\n\n"
             
-            response += "For more information and updates, visit nyc.gov/emergencymanagement or call 311."
+            response += "For more information and updates, visit gema.georgia.gov or call 311."
             return response
             
         except Exception as e:
-            return "I'm unable to retrieve emergency alerts right now. For immediate emergency information, call 911 or visit nyc.gov/emergencymanagement."
+            return "I'm unable to retrieve emergency alerts right now. For immediate emergency information, call 911 or visit gema.georgia.gov."
 
     @sk_function(
         description="Get information about NotifyGeorgia alert system",
-        name="get_notify_nyc_info"
+        name="get_notify_georgia_info"
     )
-    def get_notify_nyc_info(self) -> str:
+    def get_notify_georgia_info(self) -> str:
         """Get information about signing up for Georgia alerts."""
         return """**NotifyGeorgia - Official Emergency Notifications**
 
-NotifyGeorgia is the City's official emergency communications program that sends notifications about emergencies and important City services.
+NotifyGeorgia is the state's official emergency communications program that sends notifications about emergencies and important public services.
 
 **How to Sign Up:**
-- Visit: nyc.gov/notifynyc
+- Visit: georgia.gov/emergency-alerts
 - Call: 311
 - Text: "GeorgiaEM" to 67283
 
