@@ -353,7 +353,7 @@ python src/main.py        # Run interactive assistant
 ## 📁 Project Structure
 
 ```
-ai-hackathon-use-cases/
+./
 ├── 📂 Constituent-Services-Agent/     # 💬 Citizen Q&A chatbot
 │   ├── src/
 │   │   ├── agent/                     # AI agent components
@@ -437,7 +437,7 @@ ai-hackathon-use-cases/
 
 ```bash
 # 1️⃣ Clone and navigate
-cd ai-hackathon-use-cases
+cd <repository-root>
 
 # 2️⃣ Choose an accelerator
 cd Constituent-Services-Agent  # or any other accelerator
