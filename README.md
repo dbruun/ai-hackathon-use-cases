@@ -590,7 +590,7 @@ dotnet test       # .NET project
 - 🧪 [Evaluation Framework](./evaluation/)
 - 📖 [Evaluation Guide](./docs/EVAL_GUIDE.md)
 - 🔗 [Azure AI Foundry Documentation](https://docs.microsoft.com/azure/ai-foundry)
-- 🔗 [Microsoft Agentic Framework Documentation](https://docs.microsoft.com/semantic-kernel)
+- 🔗 [Microsoft Agentic Framework Documentation](https://learn.microsoft.com/agent-framework/)
 - 🔗 [Microsoft Accelerators](https://github.com/microsoft/solution-accelerators)
 <!-- Adding link to a repo with an example of how to leverage a Foundry-first approach to building solutions -->
 - 💡 [Foundry-First Example Approach](https://github.com/ricardo-msft-SE/aihack-FoundryFirst/blob/main/virtual_citizen_assistant/step_by_step.md#virtual-citizen-assistant--azure-ai-foundry-guide) 
