@@ -73,7 +73,7 @@ public class SearchService : ISearchService
         {
             Id = "doc-005",
             Title = "Health Insurance Enrollment",
-            Content = "Georgiaers can enroll in health insurance through Georgia State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income.",
+            Content = "Georgians can enroll in health insurance through Georgia State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income.",
             Summary = "Health insurance options and enrollment info",
             Category = "Health",
             SubCategory = "Insurance",

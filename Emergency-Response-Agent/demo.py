@@ -52,15 +52,15 @@ async def run_demo():
     scenario = EmergencyScenario(
         incident_type=EmergencyType.HURRICANE,
         severity_level=SeverityLevel.SEVERE,
-        location="Manhattan, Georgia",
-        coordinates=(40.7128, -74.0060),
+        location="Atlanta, Georgia",
+        coordinates=(33.7490, -84.3880),
         affected_area_radius=10.0,
         estimated_population_affected=500000,
         duration_hours=72,
-        description="Category 4 Hurricane approaching Georgia metropolitan area",
+        description="Category 4 Hurricane approaching metro Atlanta area",
     )
 
-    print(f"Creating scenario: Category 4 Hurricane - Manhattan")
+    print(f"Creating scenario: Category 4 Hurricane - Atlanta")
     print(f"  Type: {scenario.incident_type.value}")
     print(f"  Severity: {scenario.severity_level.value} (Severe)")
     print(f"  Population: {scenario.estimated_population_affected:,}")
@@ -91,7 +91,7 @@ async def run_demo():
     # Demo 2: Weather Integration
     print_section("Demo 2: Weather Integration")
 
-    lat, lon = 40.7128, -74.0060
+    lat, lon = 33.7490, -84.3880
     print(f"Fetching weather for Georgia ({lat}, {lon})...")
 
     weather = weather_service.get_current_conditions(lat, lon)

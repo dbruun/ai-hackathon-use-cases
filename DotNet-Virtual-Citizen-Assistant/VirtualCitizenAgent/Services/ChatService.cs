@@ -230,9 +230,6 @@ public class ChatService : IChatService
                     messages.Add(new AssistantChatMessage(msg.Content));
             }
 
-            // Add current query
-            messages.Add(new UserChatMessage(query));
-
             var response = await _chatClient!.CompleteChatAsync(messages, cancellationToken: cancellationToken);
 
             var confidence = results.Count > 0 ? 0.9f : 0.5f;

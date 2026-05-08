@@ -23,7 +23,7 @@ Think of accelerators as **fully-functional blueprints** - they work out of the 
 
 ### This Repository
 
-This repository contains **7 AI accelerators** designed to transform how Georgia State government agencies serve constituents. Each accelerator is a complete application built with Microsoft Azure AI services and the Microsoft Agentic Framework framework, demonstrating practical AI solutions for:
+This repository contains **7 AI accelerators** designed to transform how Georgia State government agencies serve constituents. Each accelerator is a complete application built with Microsoft Azure AI services and Microsoft Agentic Framework, demonstrating practical AI solutions for:
 
 | Challenge | Accelerator Solution |
 |-----------|---------------------|
@@ -36,6 +36,8 @@ This repository contains **7 AI accelerators** designed to transform how Georgia
 | 🤖 Georgia citizen services (Python) | RAG-powered Python chatbot |
 
 All accelerators comply with Georgia State's **LOADinG Act** and **RAISE Act** requirements for transparent, accountable AI in government.
+
+> ℹ️ **Scope note**: The nested `ai-hackathon-use-cases/` directory is a legacy mirror retained for reference. The actively maintained Georgia accelerators are the top-level project directories shown below.
 
 ---
 
@@ -351,7 +353,7 @@ python src/main.py        # Run interactive assistant
 ## 📁 Project Structure
 
 ```
-georgia/
+ai-hackathon-use-cases/
 ├── 📂 Constituent-Services-Agent/     # 💬 Citizen Q&A chatbot
 │   ├── src/
 │   │   ├── agent/                     # AI agent components
@@ -435,7 +437,7 @@ georgia/
 
 ```bash
 # 1️⃣ Clone and navigate
-cd georgia
+cd ai-hackathon-use-cases
 
 # 2️⃣ Choose an accelerator
 cd Constituent-Services-Agent  # or any other accelerator
@@ -465,7 +467,7 @@ python -m src.main
 |------------|---------|-------|
 | **Azure AI Foundry** | AI development platform | ![Azure](https://img.shields.io/badge/Azure-AI%20Foundry-0078D4.svg) |
 | **Foundry IQ** | Intelligent document retrieval | ![Foundry IQ](https://img.shields.io/badge/Foundry-IQ-blue.svg) |
-| **Microsoft Agentic Framework** | AI orchestration framework | ![SK](https://img.shields.io/badge/Semantic%20Kernel-1.45%2B-orange.svg) |
+| **Microsoft Agentic Framework** | AI orchestration framework | ![Microsoft Agentic Framework](https://img.shields.io/badge/Microsoft%20Agentic%20Framework-1.0%2B-orange.svg) |
 | **Azure OpenAI GPT-4o** | Language model for Q&A | ![OpenAI](https://img.shields.io/badge/GPT-4o-green.svg) |
 | **Azure Document Intelligence** | OCR and document parsing | ![Doc Intel](https://img.shields.io/badge/Document-Intelligence-blue.svg) |
 | **Azure AI Search** | Vector search with security filters | ![Search](https://img.shields.io/badge/AI-Search-purple.svg) |

@@ -297,7 +297,7 @@ python test_plugins.py
 
 ## 📚 Additional Resources
 
-- **Microsoft Agentic Framework Documentation**: [Microsoft Microsoft Agentic Framework](https://learn.microsoft.com/en-us/agent-framework/)
+- **Microsoft Agentic Framework Documentation**: [Microsoft Agentic Framework](https://learn.microsoft.com/en-us/agent-framework/)
 - **Azure AI Search**: [Vector Search Documentation](https://learn.microsoft.com/en-us/azure/search/)
 - **RAG Best Practices**: [Retrieval-Augmented Generation Guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data)
 - **Citizen Service Design**: [Digital Government Guidelines](https://digital.gov/)
@@ -305,7 +305,7 @@ python test_plugins.py
 ---
 
 **Ready to transform citizen services with AI? Start building and make government more accessible! 🤖🏛️**  
-**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. You can apply online at nyc.gov/permits or visit the Business Services office at..."
+**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. You can apply online at georgia.gov/business-permits or visit the Business Services office at..."
 
 **User**: "Are there any current emergency alerts in my area?"  
 **Assistant**: "There are currently no active emergency alerts for your zip code. For real-time updates, you can also follow @GeorgiaEmergencyMgmt on social media."
