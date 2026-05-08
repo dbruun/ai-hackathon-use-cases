@@ -305,7 +305,7 @@ python test_plugins.py
 ---
 
 **Ready to transform citizen services with AI? Start building and make government more accessible! 🤖🏛️**  
-**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. You can apply online at georgia.gov/business-permits or visit the Business Services office at..."
+**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. Start online at georgia.gov and follow the business permits pathway, or visit the Business Services office at..."
 
 **User**: "Are there any current emergency alerts in my area?"  
 **Assistant**: "There are currently no active emergency alerts for your zip code. For real-time updates, you can also follow @GeorgiaEmergencyMgmt on social media."
