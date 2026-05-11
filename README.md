@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/badge/Tests-267%20Passing-brightgreen.svg)](#-testing--evaluation)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg)](https://python.org)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](https://dotnet.microsoft.com)
-[![Semantic Kernel](https://img.shields.io/badge/Semantic%20Kernel-1.37%2B-orange.svg)](https://docs.microsoft.com/semantic-kernel)
+[![Microsoft Agentic Framework](https://img.shields.io/badge/Microsoft%20Agentic%20Framework-1.0%2B-orange.svg)](https://learn.microsoft.com/agent-framework/)
 
 ---
 
@@ -23,7 +23,7 @@ Think of accelerators as **fully-functional blueprints** - they work out of the 
 
 ### This Repository
 
-This repository contains **7 AI accelerators** designed to transform how NY State government agencies serve constituents. Each accelerator is a complete application built with Microsoft Azure AI services and the Semantic Kernel framework, demonstrating practical AI solutions for:
+This repository contains **7 AI accelerators** designed to transform how Georgia State government agencies serve constituents. Each accelerator is a complete application built with Microsoft Azure AI services and Microsoft Agentic Framework, demonstrating practical AI solutions for:
 
 | Challenge | Accelerator Solution |
 |-----------|---------------------|
@@ -32,10 +32,12 @@ This repository contains **7 AI accelerators** designed to transform how NY Stat
 | 🚨 Emergency coordination gaps | Multi-agent planning system |
 | 📋 Policy compliance burden | Automated document review |
 | 🔍 Siloed agency knowledge | Cross-agency secure search |
-| 🏙️ NYC citizen services (.NET) | RAG-powered .NET chatbot |
-| 🤖 NYC citizen services (Python) | RAG-powered Python chatbot |
+| 🏙️ Georgia citizen services (.NET) | RAG-powered .NET chatbot |
+| 🤖 Georgia citizen services (Python) | RAG-powered Python chatbot |
 
-All accelerators comply with NY State's **LOADinG Act** and **RAISE Act** requirements for transparent, accountable AI in government.
+All accelerators comply with Georgia State's **LOADinG Act** and **RAISE Act** requirements for transparent, accountable AI in government.
+
+> ℹ️ **Scope note**: The nested `ai-hackathon-use-cases/` directory is a legacy mirror retained for reference. The actively maintained Georgia accelerators are the top-level project directories shown below.
 
 ---
 
@@ -62,7 +64,7 @@ All accelerators comply with NY State's **LOADinG Act** and **RAISE Act** requir
 [![Tests](https://img.shields.io/badge/Tests-43%20Passing-brightgreen.svg)](./Constituent-Services-Agent/)
 [![Demo](https://img.shields.io/badge/Demo-5%20min-blue.svg)](./Constituent-Services-Agent/)
 
-**🎯 Purpose**: AI-powered chatbot answering citizen questions about NY State services
+**🎯 Purpose**: AI-powered chatbot answering citizen questions about Georgia State services
 
 **✨ Key Features**:
 - 💬 Natural language Q&A about SNAP benefits, driver's licenses, unemployment, Medicaid
@@ -71,7 +73,7 @@ All accelerators comply with NY State's **LOADinG Act** and **RAISE Act** requir
 - 🌍 Multi-language support (English, Spanish, Chinese, Arabic, Russian, Korean, Haitian Creole, Bengali)
 - ♿ WCAG 2.1 AA accessible web interface
 
-**🛠️ Tech Stack**: Azure AI Foundry + Foundry IQ + Semantic Kernel + Flask
+**🛠️ Tech Stack**: Azure AI Foundry + Foundry IQ + Microsoft Agentic Framework + Flask
 
 **▶️ Demo Command**:
 ```bash
@@ -102,7 +104,7 @@ python demo.py
 - ✅ Validation rules (document age, completeness)
 - 📋 Case routing and workload distribution
 
-**🛠️ Tech Stack**: Azure Document Intelligence + Microsoft Graph + Semantic Kernel + Flask
+**🛠️ Tech Stack**: Azure Document Intelligence + Microsoft Graph + Microsoft Agentic Framework + Flask
 
 **▶️ Demo Command**:
 ```bash
@@ -139,7 +141,7 @@ python demo.py
 - 📜 Historical incident analysis for lessons learned
 - ⏱️ Response plans with timeline milestones
 
-**🛠️ Tech Stack**: Semantic Kernel + Azure AI Foundry + Weather APIs + Multi-Agent Orchestration
+**🛠️ Tech Stack**: Microsoft Agentic Framework + Azure AI Foundry + Weather APIs + Multi-Agent Orchestration
 
 **🚨 Supported Emergency Types**:
 | Type | Lead Agency | Key Resources |
@@ -170,7 +172,7 @@ python demo.py
 - 💡 Detailed recommendations for each violation
 - 🔄 Version comparison for policy changes
 
-**🛠️ Tech Stack**: Azure AI Foundry + Semantic Kernel + Document AI
+**🛠️ Tech Stack**: Azure AI Foundry + Microsoft Agentic Framework + Document AI
 
 **▶️ Demo Command**:
 ```bash
@@ -230,7 +232,7 @@ python demo.py
 [![Tests](https://img.shields.io/badge/Tests-22%20Passing-brightgreen.svg)](./DotNet-Virtual-Citizen-Assistant/)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](./DotNet-Virtual-Citizen-Assistant/)
 
-**🎯 Purpose**: RAG-powered AI assistant for NYC government services built with .NET
+**🎯 Purpose**: RAG-powered AI assistant for Georgia government services built with .NET
 
 **✨ Key Features**:
 - 💬 AI chat assistant with source citations
@@ -240,7 +242,7 @@ python demo.py
 - 🛠️ Data upload utility for Azure AI Search
 - 🎨 Bootstrap 5.3 responsive UI
 
-**🛠️ Tech Stack**: .NET 9 + ASP.NET Core MVC + Semantic Kernel 1.65 + Azure AI Search + Azure OpenAI
+**🛠️ Tech Stack**: .NET 9 + ASP.NET Core MVC + Microsoft Agentic Framework 1.65 + Azure AI Search + Azure AI Foundry Models
 
 **▶️ Demo Command**:
 ```bash
@@ -250,7 +252,7 @@ dotnet run --project VirtualCitizenAgent
 ```
 
 **💡 Sample Features**:
-- Chat with AI about NYC services
+- Chat with AI about Georgia services
 - Search documents semantically
 - Browse by service category
 
@@ -266,12 +268,12 @@ dotnet run --project VirtualCitizenAgent
 **✨ Key Features**:
 - 💬 Natural language Q&A about city services (trash pickup, permits, emergency alerts)
 - 🔍 Vector search + keyword search + hybrid search modes
-- 🔌 Plugin architecture with Semantic Kernel 1.37
+- 🔌 Plugin architecture with Microsoft Agentic Framework 1.37
 - 📅 Appointment scheduling with mock service
 - 📚 Citation-backed responses with source documents
 - 🧪 Built-in test framework for validation
 
-**🛠️ Tech Stack**: Semantic Kernel 1.37 + Azure AI Search + Azure OpenAI + Flask
+**🛠️ Tech Stack**: Microsoft Agentic Framework 1.37 + Azure AI Search + Azure OpenAI + Flask
 
 **▶️ Demo Command**:
 ```bash
@@ -306,7 +308,7 @@ python src/main.py        # Run interactive assistant
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │                  🤖 AI Orchestration Layer                      │
-│   Semantic Kernel  │  Foundry IQ  │  Multi-Agent Patterns      │
+│   Microsoft Agentic Framework  │  Foundry IQ  │  Multi-Agent Patterns      │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -351,7 +353,7 @@ python src/main.py        # Run interactive assistant
 ## 📁 Project Structure
 
 ```
-newyork/
+./
 ├── 📂 Constituent-Services-Agent/     # 💬 Citizen Q&A chatbot
 │   ├── src/
 │   │   ├── agent/                     # AI agent components
@@ -391,20 +393,20 @@ newyork/
 │   │   └── api/                       # Flask routes
 │   └── requirements.txt
 │
-├── 📂 DotNet-Virtual-Citizen-Assistant/  # 🏙️ NYC .NET chatbot
+├── 📂 DotNet-Virtual-Citizen-Assistant/  # 🏙️ Georgia .NET chatbot
 │   ├── VirtualCitizenAgent/           # Main web application
 │   │   ├── Controllers/               # MVC and API controllers
 │   │   ├── Services/                  # Business logic
-│   │   ├── Plugins/                   # Semantic Kernel plugins
+│   │   ├── Plugins/                   # Microsoft Agentic Framework plugins
 │   │   └── Views/                     # Razor views
 │   ├── VirtualCitizenAgent.Tests/     # xUnit tests
 │   └── AzureSearchUploader/           # Data upload utility
 │
-├── 📂 Virtual-Citizen-Assistant/        # 🤖 NYC Python chatbot
+├── 📂 Virtual-Citizen-Assistant/        # 🤖 Georgia Python chatbot
 │   ├── src/
 │   │   ├── config/                    # Configuration settings
 │   │   ├── models/                    # Data models
-│   │   ├── plugins/                   # Semantic Kernel plugins
+│   │   ├── plugins/                   # Microsoft Agentic Framework plugins
 │   │   └── main.py                    # Main application
 │   ├── test_setup.py                  # Setup validation
 │   ├── test_plugins.py                # Plugin tests
@@ -435,7 +437,7 @@ newyork/
 
 ```bash
 # 1️⃣ Clone and navigate
-cd newyork
+cd <repository-root>
 
 # 2️⃣ Choose an accelerator
 cd Constituent-Services-Agent  # or any other accelerator
@@ -465,7 +467,7 @@ python -m src.main
 |------------|---------|-------|
 | **Azure AI Foundry** | AI development platform | ![Azure](https://img.shields.io/badge/Azure-AI%20Foundry-0078D4.svg) |
 | **Foundry IQ** | Intelligent document retrieval | ![Foundry IQ](https://img.shields.io/badge/Foundry-IQ-blue.svg) |
-| **Semantic Kernel** | AI orchestration framework | ![SK](https://img.shields.io/badge/Semantic%20Kernel-1.45%2B-orange.svg) |
+| **Microsoft Agentic Framework** | AI orchestration framework | ![Microsoft Agentic Framework](https://img.shields.io/badge/Microsoft%20Agentic%20Framework-1.0%2B-orange.svg) |
 | **Azure OpenAI GPT-4o** | Language model for Q&A | ![OpenAI](https://img.shields.io/badge/GPT-4o-green.svg) |
 | **Azure Document Intelligence** | OCR and document parsing | ![Doc Intel](https://img.shields.io/badge/Document-Intelligence-blue.svg) |
 | **Azure AI Search** | Vector search with security filters | ![Search](https://img.shields.io/badge/AI-Search-purple.svg) |
@@ -590,7 +592,7 @@ dotnet test       # .NET project
 - 🧪 [Evaluation Framework](./evaluation/)
 - 📖 [Evaluation Guide](./docs/EVAL_GUIDE.md)
 - 🔗 [Azure AI Foundry Documentation](https://docs.microsoft.com/azure/ai-foundry)
-- 🔗 [Semantic Kernel Documentation](https://docs.microsoft.com/semantic-kernel)
+- 🔗 [Microsoft Agentic Framework Documentation](https://learn.microsoft.com/agent-framework/)
 - 🔗 [Microsoft Accelerators](https://github.com/microsoft/solution-accelerators)
 <!-- Adding link to a repo with an example of how to leverage a Foundry-first approach to building solutions -->
 - 💡 [Foundry-First Example Approach](https://github.com/ricardo-msft-SE/aihack-FoundryFirst/blob/main/virtual_citizen_assistant/step_by_step.md#virtual-citizen-assistant--azure-ai-foundry-guide) 
@@ -598,5 +600,5 @@ dotnet test       # .NET project
 ---
 
 <p align="center">
-  <b>🏛️ Shaping the Future of Responsible AI in New York State 🗽</b>
+  <b>🏛️ Shaping the Future of Responsible AI in Georgia State 🗽</b>
 </p>

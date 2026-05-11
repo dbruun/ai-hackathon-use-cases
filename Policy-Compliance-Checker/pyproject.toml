@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "policy-compliance-checker"
 version = "0.1.0"
-description = "AI-powered policy document compliance checking system for NY State Hackathon"
+description = "AI-powered policy document compliance checking system for Georgia State Hackathon"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
@@ -13,7 +13,7 @@ authors = [
     {name = "Hackathon Team"}
 ]
 dependencies = [
-    "semantic-kernel>=1.37.0",
+    "agent-framework>=1.37.0",
     "pypdf>=6.1.1",
     "python-docx>=1.1.0",
     "markdown-it-py>=3.0.0",

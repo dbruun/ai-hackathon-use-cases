@@ -21,7 +21,7 @@ class TestEmergencyScenario:
         scenario = EmergencyScenario(
             incident_type=EmergencyType.HURRICANE,
             severity_level=SeverityLevel.SEVERE,
-            location="Manhattan, NYC",
+            location="Manhattan, Georgia",
             affected_area_radius=10.0,
             estimated_population_affected=500000,
             duration_hours=72,
@@ -195,7 +195,7 @@ class TestHistoricalIncident:
             incident_type="hurricane",
             severity=4,
             date=datetime(2012, 10, 29),
-            location="NYC",
+            location="Georgia",
             affected_population=8000000,
             response_time_hours=2.5,
             lessons_learned=["Lesson 1", "Lesson 2"],

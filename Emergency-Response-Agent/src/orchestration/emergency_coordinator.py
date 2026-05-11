@@ -440,7 +440,7 @@ class EmergencyResponseCoordinator:
         """Generate immediate action items."""
         common_actions = [
             "Activate Emergency Operations Center (EOC)",
-            "Issue public safety alerts via Notify NYC",
+            "Issue public safety alerts via Notify Georgia",
             "Deploy first responder units to affected area",
             "Establish incident command structure",
             "Begin preliminary damage assessment",

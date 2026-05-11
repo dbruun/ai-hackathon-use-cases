@@ -4,7 +4,7 @@
 
 ## 📋 Overview
 
-An intelligent conversational AI that helps citizens access public services information through natural language queries. Built with Retrieval-Augmented Generation (RAG), Semantic Kernel, and Azure AI services for accurate, contextual responses about trash pickup, permits, emergency alerts, and more.
+An intelligent conversational AI that helps citizens access public services information through natural language queries. Built with Retrieval-Augmented Generation (RAG), Microsoft Agentic Framework, and Azure AI services for accurate, contextual responses about trash pickup, permits, emergency alerts, and more.
 
 **✅ Working Implementation** - Complete RAG system with plugin orchestration
 
@@ -96,7 +96,7 @@ Edit `src/config/settings.py` for quick testing
 
 ## 🛠️ Technology Stack
 
-- **Semantic Kernel 1.37.0**: Plugin orchestration and conversational flow
+- **Microsoft Agentic Framework 1.37.0**: Plugin orchestration and conversational flow
 - **Azure AI Search**: Vector search and document indexing for RAG
 - **Azure OpenAI**: Large language model for natural language understanding
 - **Azure AI Services**: Text Analytics for enhanced processing
@@ -106,7 +106,7 @@ Edit `src/config/settings.py` for quick testing
 ## 🏗️ Architecture
 
 ```
-Citizen Query → Azure Web App → Semantic Kernel Planner
+Citizen Query → Azure Web App → Microsoft Agentic Framework Planner
                                       ↓
                             Plugin Orchestration
                            /        |        \
@@ -150,7 +150,7 @@ python -m pytest tests/ -v  # If pytest is configured
 ```
 
 ### Test Components
-- **Plugin Testing**: Validate Semantic Kernel plugins
+- **Plugin Testing**: Validate Microsoft Agentic Framework plugins
 - **Setup Validation**: Verify configuration and API connectivity
 - **RAG Testing**: Test retrieval and generation pipeline
 - **Integration Testing**: End-to-end conversation flows
@@ -297,7 +297,7 @@ python test_plugins.py
 
 ## 📚 Additional Resources
 
-- **Semantic Kernel Documentation**: [Microsoft Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/)
+- **Microsoft Agentic Framework Documentation**: [Microsoft Agentic Framework](https://learn.microsoft.com/en-us/agent-framework/)
 - **Azure AI Search**: [Vector Search Documentation](https://learn.microsoft.com/en-us/azure/search/)
 - **RAG Best Practices**: [Retrieval-Augmented Generation Guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data)
 - **Citizen Service Design**: [Digital Government Guidelines](https://digital.gov/)
@@ -305,10 +305,10 @@ python test_plugins.py
 ---
 
 **Ready to transform citizen services with AI? Start building and make government more accessible! 🤖🏛️**  
-**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. You can apply online at nyc.gov/permits or visit the Business Services office at..."
+**Assistant**: "To apply for a business permit, you'll need to submit Form BP-101 along with the required documents. Start online at georgia.gov and follow the business permits pathway, or visit the Business Services office at..."
 
 **User**: "Are there any current emergency alerts in my area?"  
-**Assistant**: "There are currently no active emergency alerts for your zip code. For real-time updates, you can also follow @NYCEmergencyMgmt on social media."
+**Assistant**: "There are currently no active emergency alerts for your zip code. For real-time updates, you can also follow @GeorgiaEmergencyMgmt on social media."
 
 ## 🚀 Success Metrics
 
@@ -329,7 +329,7 @@ Virtual-Citizen-Assistant/
 │   ├── models/
 │   │   └── citizen_query.py
 │   ├── services/
-│   │   ├── semantic_kernel_service.py
+│   │   ├── agent_framework_service.py
 │   │   └── search_service.py
 │   ├── web/
 │   │   ├── app.py
@@ -351,7 +351,7 @@ Virtual-Citizen-Assistant/
 
 By completing this use case, you'll learn:
 - How to implement RAG patterns with Azure AI Search
-- Semantic Kernel plugin development and orchestration  
+- Microsoft Agentic Framework plugin development and orchestration  
 - Integration patterns for multiple city service APIs
 - Deployment strategies for citizen-facing AI applications
 - Best practices for conversational AI user experience

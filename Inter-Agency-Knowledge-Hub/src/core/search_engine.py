@@ -117,7 +117,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-01-15T00:00:00",
             "version": "2.0",
             "document_type": "policy",
-            "source_url": "https://dmv.ny.gov/documents/remote-work-policy",
+            "source_url": "https://dmv.ga.gov/documents/remote-work-policy",
         },
         {
             "id": "dol-001",
@@ -131,7 +131,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-02-01T00:00:00",
             "version": "1.0",
             "document_type": "guideline",
-            "source_url": "https://dol.ny.gov/policies/remote-work-guidelines",
+            "source_url": "https://dol.ga.gov/policies/remote-work-guidelines",
         },
         {
             "id": "doh-001",
@@ -145,7 +145,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-01-20T00:00:00",
             "version": "1.0",
             "document_type": "guideline",
-            "source_url": "https://health.ny.gov/regulations/remote-work-safety",
+            "source_url": "https://health.ga.gov/regulations/remote-work-safety",
         },
         {
             "id": "otda-001",
@@ -159,7 +159,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-03-01T00:00:00",
             "version": "3.0",
             "document_type": "policy",
-            "source_url": "https://otda.ny.gov/resources/eligibility-guidelines",
+            "source_url": "https://otda.ga.gov/resources/eligibility-guidelines",
         },
         {
             "id": "ogs-001",
@@ -173,7 +173,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-02-15T00:00:00",
             "version": "4.0",
             "document_type": "procedure",
-            "source_url": "https://ogs.ny.gov/procurement/procedures",
+            "source_url": "https://ogs.ga.gov/procurement/procedures",
         },
         {
             "id": "dmv-002",
@@ -187,7 +187,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-01-10T00:00:00",
             "version": "5.0",
             "document_type": "procedure",
-            "source_url": "https://dmv.ny.gov/internal/license-renewal",
+            "source_url": "https://dmv.ga.gov/internal/license-renewal",
         },
         {
             "id": "dol-002",
@@ -201,12 +201,12 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-02-20T00:00:00",
             "version": "2.0",
             "document_type": "guideline",
-            "source_url": "https://dol.ny.gov/policies/ui-claims-processing",
+            "source_url": "https://dol.ga.gov/policies/ui-claims-processing",
         },
         {
             "id": "doh-002",
             "title": "Healthcare Facility Inspection Standards",
-            "content": "Standards and procedures for inspecting healthcare facilities in New York State.",
+            "content": "Standards and procedures for inspecting healthcare facilities in Georgia State.",
             "summary": "Healthcare facility inspection standards.",
             "agency": "doh",
             "classification": "internal",
@@ -215,7 +215,7 @@ class MockSearchEngine(BaseSearchEngine):
             "publication_date": "2024-03-15T00:00:00",
             "version": "1.5",
             "document_type": "standard",
-            "source_url": "https://health.ny.gov/regulations/facility-inspection",
+            "source_url": "https://health.ga.gov/regulations/facility-inspection",
         },
     ]
 

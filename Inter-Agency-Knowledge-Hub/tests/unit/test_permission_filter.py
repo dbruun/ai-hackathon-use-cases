@@ -18,7 +18,7 @@ def admin_user():
     """Create admin user."""
     return UserPermissions.from_groups(
         user_id="admin-001",
-        email="admin@oti.ny.gov",
+        email="admin@oti.ga.gov",
         groups=["AllAgencies_Admin"],
     )
 
@@ -28,7 +28,7 @@ def dmv_staff_user():
     """Create DMV staff user."""
     return UserPermissions.from_groups(
         user_id="dmv-001",
-        email="staff@dmv.ny.gov",
+        email="staff@dmv.ga.gov",
         groups=["DMV_Staff"],
     )
 

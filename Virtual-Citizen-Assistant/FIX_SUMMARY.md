@@ -8,7 +8,7 @@ ImportError: cannot import name 'url' from 'pydantic.networks'
 
 ## ✅ Root Cause Analysis
 The issue was **version incompatibility**:
-- **semantic-kernel 0.9.1b1** (old beta) was designed for **pydantic v1**
+- **agent-framework 0.9.1b1** (old beta) was designed for **pydantic v1**
 - **pydantic v2** changed the API - the `url` function was moved/renamed
 - Plugin decorators used the **old semantic kernel API**
 
@@ -17,9 +17,9 @@ The issue was **version incompatibility**:
 ### 1. Updated Dependencies
 ```diff
 # requirements.txt
-- semantic-kernel==0.9.1b1
+- agent-framework==0.9.1b1
 - openai==1.3.7
-+ semantic-kernel==1.37.0
++ agent-framework==1.37.0
 + openai>=1.98.0
 + (all other dependencies updated to compatible versions)
 ```
@@ -27,12 +27,12 @@ The issue was **version incompatibility**:
 ### 2. Fixed Plugin API
 ```diff
 # document_retrieval_plugin.py
-- from semantic_kernel.plugin_definition import sk_function, sk_function_context_parameter
+- from agent_framework.plugin_definition import sk_function, sk_function_context_parameter
 - @sk_function(description="...", name="...")
 - @sk_function_context_parameter(name="query", description="...")
 - def search_city_services(self, query: str) -> str:
 
-+ from semantic_kernel.functions import kernel_function
++ from agent_framework.functions import kernel_function
 + from typing import Annotated
 + @kernel_function(description="...", name="...")
 + def search_city_services(
@@ -44,10 +44,10 @@ The issue was **version incompatibility**:
 ### 3. Updated Kernel Initialization
 ```diff
 # main.py
-- import semantic_kernel as sk
+- import agent_framework as sk
 - kernel = sk.Kernel()
 
-+ from semantic_kernel import Kernel
++ from agent_framework import Kernel
 + kernel = Kernel()
 ```
 
@@ -80,7 +80,7 @@ python test_plugins.py
 
 # 4. Test imports directly
 python -c "from pydantic import networks; print('Pydantic v2 works!')"
-python -c "import semantic_kernel; print('SK version:', semantic_kernel.__version__)"
+python -c "import agent_framework; print('SK version:', agent_framework.__version__)"
 python -c "from src.plugins.document_retrieval_plugin import DocumentRetrievalPlugin; print('Plugin works!')"
 ```
 
@@ -89,7 +89,7 @@ python -c "from src.plugins.document_retrieval_plugin import DocumentRetrievalPl
 ### ✅ Working Features:
 1. **Document Retrieval Plugin** - Search city services and get info by category
 2. **Scheduling Plugin** - Check appointments, get scheduling info, list services
-3. **Full Semantic Kernel Integration** - Latest stable version (1.37.0)
+3. **Full Microsoft Agentic Framework Integration** - Latest stable version (1.37.0)
 4. **Pydantic v2 Compatibility** - No more import errors
 5. **Updated Azure Integrations** - Latest connector versions
 

@@ -1,6 +1,6 @@
 # Policy Compliance Checker
 
-AI-powered automated review of policy documents against compliance rules for NY State agencies. Analyzes documents for regulation compliance and generates detailed reports with recommendations.
+AI-powered automated review of policy documents against compliance rules for Georgia State agencies. Analyzes documents for regulation compliance and generates detailed reports with recommendations.
 
 ## Quick Start
 
@@ -62,7 +62,7 @@ Policy-Compliance-Checker/
 │   ├── config/          # Settings
 │   ├── models/          # Compliance models
 │   ├── services/        # Rule engine, parsing
-│   └── plugins/         # Semantic Kernel plugins
+│   └── plugins/         # Microsoft Agentic Framework plugins
 ├── assets/              # Sample documents
 ├── tests/               # Test suite (14 tests)
 ├── demo.py              # Interactive demo
@@ -117,7 +117,7 @@ AZURE_OPENAI_API_VERSION=2024-02-15-preview
 ## Tech Stack
 
 - **Azure OpenAI**: AI-powered analysis
-- **Semantic Kernel**: AI orchestration
+- **Microsoft Agentic Framework**: AI orchestration
 - **pypdf**: PDF parsing
 - **python-docx**: Word document parsing
 - **Flask**: Web API framework
@@ -125,4 +125,4 @@ AZURE_OPENAI_API_VERSION=2024-02-15-preview
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

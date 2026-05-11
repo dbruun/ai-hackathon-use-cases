@@ -21,7 +21,7 @@ This directory contains sample documents for testing the Document Eligibility Ag
 
 ### Utility Bill (utility_bill_sample.pdf)
 - Provider: Con Edison
-- Service Address: 123 Main St, Albany, NY 12207
+- Service Address: 123 Main St, Albany, GA 12207
 - Bill Date: 12/15/2025
 - Amount Due: $145.67
 - Account Number: ****5678 (masked)

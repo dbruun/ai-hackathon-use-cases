@@ -5,7 +5,7 @@
 ```mermaid
 graph TD
     A[Citizen Query] --> B[Azure Web App]
-    B --> C[Semantic Kernel Planner]
+    B --> C[Microsoft Agentic Framework Planner]
     C --> D[Plugin Orchestration]
     
     D --> E[Document Retrieval Plugin]
@@ -48,7 +48,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    A[Semantic Kernel] --> B[Document Retrieval Plugin]
+    A[Microsoft Agentic Framework] --> B[Document Retrieval Plugin]
     A --> C[Scheduling Plugin]  
     A --> D[Alerts Plugin]
     

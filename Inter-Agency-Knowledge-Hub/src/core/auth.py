@@ -56,7 +56,7 @@ class EntraAuthenticator(BaseAuthenticator):
             # Mock token validation
             return {
                 "sub": "user-123",
-                "email": "user@agency.ny.gov",
+                "email": "user@agency.ga.gov",
                 "name": "Test User",
                 "groups": ["DMV_Staff", "AllAgencies_Reviewer"],
                 "exp": datetime.now().timestamp() + 3600,
@@ -96,31 +96,31 @@ class MockAuthenticator(BaseAuthenticator):
     MOCK_USERS = {
         "admin-token": {
             "user_id": "admin-001",
-            "email": "admin@oti.ny.gov",
+            "email": "admin@oti.ga.gov",
             "name": "System Admin",
             "groups": ["AllAgencies_Admin", "AllAgencies_Reviewer"],
         },
         "dmv-manager-token": {
             "user_id": "dmv-mgr-001",
-            "email": "manager@dmv.ny.gov",
+            "email": "manager@dmv.ga.gov",
             "name": "DMV Manager",
             "groups": ["DMV_Manager", "DMV_Staff"],
         },
         "dmv-staff-token": {
             "user_id": "dmv-staff-001",
-            "email": "staff@dmv.ny.gov",
+            "email": "staff@dmv.ga.gov",
             "name": "DMV Staff Member",
             "groups": ["DMV_Staff"],
         },
         "dol-staff-token": {
             "user_id": "dol-staff-001",
-            "email": "staff@dol.ny.gov",
+            "email": "staff@dol.ga.gov",
             "name": "DOL Staff Member",
             "groups": ["DOL_Staff"],
         },
         "multi-agency-token": {
             "user_id": "multi-001",
-            "email": "analyst@oti.ny.gov",
+            "email": "analyst@oti.ga.gov",
             "name": "Cross-Agency Analyst",
             "groups": ["DMV_Staff", "DOL_Staff", "DOH_Staff", "AllAgencies_Reviewer"],
         },
@@ -155,7 +155,7 @@ class MockAuthenticator(BaseAuthenticator):
         if token.startswith("test-"):
             return {
                 "sub": f"test-user-{token}",
-                "email": "test@test.ny.gov",
+                "email": "test@test.ga.gov",
                 "name": "Test User",
                 "groups": ["DMV_Staff"],
                 "exp": datetime.now().timestamp() + 3600,

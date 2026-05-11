@@ -1,5 +1,5 @@
 # Core dependencies
-semantic-kernel>=1.37.0
+agent-framework>=1.37.0
 azure-search-documents>=11.6.0
 azure-identity>=1.19.0
 msal>=1.31.0

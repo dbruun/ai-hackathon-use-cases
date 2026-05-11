@@ -1,5 +1,5 @@
 """
-Constituent Agent for NY State Services.
+Constituent Agent for Georgia State Services.
 
 Main agent orchestration for handling constituent queries with
 citation-backed responses and confidence scoring.
@@ -40,15 +40,15 @@ class AgentResult:
 
 class ConstituentAgent:
     """
-    AI agent for handling NY State constituent service inquiries.
+    AI agent for handling Georgia State constituent service inquiries.
 
     Provides citation-backed responses using Foundry IQ for RAG retrieval.
     Includes confidence scoring and escalation detection.
     """
 
     # System prompt for the agent
-    SYSTEM_PROMPT = """You are a helpful AI assistant for New York State government services.
-Your role is to help NY State residents find accurate information about government services,
+    SYSTEM_PROMPT = """You are a helpful AI assistant for Georgia State government services.
+Your role is to help Georgia State residents find accurate information about government services,
 benefits programs, and agency procedures.
 
 IMPORTANT GUIDELINES:

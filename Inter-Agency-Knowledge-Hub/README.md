@@ -1,6 +1,6 @@
 # Inter-Agency Knowledge Hub
 
-Cross-agency document search system with permission-aware results for NY State government. Provides unified search across multiple agency knowledge bases with role-based access control.
+Cross-agency document search system with permission-aware results for Georgia State government. Provides unified search across multiple agency knowledge bases with role-based access control.
 
 ## Quick Start
 
@@ -62,7 +62,7 @@ Inter-Agency-Knowledge-Hub/
 │   ├── config/          # Settings
 │   ├── models/          # Search models
 │   ├── services/        # Search, auth services
-│   └── plugins/         # Semantic Kernel plugins
+│   └── plugins/         # Microsoft Agentic Framework plugins
 ├── assets/              # Sample documents
 ├── data/                # Index data
 ├── tests/               # Test suite (38 tests)
@@ -140,10 +140,10 @@ AZURE_CLIENT_SECRET=your-client-secret
 - **Azure AI Search**: Vector and hybrid search
 - **Foundry IQ**: Intelligent retrieval
 - **Entra ID**: Authentication and authorization
-- **Semantic Kernel**: AI orchestration
+- **Microsoft Agentic Framework**: AI orchestration
 - **Flask**: Web API framework
 - **Pydantic**: Data models
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

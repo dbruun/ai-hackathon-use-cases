@@ -10,9 +10,9 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.11"
 authors = [
-    {name = "NYC Office of Technology and Innovation"}
+    {name = "Georgia Office of Technology and Innovation"}
 ]
-keywords = ["ai", "search", "government", "knowledge-management", "semantic-kernel"]
+keywords = ["ai", "search", "government", "knowledge-management", "agent-framework"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Government",
@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "semantic-kernel>=1.37.0",
+    "agent-framework>=1.37.0",
     "azure-search-documents>=11.6.0",
     "azure-identity>=1.19.0",
     "msal>=1.31.0",

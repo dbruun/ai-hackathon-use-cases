@@ -56,7 +56,7 @@ class Settings(BaseSettings):
         default=None, description="Microsoft Graph tenant ID"
     )
     intake_mailbox: str = Field(
-        default="intake@agency.ny.gov", description="Email intake mailbox address"
+        default="intake@agency.ga.gov", description="Email intake mailbox address"
     )
 
     # Redis

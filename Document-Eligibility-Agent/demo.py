@@ -21,7 +21,7 @@ async def main():
     """Run the demo."""
     print("=" * 60)
     print("Document Eligibility Agent - Demo")
-    print("NY State AI Hackathon")
+    print("Georgia State AI Hackathon")
     print("=" * 60)
     print()
 
@@ -117,7 +117,7 @@ async def main():
             extractions=extractions,
             case_data={
                 "applicant_name": "John Doe",
-                "address": "123 Main St, Albany, NY 12207",
+                "address": "123 Main St, Albany, GA 12207",
             },
         )
 

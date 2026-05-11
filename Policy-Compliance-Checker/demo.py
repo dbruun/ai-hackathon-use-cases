@@ -30,7 +30,7 @@ def print_section(text: str):
 def run_demo():
     """Run the interactive demonstration."""
     print_header("Policy Compliance Checker - Demo")
-    print("NY State AI Hackathon")
+    print("Georgia State AI Hackathon")
 
     # Initialize components
     settings = Settings()

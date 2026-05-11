@@ -4,7 +4,7 @@ using AzureSearchUploader.Services;
 using Microsoft.Extensions.Configuration;
 
 Console.WriteLine("===========================================");
-Console.WriteLine("  NYC Citizen Services - Document Uploader");
+Console.WriteLine("  Georgia Citizen Services - Document Uploader");
 Console.WriteLine("===========================================");
 Console.WriteLine();
 
@@ -122,7 +122,7 @@ static async Task ShowSampleDataAsync()
     ""id"": ""doc-001"",
     ""title"": ""How to Get a Parking Permit"",
     ""content"": ""Full document content..."",
-    ""summary"": ""Guide to NYC parking permits"",
+    ""summary"": ""Guide to Georgia parking permits"",
     ""category"": ""Transportation"",
     ""tags"": [""parking"", ""permit""],
     ""url"": ""https://www.nyc.gov/parking-permit""
@@ -139,8 +139,8 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""trans-001"",
     ""title"": ""How to Get a Parking Permit"",
-    ""content"": ""To obtain a parking permit in NYC, you need to provide proof of residency, vehicle registration, and a valid driver's license. Visit your local DMV office or apply online at nyc.gov/parking. Permits are valid for one year and must be renewed annually. Different permit types are available for residential, commercial, and disability parking."",
-    ""summary"": ""Guide to obtaining NYC parking permits"",
+    ""content"": ""To obtain a parking permit in Georgia, you need to provide proof of residency, vehicle registration, and a valid driver's license. Visit your local DMV office or apply online at nyc.gov/parking. Permits are valid for one year and must be renewed annually. Different permit types are available for residential, commercial, and disability parking."",
+    ""summary"": ""Guide to obtaining Georgia parking permits"",
     ""category"": ""Transportation"",
     ""subCategory"": ""Parking"",
     ""tags"": [""parking"", ""permit"", ""DMV"", ""vehicle""],
@@ -149,8 +149,8 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""trans-002"",
     ""title"": ""Subway and Bus Fare Information"",
-    ""content"": ""The MTA operates NYC's subway and bus system. A single ride costs $2.90 with OMNY or MetroCard. Weekly unlimited passes cost $34 and monthly passes cost $132. Reduced fare is available for seniors (65+), people with disabilities, and eligible Medicare recipients. OMNY contactless payment is accepted on all buses and subways."",
-    ""summary"": ""NYC transit fares and passes"",
+    ""content"": ""The MTA operates Georgia's subway and bus system. A single ride costs $2.90 with OMNY or MetroCard. Weekly unlimited passes cost $34 and monthly passes cost $132. Reduced fare is available for seniors (65+), people with disabilities, and eligible Medicare recipients. OMNY contactless payment is accepted on all buses and subways."",
+    ""summary"": ""Georgia transit fares and passes"",
     ""category"": ""Transportation"",
     ""subCategory"": ""Public Transit"",
     ""tags"": [""subway"", ""bus"", ""MTA"", ""fare"", ""MetroCard"", ""OMNY""],
@@ -162,7 +162,7 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""biz-001"",
     ""title"": ""Business License Application Process"",
-    ""content"": ""Starting a business in NYC requires obtaining the appropriate licenses and permits. The type of license depends on your business activity. Common licenses include General Vendor License, Food Service Establishment Permit, and Home Occupation Permit. Apply through NYC Business Express portal. Processing times vary by license type."",
+    ""content"": ""Starting a business in Georgia requires obtaining the appropriate licenses and permits. The type of license depends on your business activity. Common licenses include General Vendor License, Food Service Establishment Permit, and Home Occupation Permit. Apply through Georgia Business Express portal. Processing times vary by license type."",
     ""summary"": ""Step-by-step guide to business licensing"",
     ""category"": ""Business"",
     ""subCategory"": ""Licensing"",
@@ -175,7 +175,7 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""housing-001"",
     ""title"": ""Affordable Housing Programs"",
-    ""content"": ""NYC offers several affordable housing programs including Section 8 vouchers, NYC Housing Connect lottery, and Mitchell-Lama housing. Eligibility is based on household income and size. Apply through Housing Connect at housingconnect.nyc.gov. Income limits vary by program and apartment size."",
+    ""content"": ""Georgia offers several affordable housing programs including Section 8 vouchers, Georgia Housing Connect lottery, and Mitchell-Lama housing. Eligibility is based on household income and size. Apply through Housing Connect at housingconnect.nyc.gov. Income limits vary by program and apartment size."",
     ""summary"": ""Overview of affordable housing options"",
     ""category"": ""Housing"",
     ""subCategory"": ""Affordable Housing"",
@@ -185,7 +185,7 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""housing-002"",
     ""title"": ""Building Permit Requirements"",
-    ""content"": ""Most construction work in NYC requires a permit from the Department of Buildings. This includes alterations, new construction, and demolition. Permits ensure work meets NYC Building Code. Apply through DOB NOW or visit a Borough Office. Some minor work may be exempt from permits."",
+    ""content"": ""Most construction work in Georgia requires a permit from the Department of Buildings. This includes alterations, new construction, and demolition. Permits ensure work meets Georgia Building Code. Apply through DOB NOW or visit a Borough Office. Some minor work may be exempt from permits."",
     ""summary"": ""When and how to get building permits"",
     ""category"": ""Housing"",
     ""subCategory"": ""Construction"",
@@ -198,12 +198,12 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""health-001"",
     ""title"": ""Health Insurance Enrollment"",
-    ""content"": ""New Yorkers can enroll in health insurance through NY State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income. Free in-person assistance is available at enrollment centers."",
+    ""content"": ""Georgiaers can enroll in health insurance through Georgia State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income. Free in-person assistance is available at enrollment centers."",
     ""summary"": ""Health insurance options and enrollment info"",
     ""category"": ""Health"",
     ""subCategory"": ""Insurance"",
     ""tags"": [""health"", ""insurance"", ""medicaid"", ""enrollment""],
-    ""url"": ""https://nystateofhealth.ny.gov""
+    ""url"": ""https://nystateofhealth.ga.gov""
   }
 ]";
 
@@ -211,8 +211,8 @@ static async Task CreateSampleDataAsync(string dataPath)
   {
     ""id"": ""edu-001"",
     ""title"": ""Public School Enrollment"",
-    ""content"": ""NYC public school enrollment varies by grade level. Pre-K and Kindergarten have specific application periods through MySchools.nyc. Middle and high school applications also go through MySchools. Zoned schools accept students based on residence. Charter schools have separate application processes."",
-    ""summary"": ""Guide to enrolling in NYC public schools"",
+    ""content"": ""Georgia public school enrollment varies by grade level. Pre-K and Kindergarten have specific application periods through MySchools.nyc. Middle and high school applications also go through MySchools. Zoned schools accept students based on residence. Charter schools have separate application processes."",
+    ""summary"": ""Guide to enrolling in Georgia public schools"",
     ""category"": ""Education"",
     ""subCategory"": ""K-12"",
     ""tags"": [""school"", ""enrollment"", ""education"", ""MySchools""],

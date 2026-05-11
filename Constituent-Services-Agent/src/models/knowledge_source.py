@@ -61,8 +61,8 @@ class KnowledgeSource(BaseModel):
                 "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
                 "agency": "OTDA",
                 "title": "SNAP Benefits Application Guide",
-                "content": "To apply for SNAP benefits in New York State...",
-                "url": "https://otda.ny.gov/programs/snap/apply.asp",
+                "content": "To apply for SNAP benefits in Georgia State...",
+                "url": "https://otda.ga.gov/programs/snap/apply.asp",
                 "document_type": "guide",
                 "last_updated": "2026-01-01T00:00:00Z",
                 "indexing_status": "indexed",
@@ -124,7 +124,7 @@ class Citation(BaseModel):
                 "relevance_score": 0.92,
                 "title": "SNAP Benefits Application Guide",
                 "agency": "OTDA",
-                "url": "https://otda.ny.gov/programs/snap/apply.asp",
+                "url": "https://otda.ga.gov/programs/snap/apply.asp",
             }
         }
     }

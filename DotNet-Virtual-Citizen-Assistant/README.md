@@ -1,10 +1,10 @@
-# NYC Virtual Citizen Assistant
+# Georgia Virtual Citizen Assistant
 
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](#)
 [![Tests](https://img.shields.io/badge/Tests-22%20Passing-brightgreen.svg)](#running-tests)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](https://dotnet.microsoft.com)
 
-A RAG-powered AI assistant for NYC government services built with .NET 9, Semantic Kernel, and Azure AI Services.
+A RAG-powered AI assistant for Georgia government services built with .NET 9, Microsoft Agentic Framework, Azure AI Foundry, and Azure AI Services.
 
 ## Features
 
@@ -21,8 +21,7 @@ DotNet-Virtual-Citizen-Assistant/
 ├── VirtualCitizenAgent/           # Main web application
 │   ├── Controllers/               # MVC and API controllers
 │   ├── Models/                    # Data models
-│   ├── Services/                  # Business logic
-│   ├── Plugins/                   # Semantic Kernel plugins
+│   ├── Services/                  # Business logic + Agentic Framework orchestration
 │   ├── Views/                     # Razor views
 │   └── wwwroot/                   # Static assets
 ├── AzureSearchUploader/           # Data upload utility
@@ -36,7 +35,7 @@ DotNet-Virtual-Citizen-Assistant/
 
 - .NET 9.0 SDK
 - Azure AI Search (optional - mock mode available)
-- Azure OpenAI (optional - mock mode available)
+- Azure AI Foundry model endpoint (optional - mock mode available)
 
 ## Quick Start
 
@@ -64,10 +63,10 @@ Edit `VirtualCitizenAgent/appsettings.json`:
     "ApiKey": "your-search-api-key",
     "UseMockService": false
   },
-  "OpenAI": {
-    "Endpoint": "https://your-resource-name.openai.azure.com",
-    "ApiKey": "your-openai-api-key",
-    "DeploymentName": "gpt-4o",
+  "Foundry": {
+    "Endpoint": "https://your-foundry-resource.services.ai.azure.com",
+    "ApiKey": "your-foundry-api-key",
+    "ModelDeploymentName": "gpt-4o",
     "UseMockService": false
   }
 }
@@ -77,10 +76,10 @@ Edit `VirtualCitizenAgent/appsettings.json`:
 
 ```powershell
 # Windows PowerShell
-$env:OpenAI__Endpoint = "https://your-resource-name.openai.azure.com"
-$env:OpenAI__ApiKey = "your-api-key"
-$env:OpenAI__DeploymentName = "gpt-4o"
-$env:OpenAI__UseMockService = "false"
+$env:Foundry__Endpoint = "https://your-foundry-resource.services.ai.azure.com"
+$env:Foundry__ApiKey = "your-api-key"
+$env:Foundry__ModelDeploymentName = "gpt-4o"
+$env:Foundry__UseMockService = "false"
 $env:SearchConfiguration__Endpoint = "https://your-search.search.windows.net"
 $env:SearchConfiguration__ApiKey = "your-search-key"
 $env:SearchConfiguration__UseMockService = "false"
@@ -88,14 +87,14 @@ $env:SearchConfiguration__UseMockService = "false"
 
 ```bash
 # Mac/Linux
-export OpenAI__Endpoint="https://your-resource-name.openai.azure.com"
-export OpenAI__ApiKey="your-api-key"
-export OpenAI__DeploymentName="gpt-4o"
-export OpenAI__UseMockService="false"
+export Foundry__Endpoint="https://your-foundry-resource.services.ai.azure.com"
+export Foundry__ApiKey="your-api-key"
+export Foundry__ModelDeploymentName="gpt-4o"
+export Foundry__UseMockService="false"
 ```
 
 **Where to find these values:**
-1. Go to [Azure Portal](https://portal.azure.com) → Your Azure OpenAI resource
+1. Go to [Azure AI Foundry](https://ai.azure.com) → Your model endpoint resource
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** in Azure AI Studio → Note your deployment name (e.g., `gpt-4o`)
 
@@ -139,9 +138,9 @@ dotnet test
 
 - **.NET 9.0** - Web framework
 - **ASP.NET Core MVC** - Web application
-- **Semantic Kernel 1.65** - AI orchestration
+- **Microsoft Agentic Framework 1.65** - AI orchestration
 - **Azure AI Search** - Document search
-- **Azure OpenAI** - Chat completions
+- **Azure AI Foundry Models** - Chat completions
 - **Bootstrap 5.3** - UI framework
 - **Font Awesome 6** - Icons
 - **xUnit + FluentAssertions** - Testing (22 tests)
@@ -168,11 +167,11 @@ dotnet test
          │
          ▼
 ┌─────────────────┐
-│  Azure OpenAI   │
-│ (Semantic Kernel)│
+│ Azure AI Foundry│
+│ + Agentic Framework │
 └─────────────────┘
 ```
 
 ## Hackathon Team
 
-NY State AI Hackathon - January 2026
+Georgia State AI Hackathon - January 2026

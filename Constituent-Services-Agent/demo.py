@@ -22,7 +22,7 @@ from src.agent import ConstituentAgent, MockFoundryIQKnowledgeBase
 def print_header():
     """Print demo header."""
     print("\n" + "=" * 70)
-    print("  NY State Constituent Services Agent - Demo")
+    print("  Georgia State Constituent Services Agent - Demo")
     print("  Mode: MOCK (no Azure services required)")
     print("=" * 70 + "\n")
 

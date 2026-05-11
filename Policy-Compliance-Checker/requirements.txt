@@ -1,5 +1,5 @@
 # Core dependencies
-semantic-kernel>=1.37.0
+agent-framework>=1.37.0
 pypdf>=6.1.1
 python-docx>=1.1.0
 markdown-it-py>=3.0.0

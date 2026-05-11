@@ -7,7 +7,7 @@
 ## 🆕 What's New in v2.0:
 
 - ✅ **CRITICAL FIX**: `ImportError: cannot import name 'url' from 'pydantic.networks'` → **RESOLVED**
-- ✅ **Updated Dependencies**: semantic-kernel 0.9.1b1 → 1.37.0 (stable, pydantic v2 compatible)
+- ✅ **Updated Dependencies**: agent-framework 0.9.1b1 → 1.37.0 (stable, pydantic v2 compatible)
 - ✅ **Working Plugins**: DocumentRetrievalPlugin + SchedulingPlugin ready to use
 - ✅ **Complete Test Suite**: Validation tests ensure everything works
 - ✅ **Reduced Timeline**: 6-8 hours → 2-4 hours (thanks to working foundation!)
@@ -68,7 +68,7 @@ python src/main.py
 ### Phase 5: Customization & Extension (1-2 hours)
 ```python
 # 8. Extend with your own plugins (EASY WITH WORKING FOUNDATION):
-from semantic_kernel.functions import kernel_function
+from agent_framework.functions import kernel_function
 from typing import Annotated
 
 class MyCustomPlugin:
@@ -125,10 +125,10 @@ index_schema = {
 }
 ```
 
-### Step 2: Working Semantic Kernel Plugins (ALREADY IMPLEMENTED!) ✅
+### Step 2: Working Microsoft Agentic Framework Plugins (ALREADY IMPLEMENTED!) ✅
 ```python
 # UPDATED FOR SEMANTIC KERNEL 1.37.0 - NO MORE IMPORT ERRORS!
-from semantic_kernel.functions import kernel_function
+from agent_framework.functions import kernel_function
 from typing import Annotated
 
 class DocumentRetrievalPlugin:
@@ -151,8 +151,8 @@ class DocumentRetrievalPlugin:
 ### Step 3: Complete Working Application (READY TO USE!) ✅
 ```python
 # ✅ FULLY IMPLEMENTED - see src/main.py
-from semantic_kernel import Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion  
+from agent_framework import Kernel
+from agent_framework.connectors.ai.open_ai import AzureChatCompletion  
 from src.plugins.document_retrieval_plugin import DocumentRetrievalPlugin
 from src.plugins.scheduling_plugin import SchedulingPlugin
 
@@ -191,7 +191,7 @@ class VirtualCitizenAssistant:
 
 ### Demo Script:
 ```
-1. "Hello, I'm new to NYC. Can you help me understand trash pickup?"
+1. "Hello, I'm new to Georgia. Can you help me understand trash pickup?"
 2. "My address is 123 Main Street, what's my schedule?"  
 3. "What about recycling?"
 4. "I also need to register my business. How do I do that?"
@@ -202,7 +202,7 @@ class VirtualCitizenAssistant:
 
 - [ ] Azure AI Search service provisioned and indexed
 - [ ] Azure OpenAI deployment configured  
-- [ ] Semantic Kernel plugins implemented and tested
+- [ ] Microsoft Agentic Framework plugins implemented and tested
 - [ ] Web application developed and locally tested
 - [ ] Azure Web App deployed and configured
 - [ ] Environment variables and secrets configured
@@ -220,7 +220,7 @@ class VirtualCitizenAssistant:
 ## 🛟 Troubleshooting - FIXED!
 
 ### ✅ Previously Common Issues (NOW RESOLVED):
-1. ❌ ~~**ImportError: cannot import name 'url' from 'pydantic.networks'**~~ → ✅ **FIXED**: Updated to semantic-kernel 1.37.0
+1. ❌ ~~**ImportError: cannot import name 'url' from 'pydantic.networks'**~~ → ✅ **FIXED**: Updated to agent-framework 1.37.0
 2. ❌ ~~**Plugin loading errors**~~ → ✅ **FIXED**: Updated to @kernel_function decorators  
 3. ❌ ~~**Dependency conflicts**~~ → ✅ **FIXED**: All dependencies now compatible
 4. ❌ ~~**Step 2.3 failures**~~ → ✅ **FIXED**: document_retrieval_plugin.py works perfectly

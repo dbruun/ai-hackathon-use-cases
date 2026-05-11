@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "document-eligibility-agent"
 version = "0.1.0"
-description = "AI-powered document processing agent for NY State eligibility verification"
+description = "AI-powered document processing agent for Georgia State eligibility verification"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.11"
 authors = [
-    {name = "NY State AI Hackathon Team"}
+    {name = "Georgia State AI Hackathon Team"}
 ]
 keywords = ["ai", "document-processing", "eligibility", "azure", "ocr"]
 classifiers = [

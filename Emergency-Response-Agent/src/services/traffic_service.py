@@ -10,8 +10,8 @@ from ..models.emergency_models import TrafficCondition, EvacuationRoute
 class TrafficService:
     """Service for traffic conditions and evacuation route planning."""
 
-    # NYC evacuation zones and routes
-    NYC_EVACUATION_ZONES = {
+    # Georgia evacuation zones and routes
+    Georgia_EVACUATION_ZONES = {
         "zone_a": {
             "name": "Zone A - Coastal Areas",
             "areas": ["Lower Manhattan", "Brooklyn Waterfront", "Staten Island Shore"],
@@ -29,7 +29,7 @@ class TrafficService:
         },
     }
 
-    NYC_EVACUATION_ROUTES = [
+    Georgia_EVACUATION_ROUTES = [
         {
             "route_id": "rt_001",
             "name": "FDR Drive North",
@@ -93,7 +93,7 @@ class TrafficService:
         """
         conditions = []
 
-        routes = self.NYC_EVACUATION_ROUTES
+        routes = self.Georgia_EVACUATION_ROUTES
         if route_id:
             routes = [r for r in routes if r["route_id"] == route_id]
 
@@ -146,14 +146,14 @@ class TrafficService:
         Returns:
             List of EvacuationRoute objects
         """
-        zone_info = self.NYC_EVACUATION_ZONES.get(zone, self.NYC_EVACUATION_ZONES["zone_a"])
+        zone_info = self.Georgia_EVACUATION_ZONES.get(zone, self.Georgia_EVACUATION_ZONES["zone_a"])
         zone_population = population or zone_info["population"]
 
         # Get current traffic conditions
         traffic = {c.route_name: c for c in self.get_traffic_conditions()}
 
         routes = []
-        for route_data in self.NYC_EVACUATION_ROUTES:
+        for route_data in self.Georgia_EVACUATION_ROUTES:
             # Check if route serves this zone
             route_zones = {
                 "rt_001": ["zone_a"],
@@ -253,7 +253,7 @@ class TrafficService:
             Dictionary with capacity analysis
         """
         routes = self.optimize_evacuation_routes(zone)
-        zone_info = self.NYC_EVACUATION_ZONES.get(zone, self.NYC_EVACUATION_ZONES["zone_a"])
+        zone_info = self.Georgia_EVACUATION_ZONES.get(zone, self.Georgia_EVACUATION_ZONES["zone_a"])
 
         # Sum up capacity from all available routes
         total_capacity = sum(
@@ -331,7 +331,7 @@ class TrafficService:
             },
             "ferry": {
                 "operational": True,
-                "routes_available": ["Staten Island Ferry", "NYC Ferry - East River"],
+                "routes_available": ["Staten Island Ferry", "Georgia Ferry - East River"],
                 "capacity_per_hour": 8000,
             },
         }

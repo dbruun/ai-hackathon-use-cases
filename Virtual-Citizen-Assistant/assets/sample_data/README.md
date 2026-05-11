@@ -1,11 +1,11 @@
-# NYC Citizen Assistant - Sample Data
+# Georgia Citizen Assistant - Sample Data
 
 This folder contains sample datasets and documents used to populate the Azure AI Search index and test the Virtual Citizen Assistant.
 
 ## 📄 Files Included
 
 ### city_services_data.json
-Comprehensive JSON file containing information about various NYC services:
+Comprehensive JSON file containing information about various Georgia services:
 - Trash and recycling schedules
 - Permit application procedures  
 - Emergency alert information
@@ -20,14 +20,14 @@ Sample emergency alerts and notifications:
 - Health advisories
 
 ### permit_documents.json
-Information about various NYC permits:
+Information about various Georgia permits:
 - Business permits
 - Construction permits
 - Event permits
 - Street permits
 
 ### parks_and_recreation.json
-NYC parks and recreation facility information:
+Georgia parks and recreation facility information:
 - Park hours and locations
 - Amenities and facilities
 - Special programs and events

@@ -64,7 +64,7 @@ class KnowledgeService:
                 title=doc.get("title", "Untitled"),
                 content=doc.get("content", ""),
                 summary=doc.get("summary"),
-                url=doc.get("url", f"https://{agency_code.lower()}.ny.gov"),
+                url=doc.get("url", f"https://{agency_code.lower()}.ga.gov"),
                 document_type=DocumentType(doc.get("type", "webpage")),
                 indexing_status=IndexingStatus.INDEXED,
                 chunk_count=len(doc.get("content", "")) // 500 + 1,
@@ -173,7 +173,7 @@ class KnowledgeService:
                 {
                     "agency": "DMV",
                     "name": "Albany DMV",
-                    "address": "260 S Pearl St, Albany, NY 12202",
+                    "address": "260 S Pearl St, Albany, GA 12202",
                     "hours": "Mon-Fri 8:30 AM - 4:00 PM",
                     "phone": "(518) 486-9786",
                     "accessibility": True,
@@ -182,7 +182,7 @@ class KnowledgeService:
                 {
                     "agency": "DMV",
                     "name": "Troy DMV",
-                    "address": "125 Adams St, Troy, NY 12180",
+                    "address": "125 Adams St, Troy, GA 12180",
                     "hours": "Mon-Fri 9:00 AM - 4:00 PM",
                     "phone": "(518) 270-5340",
                     "accessibility": True,
@@ -195,7 +195,7 @@ class KnowledgeService:
                 {
                     "agency": "OTDA",
                     "name": "Albany County DSS",
-                    "address": "162 Washington Ave, Albany, NY 12210",
+                    "address": "162 Washington Ave, Albany, GA 12210",
                     "hours": "Mon-Fri 8:00 AM - 5:00 PM",
                     "phone": "(518) 447-7300",
                     "accessibility": True,

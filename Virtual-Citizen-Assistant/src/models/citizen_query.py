@@ -1,4 +1,4 @@
-# NYC Citizen Assistant - Query Models
+# Georgia Citizen Assistant - Query Models
 
 from dataclasses import dataclass
 from typing import Optional, List, Dict, Any
@@ -114,7 +114,7 @@ class CitizenQuery:
         """Extract address from the query message."""
         import re
         
-        # Simple regex patterns for NYC addresses
+        # Simple regex patterns for Georgia addresses
         patterns = [
             r'\b\d+\s+[\w\s]+(?:street|st|avenue|ave|road|rd|boulevard|blvd|place|pl|drive|dr)\b',
             r'\b\d+\s+\w+\s+\w+\b'  # Simple pattern like "123 Main Street"

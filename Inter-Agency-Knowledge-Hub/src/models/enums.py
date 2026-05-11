@@ -4,7 +4,7 @@ from enum import Enum
 
 
 class Agency(str, Enum):
-    """New York State agencies in the knowledge hub."""
+    """Georgia State agencies in the knowledge hub."""
 
     DMV = "dmv"  # Department of Motor Vehicles
     DOL = "dol"  # Department of Labor

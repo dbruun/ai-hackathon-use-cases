@@ -75,12 +75,12 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
         "snap": {
             "answer": (
                 "To apply for SNAP (Supplemental Nutrition Assistance Program) benefits "
-                "in New York State, you can:\n\n"
-                "1. **Online**: Apply through myBenefits.ny.gov\n"
+                "in Georgia State, you can:\n\n"
+                "1. **Online**: Apply through myBenefits.ga.gov\n"
                 "2. **In Person**: Visit your local Department of Social Services office\n"
                 "3. **By Phone**: Call the OTDA Hotline at 1-800-342-3009\n\n"
                 "**Eligibility Requirements**:\n"
-                "- Must be a NY State resident\n"
+                "- Must be a Georgia State resident\n"
                 "- Must meet income guidelines (varies by household size)\n"
                 "- Must be a U.S. citizen or qualified non-citizen\n\n"
                 "**Required Documents**:\n"
@@ -93,14 +93,14 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
                 {
                     "title": "SNAP Benefits Application Guide",
                     "agency": "OTDA",
-                    "url": "https://otda.ny.gov/programs/snap/apply.asp",
-                    "quote": "Apply online at myBenefits.ny.gov or visit your local DSS office.",
+                    "url": "https://otda.ga.gov/programs/snap/apply.asp",
+                    "quote": "Apply online at myBenefits.ga.gov or visit your local DSS office.",
                     "relevance": 0.95,
                 },
                 {
                     "title": "SNAP Eligibility Requirements",
                     "agency": "OTDA",
-                    "url": "https://otda.ny.gov/programs/snap/eligibility.asp",
+                    "url": "https://otda.ga.gov/programs/snap/eligibility.asp",
                     "quote": "Income eligibility varies by household size and composition.",
                     "relevance": 0.88,
                 },
@@ -109,9 +109,9 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
         },
         "dmv": {
             "answer": (
-                "To renew your driver's license in New York State:\n\n"
+                "To renew your driver's license in Georgia State:\n\n"
                 "**Online Renewal** (Recommended):\n"
-                "1. Visit dmv.ny.gov\n"
+                "1. Visit dmv.ga.gov\n"
                 "2. Sign in to your MyDMV account\n"
                 "3. Follow the renewal prompts\n"
                 "4. Pay the $64.50 renewal fee\n\n"
@@ -126,8 +126,8 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
                 {
                     "title": "Driver License Renewal",
                     "agency": "DMV",
-                    "url": "https://dmv.ny.gov/driver-license/renew-driver-license",
-                    "quote": "Renew online at dmv.ny.gov or visit a DMV office in person.",
+                    "url": "https://dmv.ga.gov/driver-license/renew-driver-license",
+                    "quote": "Renew online at dmv.ga.gov or visit a DMV office in person.",
                     "relevance": 0.94,
                 },
             ],
@@ -135,10 +135,10 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
         },
         "unemployment": {
             "answer": (
-                "To file for unemployment insurance in New York State:\n\n"
+                "To file for unemployment insurance in Georgia State:\n\n"
                 "**Online Filing** (Fastest):\n"
-                "1. Visit labor.ny.gov\n"
-                "2. Create or sign in to your NY.gov ID account\n"
+                "1. Visit labor.ga.gov\n"
+                "2. Create or sign in to your Georgia.gov ID account\n"
                 "3. Complete the unemployment application\n"
                 "4. Certify for benefits weekly\n\n"
                 "**By Phone**: 1-888-209-8124\n"
@@ -153,14 +153,14 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
                 {
                     "title": "Unemployment Insurance Filing Guide",
                     "agency": "DOL",
-                    "url": "https://dol.ny.gov/unemployment/file-your-first-claim",
-                    "quote": "File online at labor.ny.gov for fastest processing.",
+                    "url": "https://dol.ga.gov/unemployment/file-your-first-claim",
+                    "quote": "File online at labor.ga.gov for fastest processing.",
                     "relevance": 0.93,
                 },
                 {
                     "title": "UI Eligibility Requirements",
                     "agency": "DOL",
-                    "url": "https://dol.ny.gov/unemployment/eligibility",
+                    "url": "https://dol.ga.gov/unemployment/eligibility",
                     "quote": "You must have lost your job through no fault of your own.",
                     "relevance": 0.85,
                 },
@@ -170,9 +170,9 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
         "medicaid": {
             "answer": (
                 "Medicaid provides free or low-cost health coverage for eligible "
-                "New York residents.\n\n"
+                "Georgia residents.\n\n"
                 "**How to Apply**:\n"
-                "1. **Online**: NY State of Health (nystateofhealth.ny.gov)\n"
+                "1. **Online**: Georgia State of Health (nystateofhealth.ga.gov)\n"
                 "2. **Phone**: 1-855-355-5777\n"
                 "3. **In Person**: Local Department of Social Services\n\n"
                 "**Eligibility** (2026 Guidelines):\n"
@@ -186,8 +186,8 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
                 {
                     "title": "Medicaid Eligibility",
                     "agency": "DOH",
-                    "url": "https://health.ny.gov/health_care/medicaid/",
-                    "quote": "Apply through NY State of Health marketplace.",
+                    "url": "https://health.ga.gov/health_care/medicaid/",
+                    "quote": "Apply through Georgia State of Health marketplace.",
                     "relevance": 0.91,
                 },
             ],
@@ -199,9 +199,9 @@ class MockFoundryIQKnowledgeBase(BaseFoundryIQKnowledgeBase):
         "answer": (
             "I don't have specific information about that topic in my knowledge base. "
             "For the most accurate and up-to-date information, I recommend:\n\n"
-            "1. Visiting NY.gov for general state services\n"
+            "1. Visiting Georgia.gov for general state services\n"
             "2. Contacting the relevant agency directly\n"
-            "3. Calling 311 (in NYC) or your local government office\n\n"
+            "3. Calling 311 (in Georgia) or your local government office\n\n"
             "Would you like me to help you find contact information for a specific agency?"
         ),
         "citations": [],

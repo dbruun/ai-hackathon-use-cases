@@ -4,18 +4,18 @@ This guide explains how to set up and run the Virtual Citizen Assistant after fi
 
 ## 🔧 Fixes Applied
 
-The main issue was that the original `semantic-kernel==0.9.1b1` was incompatible with pydantic v2. The error `cannot import name 'url' from 'pydantic.networks'` occurred because:
+The main issue was that the original `agent-framework==0.9.1b1` was incompatible with pydantic v2. The error `cannot import name 'url' from 'pydantic.networks'` occurred because:
 
-1. The old semantic-kernel version expected pydantic v1 API
+1. The old agent-framework version expected pydantic v1 API
 2. Pydantic v2 moved and renamed the `url` function
 3. The plugin decorators used the old API syntax
 
 ### Key Changes Made:
 
-1. **Updated semantic-kernel**: `0.9.1b1` → `1.37.0`
+1. **Updated agent-framework**: `0.9.1b1` → `1.37.0`
 2. **Updated dependencies** to compatible versions
 3. **Fixed plugin decorators**: Updated from `@sk_function` to `@kernel_function`
-4. **Fixed import syntax**: Updated to use new semantic-kernel imports
+4. **Fixed import syntax**: Updated to use new agent-framework imports
 5. **Added pydantic v2 compatibility**: All imports now work with pydantic 2.x
 
 ## 📦 Installation
@@ -45,25 +45,25 @@ The main issue was that the original `semantic-kernel==0.9.1b1` was incompatible
 ### 1. Requirements.txt Updates
 ```txt
 # OLD (broken)
-semantic-kernel==0.9.1b1
+agent-framework==0.9.1b1
 openai==1.3.7
 
 # NEW (working)
-semantic-kernel==1.37.0
+agent-framework==1.37.0
 openai>=1.98.0
 ```
 
 ### 2. Plugin Decorator Changes
 ```python
 # OLD (broken with new SK)
-from semantic_kernel.plugin_definition import sk_function, sk_function_context_parameter
+from agent_framework.plugin_definition import sk_function, sk_function_context_parameter
 
 @sk_function(description="...", name="...")
 @sk_function_context_parameter(name="query", description="...")
 def search_city_services(self, query: str) -> str:
 
 # NEW (working)
-from semantic_kernel.functions import kernel_function
+from agent_framework.functions import kernel_function
 from typing import Annotated
 
 @kernel_function(description="...", name="...")
@@ -76,11 +76,11 @@ def search_city_services(
 ### 3. Kernel Initialization Updates
 ```python
 # OLD API
-import semantic_kernel as sk
+import agent_framework as sk
 kernel = sk.Kernel()
 
 # NEW API
-from semantic_kernel import Kernel
+from agent_framework import Kernel
 kernel = Kernel()
 ```
 
@@ -129,18 +129,18 @@ Virtual-Citizen-Assistant/
 ### Common Issues:
 
 1. **"cannot import name 'url' from 'pydantic.networks'"**
-   - ✅ **Fixed**: Updated to semantic-kernel 1.37.0
+   - ✅ **Fixed**: Updated to agent-framework 1.37.0
 
-2. **"No module named 'semantic_kernel.plugin_definition'"**
-   - ✅ **Fixed**: Updated imports to use `semantic_kernel.functions`
+2. **"No module named 'agent_framework.plugin_definition'"**
+   - ✅ **Fixed**: Updated imports to use `agent_framework.functions`
 
 3. **OpenAI version conflicts**
    - ✅ **Fixed**: Updated to compatible versions
 
 ### Verification Commands:
 ```bash
-# Check semantic-kernel version
-python -c "import semantic_kernel; print('SK version:', semantic_kernel.__version__)"
+# Check agent-framework version
+python -c "import agent_framework; print('SK version:', agent_framework.__version__)"
 
 # Check pydantic compatibility
 python -c "from pydantic import networks; print('Pydantic networks OK')"
@@ -153,7 +153,7 @@ python -c "from src.plugins.document_retrieval_plugin import DocumentRetrievalPl
 
 | Component | Old Version | New Version | Status |
 |-----------|-------------|-------------|---------|
-| semantic-kernel | 0.9.1b1 | 1.37.0 | ✅ Fixed |
+| agent-framework | 0.9.1b1 | 1.37.0 | ✅ Fixed |
 | pydantic | 2.11.9 | 2.11.9 | ✅ Compatible |
 | openai | 1.3.7 | 2.0.1+ | ✅ Updated |
 | azure-search-documents | 11.4.0 | 11.5.3 | ✅ Updated |
