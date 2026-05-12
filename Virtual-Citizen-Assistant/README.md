@@ -45,10 +45,10 @@ Perfect for extending and customizing during the hackathon:
 Create a `.env` file in the Virtual-Citizen-Assistant directory:
 
 ```bash
-# Azure OpenAI Configuration (Required)
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
-AZURE_OPENAI_API_KEY=your-api-key-here
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+# Microsoft Foundry Configuration (Required)
+FOUNDRY_ENDPOINT=https://your-foundry-resource.openai.azure.com/
+FOUNDRY_API_KEY=your-api-key-here
+FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4
 
 # Azure AI Search (Required for RAG)
 AZURE_SEARCH_SERVICE_ENDPOINT=https://your-service.search.windows.net
@@ -69,9 +69,9 @@ AZURE_AI_TEXT_ANALYTICS_KEY=your-text-analytics-key
 
 #### Option 2: Environment Variables
 ```bash
-export AZURE_OPENAI_ENDPOINT="https://your-resource.openai.azure.com/"
-export AZURE_OPENAI_API_KEY="your-api-key-here"
-export AZURE_OPENAI_DEPLOYMENT_NAME="gpt-4"
+export FOUNDRY_ENDPOINT="https://your-foundry-resource.openai.azure.com/"
+export FOUNDRY_API_KEY="your-api-key-here"
+export FOUNDRY_MODEL_DEPLOYMENT_NAME="gpt-4"
 export AZURE_SEARCH_SERVICE_ENDPOINT="https://your-service.search.windows.net"
 ```
 
@@ -80,8 +80,8 @@ Edit `src/config/settings.py` for quick testing
 
 ### Getting API Keys
 
-#### Azure OpenAI (Required)
-1. Create Azure OpenAI resource in Azure portal
+#### Microsoft Foundry (Required)
+1. Create a Microsoft Foundry project in Azure AI Foundry
 2. Deploy GPT-4 or GPT-3.5-turbo model
 3. Copy endpoint, deployment name, and API key
 
@@ -98,7 +98,7 @@ Edit `src/config/settings.py` for quick testing
 
 - **Microsoft Agentic Framework 1.37.0**: Plugin orchestration and conversational flow
 - **Azure AI Search**: Vector search and document indexing for RAG
-- **Azure OpenAI**: Large language model for natural language understanding
+- **Microsoft Foundry Models**: Large language model for natural language understanding
 - **Azure AI Services**: Text Analytics for enhanced processing
 - **Flask**: Web framework for citizen-facing interface
 - **Python 3.9+**: Modern async/await patterns and type hints

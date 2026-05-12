@@ -89,9 +89,9 @@ kernel = Kernel()
 ### Environment Variables
 Create a `.env` file with:
 ```env
-AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
-AZURE_OPENAI_API_KEY=your_api_key
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
+FOUNDRY_ENDPOINT=your_foundry_endpoint
+FOUNDRY_API_KEY=your_api_key
+FOUNDRY_MODEL_DEPLOYMENT_NAME=your_deployment_name
 AZURE_SEARCH_ENDPOINT=your_search_endpoint
 AZURE_SEARCH_KEY=your_search_key
 AZURE_SEARCH_INDEX=your_search_index

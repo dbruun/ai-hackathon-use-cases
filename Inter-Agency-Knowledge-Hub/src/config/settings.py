@@ -5,7 +5,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from pydantic_settings import BaseSettings
-from pydantic import Field
+from pydantic import AliasChoices, Field
 
 
 class Settings(BaseSettings):
@@ -25,22 +25,30 @@ class Settings(BaseSettings):
         description="Prefix for agency document indexes",
     )
 
-    # Azure OpenAI Configuration
+    # Microsoft Foundry model configuration
     azure_openai_endpoint: str = Field(
         default="https://mock-openai.openai.azure.com/",
-        description="Azure OpenAI endpoint URL",
+        validation_alias=AliasChoices("FOUNDRY_ENDPOINT", "AZURE_OPENAI_ENDPOINT"),
+        description="Microsoft Foundry model endpoint URL",
     )
     azure_openai_api_key: str = Field(
         default="mock-openai-key",
-        description="Azure OpenAI API key",
+        validation_alias=AliasChoices("FOUNDRY_API_KEY", "AZURE_OPENAI_API_KEY"),
+        description="Microsoft Foundry API key",
     )
     azure_openai_deployment_name: str = Field(
         default="gpt-4",
-        description="Azure OpenAI deployment name",
+        validation_alias=AliasChoices(
+            "FOUNDRY_MODEL_DEPLOYMENT_NAME", "AZURE_OPENAI_DEPLOYMENT_NAME"
+        ),
+        description="Microsoft Foundry model deployment name",
     )
     azure_openai_embedding_deployment: str = Field(
         default="text-embedding-ada-002",
-        description="Azure OpenAI embedding deployment name",
+        validation_alias=AliasChoices(
+            "FOUNDRY_EMBEDDING_DEPLOYMENT", "AZURE_OPENAI_EMBEDDING_DEPLOYMENT"
+        ),
+        description="Microsoft Foundry embedding deployment name",
     )
 
     # Microsoft Entra ID Configuration

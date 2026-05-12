@@ -1,15 +1,29 @@
 """Settings configuration using Pydantic."""
 
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
-    # Azure OpenAI
-    azure_openai_endpoint: str = ""
-    azure_openai_api_key: str = ""
-    azure_openai_deployment_name: str = "gpt-4"
+    # Microsoft Foundry model configuration
+    azure_openai_endpoint: str = Field(
+        default="",
+        validation_alias=AliasChoices("FOUNDRY_ENDPOINT", "AZURE_OPENAI_ENDPOINT"),
+    )
+    azure_openai_api_key: str = Field(
+        default="",
+        validation_alias=AliasChoices(
+            "FOUNDRY_API_KEY", "AZURE_OPENAI_API_KEY", "AZURE_OPENAI_KEY"
+        ),
+    )
+    azure_openai_deployment_name: str = Field(
+        default="gpt-4",
+        validation_alias=AliasChoices(
+            "FOUNDRY_MODEL_DEPLOYMENT_NAME", "AZURE_OPENAI_DEPLOYMENT_NAME"
+        ),
+    )
 
     # Azure Form Recognizer (optional)
     azure_form_recognizer_endpoint: str = ""

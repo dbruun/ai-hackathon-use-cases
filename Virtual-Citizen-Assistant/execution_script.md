@@ -37,7 +37,7 @@ python test_plugins.py
 az search service create --name "nyc-citizen-search" --resource-group "nyc-hackathon-rg"
 az search index create --service-name "nyc-citizen-search" --name "city-services"
 
-# 5. Deploy Azure OpenAI service
+# 5. Deploy Microsoft Foundry model endpoint
 az cognitiveservices account create --name "nyc-openai" --resource-group "nyc-hackathon-rg" \
   --kind OpenAI --sku S0 --location eastus
 ```
@@ -46,9 +46,9 @@ az cognitiveservices account create --name "nyc-openai" --resource-group "nyc-ha
 ```bash
 # 6. Create .env file with your Azure credentials
 cat > .env << EOF
-AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
-AZURE_OPENAI_API_KEY=your_api_key
-AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
+FOUNDRY_ENDPOINT=your_foundry_endpoint
+FOUNDRY_API_KEY=your_api_key
+FOUNDRY_MODEL_DEPLOYMENT_NAME=your_deployment_name
 AZURE_SEARCH_ENDPOINT=your_search_endpoint
 AZURE_SEARCH_KEY=your_search_key
 AZURE_SEARCH_INDEX=your_search_index
@@ -160,7 +160,7 @@ class VirtualCitizenAssistant:
     async def initialize(self):
         self.kernel = Kernel()
         
-        # Add Azure OpenAI service
+        # Add Microsoft Foundry chat completion service
         chat_service = AzureChatCompletion(...)
         self.kernel.add_service(chat_service)
         
@@ -201,7 +201,7 @@ class VirtualCitizenAssistant:
 ## 🚀 Deployment Checklist
 
 - [ ] Azure AI Search service provisioned and indexed
-- [ ] Azure OpenAI deployment configured  
+- [ ] Microsoft Foundry model deployment configured  
 - [ ] Microsoft Agentic Framework plugins implemented and tested
 - [ ] Web application developed and locally tested
 - [ ] Azure Web App deployed and configured

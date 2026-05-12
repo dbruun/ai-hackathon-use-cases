@@ -95,18 +95,17 @@ For Azure services, create a `.env` file based on `.env.example`:
 ```env
 USE_MOCK_SERVICES=false
 
-# Azure OpenAI (Required)
-AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com
-AZURE_OPENAI_KEY=your-api-key
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o
-AZURE_OPENAI_API_VERSION=2024-02-15-preview
+# Microsoft Foundry (Required)
+FOUNDRY_ENDPOINT=https://your-foundry-resource.openai.azure.com
+FOUNDRY_API_KEY=your-api-key
+FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 
 # Weather API (Optional - has free tier)
 NWS_API_ENDPOINT=https://api.weather.gov
 ```
 
 **Where to find these values:**
-1. Go to [Azure Portal](https://portal.azure.com) → Your Azure OpenAI resource
+1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 
@@ -122,7 +121,7 @@ NWS_API_ENDPOINT=https://api.weather.gov
 ## Tech Stack
 
 - **Microsoft Agentic Framework**: Multi-agent orchestration
-- **Azure OpenAI**: Planning and analysis
+- **Microsoft Foundry Models**: Planning and analysis
 - **NWS API**: Weather data integration
 - **Flask**: Web API framework
 - **Pydantic**: Data models

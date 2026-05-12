@@ -69,7 +69,7 @@ graph TB
     subgraph "Azure Cloud"
         A[Azure Web App]
         B[Azure AI Search]
-        C[Azure OpenAI]
+        C[Microsoft Foundry Models]
         D[Azure Key Vault]
         E[Application Insights]
     end

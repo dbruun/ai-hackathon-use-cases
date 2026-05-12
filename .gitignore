@@ -1,0 +1,71 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.whl
+venv/
+.venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# .NET
+# ========================
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.tmp
+*.tmp_proj
+*_ReSharper*/
+Generated\ Files/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+**/packages/
+project.lock.json
+project.fragment.lock.json
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Misc
+# ========================
+*.log
+*.bak
+*.orig

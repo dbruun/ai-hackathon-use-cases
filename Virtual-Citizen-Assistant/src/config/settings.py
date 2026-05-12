@@ -21,14 +21,23 @@ def _safe_int_conversion(value, default):
     except (ValueError, TypeError):
         return default
 
+
+def _env_prefer_foundry(foundry_name, legacy_name, default=None):
+    """Read Foundry-native env vars first, then legacy Azure-named vars."""
+    return os.getenv(foundry_name) or os.getenv(legacy_name, default)
+
 class Config:
     """Application configuration class."""
     
-    # Azure OpenAI Configuration
-    AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-    AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-    AZURE_OPENAI_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4")
-    AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-06-01")
+    # Microsoft Foundry model configuration
+    AZURE_OPENAI_ENDPOINT = _env_prefer_foundry("FOUNDRY_ENDPOINT", "AZURE_OPENAI_ENDPOINT")
+    AZURE_OPENAI_API_KEY = _env_prefer_foundry("FOUNDRY_API_KEY", "AZURE_OPENAI_API_KEY")
+    AZURE_OPENAI_DEPLOYMENT_NAME = _env_prefer_foundry(
+        "FOUNDRY_MODEL_DEPLOYMENT_NAME", "AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4"
+    )
+    AZURE_OPENAI_API_VERSION = _env_prefer_foundry(
+        "FOUNDRY_API_VERSION", "AZURE_OPENAI_API_VERSION", "2024-06-01"
+    )
     
     # Azure AI Search Configuration
     AZURE_SEARCH_ENDPOINT = os.getenv("AZURE_SEARCH_ENDPOINT")

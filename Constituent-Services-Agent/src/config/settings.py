@@ -9,7 +9,7 @@ import os
 from functools import lru_cache
 from typing import Optional
 
-from pydantic import Field
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings
 
 
@@ -37,18 +37,27 @@ class Settings(BaseSettings):
         description="Azure AI Project connection string"
     )
 
-    # Azure OpenAI
+    # Microsoft Foundry model configuration
     azure_openai_endpoint: Optional[str] = Field(
         default=None,
-        description="Azure OpenAI endpoint URL"
+        validation_alias=AliasChoices("FOUNDRY_ENDPOINT", "AZURE_OPENAI_ENDPOINT"),
+        description="Microsoft Foundry model endpoint URL"
     )
     azure_openai_key: Optional[str] = Field(
         default=None,
-        description="Azure OpenAI API key"
+        validation_alias=AliasChoices(
+            "FOUNDRY_API_KEY", "AZURE_OPENAI_API_KEY", "AZURE_OPENAI_KEY"
+        ),
+        description="Microsoft Foundry API key"
     )
     azure_openai_deployment: str = Field(
         default="gpt-4",
-        description="Azure OpenAI deployment name"
+        validation_alias=AliasChoices(
+            "FOUNDRY_MODEL_DEPLOYMENT_NAME",
+            "AZURE_OPENAI_DEPLOYMENT_NAME",
+            "AZURE_OPENAI_DEPLOYMENT",
+        ),
+        description="Microsoft Foundry model deployment name"
     )
 
     # Azure Translator

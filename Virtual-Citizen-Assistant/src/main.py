@@ -13,6 +13,10 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+
+def _env_prefer_foundry(foundry_name: str, legacy_name: str, default: str | None = None):
+    return os.getenv(foundry_name) or os.getenv(legacy_name, default)
+
 class VirtualCitizenAssistant:
     def __init__(self):
         self.agent: Optional[Agent] = None
@@ -27,10 +31,10 @@ class VirtualCitizenAssistant:
         scheduling_plugin = SchedulingPlugin()
 
         chat_client = OpenAIChatCompletionClient(
-            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o-mini"),
-            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-            api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+            model=_env_prefer_foundry("FOUNDRY_MODEL_DEPLOYMENT_NAME", "AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o-mini"),
+            api_key=_env_prefer_foundry("FOUNDRY_API_KEY", "AZURE_OPENAI_API_KEY"),
+            azure_endpoint=_env_prefer_foundry("FOUNDRY_ENDPOINT", "AZURE_OPENAI_ENDPOINT"),
+            api_version=_env_prefer_foundry("FOUNDRY_API_VERSION", "AZURE_OPENAI_API_VERSION"),
         )
 
         self.agent = Agent(
@@ -107,9 +111,9 @@ async def main():
     except Exception as e:
         print(f"Failed to initialize assistant: {e}")
         print("Please check your environment variables:")
-        print("- AZURE_OPENAI_ENDPOINT")
-        print("- AZURE_OPENAI_API_KEY")
-        print("- AZURE_OPENAI_DEPLOYMENT_NAME")
+        print("- FOUNDRY_ENDPOINT")
+        print("- FOUNDRY_API_KEY")
+        print("- FOUNDRY_MODEL_DEPLOYMENT_NAME")
         print("- AZURE_SEARCH_ENDPOINT")
         print("- AZURE_SEARCH_KEY")
         print("- AZURE_SEARCH_INDEX")

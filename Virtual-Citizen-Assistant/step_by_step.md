@@ -1,5 +1,9 @@
 # 🪜 Virtual Citizen Assistant - Step by Step Guide
 
+## Microsoft Foundry First
+
+Use Microsoft Foundry for model hosting and keys. Use `FOUNDRY_*` variables in your `.env`.
+
 ## 🎯 Complete Implementation Tutorial
 
 **✅ UPDATED FOR v2.0 - ALL COMPATIBILITY ISSUES FIXED!**
@@ -181,9 +185,9 @@ python test_setup.py
 ### 2.2 Create Environment Configuration
 ```python
 # save as .env
-AZURE_OPENAI_ENDPOINT=your-openai-endpoint
-AZURE_OPENAI_API_KEY=your-openai-key
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+FOUNDRY_ENDPOINT=your-foundry-endpoint
+FOUNDRY_API_KEY=your-foundry-key
+FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4
 AZURE_SEARCH_ENDPOINT=your-search-endpoint
 AZURE_SEARCH_KEY=your-search-key
 AZURE_SEARCH_INDEX=city-services
@@ -639,11 +643,11 @@ class CitizenAssistantService:
     def __init__(self):
         self.kernel = Kernel()
         
-        # Add Azure OpenAI chat completion service
+        # Add Microsoft Foundry chat completion service
         chat_service = AzureChatCompletion(
-            deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
-            endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-            api_key=os.getenv("AZURE_OPENAI_API_KEY")
+            deployment_name=os.getenv("FOUNDRY_MODEL_DEPLOYMENT_NAME"),
+            endpoint=os.getenv("FOUNDRY_ENDPOINT"),
+            api_key=os.getenv("FOUNDRY_API_KEY")
         )
         self.kernel.add_service(chat_service)
         
@@ -1299,7 +1303,7 @@ aiohttp>=3.11.0
 ### Technical Highlights (1.5 minutes)
 - **Azure AI Search**: Document indexing and retrieval
 - **Microsoft Agentic Framework**: Plugin orchestration and planning
-- **Azure OpenAI**: Natural language understanding
+- **Microsoft Foundry Models**: Natural language understanding
 - **Azure Web App**: Scalable deployment
 
 ## 🎤 Key Talking Points
@@ -1354,7 +1358,7 @@ An AI-powered virtual assistant that helps Georgia residents and visitors access
 - **Azure AI Foundry**: AI orchestration platform
 - **Microsoft Agentic Framework**: Plugin orchestration
 - **Azure AI Search**: Document indexing and retrieval
-- **Azure OpenAI**: Language model
+- **Microsoft Foundry Models**: Language model
 - **Flask**: Web application framework
 - **Azure Web App**: Cloud hosting
 
