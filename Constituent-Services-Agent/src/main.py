@@ -7,6 +7,7 @@ Flask application factory with CORS and middleware setup.
 import logging
 import os
 import sys
+from pathlib import Path
 
 from flask import Flask
 from flask_cors import CORS
@@ -31,9 +32,10 @@ def create_app() -> Flask:
     logger = logging.getLogger(__name__)
 
     # Create Flask app
+    static_dir = Path(__file__).resolve().parent.parent / "static"
     app = Flask(
         __name__,
-        static_folder="../static",
+        static_folder=str(static_dir),
         static_url_path="/",
     )
 

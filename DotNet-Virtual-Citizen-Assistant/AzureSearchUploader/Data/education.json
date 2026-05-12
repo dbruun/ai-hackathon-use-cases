@@ -1,0 +1,12 @@
+[
+  {
+    "id": "edu-001",
+    "title": "Public School Enrollment",
+    "content": "Georgia public school enrollment varies by grade level. Pre-K and Kindergarten have specific application periods through MySchools.nyc. Middle and high school applications also go through MySchools. Zoned schools accept students based on residence. Charter schools have separate application processes.",
+    "summary": "Guide to enrolling in Georgia public schools",
+    "category": "Education",
+    "subCategory": "K-12",
+    "tags": ["school", "enrollment", "education", "MySchools"],
+    "url": "https://www.schools.nyc.gov/enrollment"
+  }
+]

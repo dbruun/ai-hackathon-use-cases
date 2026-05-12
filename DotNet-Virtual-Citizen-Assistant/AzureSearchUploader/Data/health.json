@@ -1,0 +1,12 @@
+[
+  {
+    "id": "health-001",
+    "title": "Health Insurance Enrollment",
+    "content": "Georgiaers can enroll in health insurance through Georgia State of Health marketplace. Enrollment periods typically run November through January. Medicaid and Child Health Plus have year-round enrollment. Financial assistance is available based on income. Free in-person assistance is available at enrollment centers.",
+    "summary": "Health insurance options and enrollment info",
+    "category": "Health",
+    "subCategory": "Insurance",
+    "tags": ["health", "insurance", "medicaid", "enrollment"],
+    "url": "https://nystateofhealth.ga.gov"
+  }
+]

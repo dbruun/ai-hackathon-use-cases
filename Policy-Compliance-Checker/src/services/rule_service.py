@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """Rule service for managing compliance rules."""
 
 import re

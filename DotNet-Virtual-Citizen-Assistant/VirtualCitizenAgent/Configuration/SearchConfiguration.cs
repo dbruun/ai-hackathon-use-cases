@@ -18,7 +18,7 @@ public class SearchConfiguration
     public string IndexName { get; set; } = "citizen-services";
 
     /// <summary>
-    /// Azure AI Search API key.
+    /// Azure AI Search API key. Optional — if empty, DefaultAzureCredential is used.
     /// </summary>
     public string ApiKey { get; set; } = string.Empty;
 
@@ -31,4 +31,9 @@ public class SearchConfiguration
     /// Whether to use mock service for offline development.
     /// </summary>
     public bool UseMockService { get; set; } = true;
+
+    /// <summary>
+    /// Whether an API key is configured (vs managed identity).
+    /// </summary>
+    public bool HasApiKey => !string.IsNullOrEmpty(ApiKey);
 }

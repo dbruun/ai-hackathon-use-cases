@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VirtualCitizenAgent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca50696e4f965ea1e73a5a4c4efd9dc3bfb23edd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+772cb1a5298d4513419593a4c61ae293b727b997")]
 [assembly: System.Reflection.AssemblyProductAttribute("VirtualCitizenAgent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VirtualCitizenAgent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

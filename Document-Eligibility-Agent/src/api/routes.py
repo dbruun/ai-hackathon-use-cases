@@ -22,6 +22,7 @@ from src.models.document import Document
 from src.models.extraction import Extraction
 from src.models.processing_log import ProcessingLog
 from src.services import get_audit_service, get_storage_service
+from src.services.document_intelligence import get_document_intelligence_service
 
 logger = logging.getLogger(__name__)
 
@@ -202,6 +203,36 @@ def upload_document():
     _run_async(audit.log(log_entry))
 
     logger.info(f"Document uploaded: {document.id} ({file.filename})")
+
+    # Auto-run extraction pipeline
+    try:
+        doc_intel = get_document_intelligence_service()
+        extraction_result = _run_async(doc_intel.analyze_document(
+            content=file_content,
+            content_type=content_type,
+            document_type=document.document_type,
+        ))
+
+        # Convert extracted fields to Extraction models
+        extractions = []
+        for field in extraction_result.fields:
+            extractions.append(Extraction(
+                document_id=document.id,
+                field_name=field.name,
+                field_value=field.value,
+                confidence=field.confidence,
+                is_pii=field.is_pii,
+                pii_type=field.pii_type.value if field.pii_type else None,
+            ))
+
+        _extractions[str(document.id)] = extractions
+        document.status = DocumentStatus.EXTRACTED
+        document.overall_confidence = extraction_result.overall_confidence
+        document.page_count = extraction_result.page_count
+        logger.info(f"Extracted {len(extractions)} fields from {document.id}")
+    except Exception as e:
+        logger.error(f"Auto-extraction failed for {document.id}: {e}")
+        # Document stays in uploaded status — user can still view it
 
     return jsonify(document.to_dict()), 201
 

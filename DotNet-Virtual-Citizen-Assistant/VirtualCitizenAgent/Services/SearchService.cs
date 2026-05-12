@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Azure;
+using Azure.Identity;
 using Azure.Search.Documents;
 using Azure.Search.Documents.Models;
 using Microsoft.Extensions.Options;
@@ -127,8 +128,10 @@ public class SearchService : ISearchService
 
         if (!_useMock)
         {
-            var credential = new AzureKeyCredential(_config.ApiKey);
-            _searchClient = new SearchClient(new Uri(_config.Endpoint), _config.IndexName, credential);
+            var endpoint = new Uri(_config.Endpoint);
+            _searchClient = _config.HasApiKey
+                ? new SearchClient(endpoint, _config.IndexName, new AzureKeyCredential(_config.ApiKey))
+                : new SearchClient(endpoint, _config.IndexName, new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeVisualStudioCredential = true, ExcludeVisualStudioCodeCredential = true }));
         }
     }
 

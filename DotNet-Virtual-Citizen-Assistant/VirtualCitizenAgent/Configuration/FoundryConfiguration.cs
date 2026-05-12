@@ -13,7 +13,7 @@ public class FoundryConfiguration
     public string Endpoint { get; set; } = string.Empty;
 
     /// <summary>
-    /// Azure AI Foundry API key.
+    /// Azure AI Foundry API key. Optional — if empty, DefaultAzureCredential is used.
     /// </summary>
     public string ApiKey { get; set; } = string.Empty;
 
@@ -26,4 +26,9 @@ public class FoundryConfiguration
     /// Whether to use mock service for offline development.
     /// </summary>
     public bool UseMockService { get; set; } = true;
+
+    /// <summary>
+    /// Whether an API key is configured (vs managed identity).
+    /// </summary>
+    public bool HasApiKey => !string.IsNullOrEmpty(ApiKey);
 }

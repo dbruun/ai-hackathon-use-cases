@@ -9,7 +9,7 @@ from ..core.permission_filter import PermissionFilter
 from ..core.citation_builder import CitationBuilder
 from ..models.search import SearchQuery, SearchResponse, SearchResult
 from ..models.user import UserPermissions
-from ..models.enums import Agency
+from ..models.enums import Agency, DocumentClassification
 from .audit_service import AuditService
 
 logger = logging.getLogger("knowledge_hub")
@@ -79,7 +79,7 @@ class SearchService:
                 can_access = self.permission_filter.check_document_access(
                     permissions=permissions,
                     agency=Agency(doc.get("agency", "dmv")),
-                    classification=doc.get("classification", "public"),
+                    classification=DocumentClassification(doc.get("classification", "public")),
                     allowed_groups=doc.get("allowed_groups", []),
                 )
                 if can_access:

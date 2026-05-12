@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using Azure;
 using Azure.AI.Inference;
+using Azure.Identity;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Options;
@@ -53,9 +54,13 @@ public class ChatService : IChatService
         _config = config.Value;
         _logger = logger;
 
-        if (!_config.UseMockService && !string.IsNullOrEmpty(_config.Endpoint) && !string.IsNullOrEmpty(_config.ApiKey))
+        if (!_config.UseMockService && !string.IsNullOrEmpty(_config.Endpoint))
         {
-            var foundryClient = new ChatCompletionsClient(new Uri(_config.Endpoint), new AzureKeyCredential(_config.ApiKey));
+            var endpoint = new Uri(_config.Endpoint);
+            var credentialOptions = new DefaultAzureCredentialOptions { ExcludeVisualStudioCredential = true, ExcludeVisualStudioCodeCredential = true };
+            var foundryClient = _config.HasApiKey
+                ? new ChatCompletionsClient(endpoint, new AzureKeyCredential(_config.ApiKey))
+                : new ChatCompletionsClient(endpoint, new DefaultAzureCredential(credentialOptions));
             Microsoft.Extensions.AI.IChatClient chatClient = foundryClient.AsIChatClient(_config.ModelDeploymentName);
             _agent = chatClient.AsAIAgent(
                 name: "GeorgiaVirtualCitizenAssistant",

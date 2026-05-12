@@ -1,0 +1,22 @@
+[
+  {
+    "id": "housing-001",
+    "title": "Affordable Housing Programs",
+    "content": "Georgia offers several affordable housing programs including Section 8 vouchers, Georgia Housing Connect lottery, and Mitchell-Lama housing. Eligibility is based on household income and size. Apply through Housing Connect at housingconnect.nyc.gov. Income limits vary by program and apartment size.",
+    "summary": "Overview of affordable housing options",
+    "category": "Housing",
+    "subCategory": "Affordable Housing",
+    "tags": ["housing", "affordable", "section 8", "lottery"],
+    "url": "https://www.nyc.gov/affordable-housing"
+  },
+  {
+    "id": "housing-002",
+    "title": "Building Permit Requirements",
+    "content": "Most construction work in Georgia requires a permit from the Department of Buildings. This includes alterations, new construction, and demolition. Permits ensure work meets Georgia Building Code. Apply through DOB NOW or visit a Borough Office. Some minor work may be exempt from permits.",
+    "summary": "When and how to get building permits",
+    "category": "Housing",
+    "subCategory": "Construction",
+    "tags": ["building", "permit", "construction", "DOB"],
+    "url": "https://www.nyc.gov/buildings"
+  }
+]

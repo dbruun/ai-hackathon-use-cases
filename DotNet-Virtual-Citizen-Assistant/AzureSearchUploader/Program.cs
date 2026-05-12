@@ -1,5 +1,8 @@
 using Azure;
+using Azure.Identity;
 using Azure.Search.Documents;
+using Azure.Search.Documents.Indexes;
+using Azure.Search.Documents.Indexes.Models;
 using AzureSearchUploader.Services;
 using Microsoft.Extensions.Configuration;
 
@@ -19,18 +22,42 @@ var endpoint = config["SearchConfiguration:Endpoint"];
 var apiKey = config["SearchConfiguration:ApiKey"];
 var indexName = config["SearchConfiguration:IndexName"] ?? "citizen-services";
 
-if (string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(apiKey))
+if (string.IsNullOrEmpty(endpoint))
 {
-    Console.WriteLine("ERROR: Azure AI Search configuration is missing.");
-    Console.WriteLine("Please set SearchConfiguration:Endpoint and SearchConfiguration:ApiKey in appsettings.json");
+    Console.WriteLine("ERROR: Azure AI Search endpoint is missing.");
+    Console.WriteLine("Please set SearchConfiguration:Endpoint in appsettings.json");
     Console.WriteLine();
     Console.WriteLine("For demo mode without Azure, the sample data is shown below:");
     await ShowSampleDataAsync();
     return 1;
 }
 
-// Initialize search client
-var searchClient = new SearchClient(new Uri(endpoint), indexName, new AzureKeyCredential(apiKey));
+// Initialize search client — use managed identity by default, API key as fallback
+var searchClient = string.IsNullOrEmpty(apiKey)
+    ? new SearchClient(new Uri(endpoint), indexName, new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeVisualStudioCredential = true, ExcludeVisualStudioCodeCredential = true }))
+    : new SearchClient(new Uri(endpoint), indexName, new AzureKeyCredential(apiKey));
+
+Console.WriteLine(string.IsNullOrEmpty(apiKey)
+    ? "Auth: Managed Identity (DefaultAzureCredential)"
+    : "Auth: API Key");
+
+// Ensure the index exists with the correct schema
+var credentialOptions = new DefaultAzureCredentialOptions { ExcludeVisualStudioCredential = true, ExcludeVisualStudioCodeCredential = true };
+var indexClient = string.IsNullOrEmpty(apiKey)
+    ? new SearchIndexClient(new Uri(endpoint), new DefaultAzureCredential(credentialOptions))
+    : new SearchIndexClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+try
+{
+    var existingIndex = await indexClient.GetIndexAsync(indexName);
+    Console.WriteLine($"Index '{indexName}' exists with {existingIndex.Value.Fields.Count} fields.");
+}
+catch (Azure.RequestFailedException ex) when (ex.Status == 404)
+{
+    Console.WriteLine($"Index '{indexName}' not found — creating...");
+    await CreateIndexAsync(indexClient, indexName);
+}
+
 var uploadService = new DocumentUploadService(searchClient);
 
 // Find data files
@@ -227,4 +254,38 @@ static async Task CreateSampleDataAsync(string dataPath)
     await File.WriteAllTextAsync(Path.Combine(dataPath, "education.json"), educationData);
 
     Console.WriteLine("Sample data files created.");
+}
+
+static async Task CreateIndexAsync(SearchIndexClient indexClient, string indexName)
+{
+    var index = new SearchIndex(indexName)
+    {
+        Fields =
+        [
+            new SimpleField("id", SearchFieldDataType.String) { IsKey = true, IsFilterable = true },
+            new SearchableField("title") { IsFilterable = true, IsSortable = true },
+            new SearchableField("content"),
+            new SearchableField("summary"),
+            new SimpleField("category", SearchFieldDataType.String) { IsFilterable = true, IsFacetable = true },
+            new SimpleField("subCategory", SearchFieldDataType.String) { IsFilterable = true, IsFacetable = true },
+            new SearchableField("tags", true) { IsFilterable = true },
+            new SimpleField("url", SearchFieldDataType.String),
+            new SimpleField("lastUpdated", SearchFieldDataType.String) { IsSortable = true },
+        ],
+        SemanticSearch = new SemanticSearch
+        {
+            Configurations =
+            {
+                new SemanticConfiguration("citizen-services-semantic", new SemanticPrioritizedFields
+                {
+                    TitleField = new SemanticField("title"),
+                    ContentFields = { new SemanticField("content"), new SemanticField("summary") },
+                    KeywordsFields = { new SemanticField("category") }
+                })
+            }
+        }
+    };
+
+    await indexClient.CreateIndexAsync(index);
+    Console.WriteLine($"Index '{indexName}' created with {index.Fields.Count} fields.");
 }
