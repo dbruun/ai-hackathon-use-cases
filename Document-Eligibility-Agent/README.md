@@ -104,6 +104,12 @@ AZURE_DOCUMENT_INTELLIGENCE_KEY=your-key
 - **Flask**: Web API framework
 - **Pydantic**: Data validation
 
+## Extension Ideas
+
+- Add support for multilingual documents and translated extraction output.
+- Add human review queues for low-confidence classifications.
+- Add a rules editor UI so hackathon teams can configure eligibility logic live.
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026

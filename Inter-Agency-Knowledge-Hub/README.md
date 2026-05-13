@@ -144,6 +144,12 @@ AZURE_CLIENT_SECRET=your-client-secret
 - **Flask**: Web API framework
 - **Pydantic**: Data models
 
+## Extension Ideas
+
+- Add feedback loops to improve ranking quality from user click behavior.
+- Add agency-specific copilots that summarize results in domain language.
+- Add secure cross-agency sharing workflows for temporary incident collaboration.
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026

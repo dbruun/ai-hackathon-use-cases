@@ -122,6 +122,12 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 - **Flask**: Web API framework
 - **Pydantic**: Data validation
 
+## Extension Ideas
+
+- Add a policy lifecycle workflow (draft → review → approval).
+- Add policy diff visualizations to explain compliance score changes over time.
+- Add export options for audit packages (PDF, CSV, signed reports).
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026

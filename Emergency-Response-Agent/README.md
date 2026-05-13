@@ -126,6 +126,12 @@ NWS_API_ENDPOINT=https://api.weather.gov
 - **Flask**: Web API framework
 - **Pydantic**: Data models
 
+## Extension Ideas
+
+- Add geospatial mapping for shelters, closures, and evacuation zones.
+- Add simulation playback to compare alternative response plans.
+- Add SMS/email alert integrations for citizen and agency notifications.
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026

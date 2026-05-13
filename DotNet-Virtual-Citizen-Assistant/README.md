@@ -172,6 +172,12 @@ dotnet test
 └─────────────────┘
 ```
 
+## Extension Ideas
+
+- Add multilingual chat with automatic translation and locale-aware citations.
+- Add proactive recommendations based on user intent and service category.
+- Add an admin dashboard for search quality, latency, and unanswered intents.
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026

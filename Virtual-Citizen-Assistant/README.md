@@ -343,7 +343,6 @@ Virtual-Citizen-Assistant/
 │   └── screenshots/
 ├── README.md
 ├── execution_script.md
-├── step_by_step.md
 └── requirements.txt
 ```
 
@@ -359,8 +358,7 @@ By completing this use case, you'll learn:
 ## 🏁 Next Steps
 
 1. Review the [execution_script.md](./execution_script.md) for implementation roadmap
-2. Follow the detailed [step_by_step.md](./step_by_step.md) guide
-3. Explore the sample code in the `src/` directory
-4. Use the assets in `assets/` for testing and demonstration
+2. Explore the sample code in the `src/` directory
+3. Use the assets in `assets/` for testing and demonstration
 
 Let's build an AI assistant that makes civic services more accessible! 🌟

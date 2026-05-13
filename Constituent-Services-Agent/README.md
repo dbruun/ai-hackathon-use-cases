@@ -97,6 +97,12 @@ AZURE_AI_PROJECT_CONNECTION_STRING=your-connection-string
 - **DOL**: Unemployment insurance, paid family leave
 - **OTDA**: SNAP, HEAP, Medicaid
 
+## Extension Ideas
+
+- Add support for additional languages and localization.
+- Integrate live agency APIs for real-time service status and wait times.
+- Add analytics dashboards for unanswered questions and escalation trends.
+
 ## Hackathon Team
 
 Georgia State AI Hackathon - January 2026
