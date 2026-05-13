@@ -34,6 +34,52 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Document-Eligibility-Agent` in VS Code.
+4. Open VS Code terminal and run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Validate local setup first:
+   ```bash
+   python demo.py
+   python -m pytest tests/ -v
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create an **Azure AI Document Intelligence** resource.
+3. (Optional advanced flow) Create Azure AI Foundry model endpoint for additional agentic processing.
+4. Add secrets to `.env`:
+   - `AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT`
+   - `AZURE_DOCUMENT_INTELLIGENCE_KEY`
+   - `USE_MOCK_SERVICES=false`
+5. Re-run:
+   ```bash
+   python demo.py
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role on the target resource group/subscription to create resources.
+- **Cognitive Services User** or equivalent access to call Document Intelligence.
+- If using Key Vault for secrets, access to read secret values at runtime.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Document Intelligence docs](https://learn.microsoft.com/azure/ai-services/document-intelligence/)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Document OCR**: Extract text from scanned documents using Azure Document Intelligence

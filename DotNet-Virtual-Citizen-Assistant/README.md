@@ -105,6 +105,48 @@ cd AzureSearchUploader
 dotnet run
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
+2. Install the **C# Dev Kit** extension in VS Code.
+3. Open `DotNet-Virtual-Citizen-Assistant` in VS Code.
+4. Open a VS Code terminal and run:
+   ```bash
+   dotnet restore
+   dotnet test
+   dotnet run --project VirtualCitizenAgent
+   ```
+5. Open `http://localhost:5000` and verify the app loads in mock mode.
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create Azure AI Foundry model endpoint and deploy chat model.
+3. Create Azure AI Search service and index (`citizen-services` or your custom name).
+4. Update `VirtualCitizenAgent/appsettings.json` or use environment variables from this README.
+5. Set `UseMockService=false` for Foundry and Search configuration.
+6. Run again:
+   ```bash
+   dotnet run --project VirtualCitizenAgent
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role to create resources.
+- **Search Service Contributor** (or equivalent) for index operations.
+- Permission to call your Foundry/OpenAI deployment.
+- If deploying the web app to Azure, rights to create App Service and assign managed identity roles.
+
+### D. Official documentation
+
+- [VS Code for C# development](https://code.visualstudio.com/docs/csharp/get-started)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
+- [Azure App Service deployment for ASP.NET Core](https://learn.microsoft.com/azure/app-service/quickstart-dotnetcore)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## API Endpoints
 
 ### Chat

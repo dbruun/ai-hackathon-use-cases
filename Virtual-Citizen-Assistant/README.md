@@ -29,6 +29,47 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
+## 🧭 Beginner Walkthrough (VS Code + Azure)
+
+### 1) Set up VS Code for first-time development
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Virtual-Citizen-Assistant` in VS Code.
+4. Open **Terminal → New Terminal** and run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Start in local mode first:
+   ```bash
+   python src/main.py
+   ```
+
+### 2) Create Azure resources
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create Azure AI Foundry model endpoint and deploy a chat model.
+3. Create Azure AI Search service and prepare your index.
+4. (Optional) Create Azure AI Language/Text Analytics for enrichment features.
+
+### 3) Configure secrets and run in cloud mode
+1. Add credentials to `.env` (examples are in this README).
+2. Restart the app with cloud settings enabled.
+3. Validate responses include retrieved context from your search index.
+
+### 4) Permissions you may need
+- **Contributor** role on resource group/subscription for setup.
+- **Search Service Contributor** (or equivalent) for search index operations.
+- Permission to invoke your Foundry/OpenAI deployment.
+- If using app registration or managed identity, assign data-plane roles for Search and model access.
+
+### 5) Official documentation
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
+- [Azure AI Language docs](https://learn.microsoft.com/azure/ai-services/language-service/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## 🎯 Hackathon Features
 
 Perfect for extending and customizing during the hackathon:

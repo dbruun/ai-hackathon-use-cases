@@ -36,6 +36,48 @@ python -m src.main
 
 Open http://localhost:5000 in your browser.
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. In VS Code, install the **Python** extension from Microsoft.
+3. Open this folder in VS Code: `Constituent-Services-Agent`.
+4. Open a new terminal in VS Code (**Terminal → New Terminal**).
+5. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   ```
+6. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+7. Run in mock mode first (no Azure needed):
+   ```bash
+   python demo.py
+   python -m src.main
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to the [Azure Portal](https://portal.azure.com/) with a subscription where you can create resources.
+2. Create an Azure AI Foundry project/model endpoint and deploy a chat model (for example `gpt-4o`).
+3. Copy your endpoint, key, and deployment name into `.env`.
+4. Set `USE_MOCK_SERVICES=false` and restart the app.
+
+### C. Permissions you may need
+
+- **Subscription/Resource Group access**: `Contributor` (or equivalent) to create resources.
+- **Model inference access**: permission to use the deployed Azure OpenAI/Foundry model.
+- If your team uses managed identities, grant the app identity access to the model endpoint.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Basic Q&A**: Ask questions about Georgia State services in plain language

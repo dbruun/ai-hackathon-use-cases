@@ -34,6 +34,52 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Inter-Agency-Knowledge-Hub` in VS Code.
+4. In VS Code terminal run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Validate baseline behavior locally:
+   ```bash
+   python demo.py
+   python -m pytest tests/ -v
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create Azure AI Foundry model endpoint and deployment.
+3. Create Azure AI Search service and index.
+4. Register an Entra ID app for API access (tenant/client credentials).
+5. Add the required keys and IDs in `.env` and set `USE_MOCK_SERVICES=false`.
+6. Re-run:
+   ```bash
+   python demo.py
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role for resource creation.
+- **Search Service Contributor** (or equivalent) for index/data operations.
+- Entra app registration permissions (or admin-created app credentials).
+- Permission to invoke deployed Foundry model.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
+- [Microsoft Entra app registration quickstart](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Unified Search**: Query across 5+ agency knowledge bases

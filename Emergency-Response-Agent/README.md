@@ -34,6 +34,52 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Emergency-Response-Agent` in VS Code.
+4. In the VS Code terminal:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Run locally in mock mode first:
+   ```bash
+   python demo.py
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create Azure AI Foundry model endpoint and deploy a model (for example `gpt-4o`).
+3. Confirm weather API endpoint (default: `https://api.weather.gov`).
+4. Create `.env` and set:
+   - `FOUNDRY_ENDPOINT`
+   - `FOUNDRY_API_KEY`
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
+   - `USE_MOCK_SERVICES=false`
+5. Run again:
+   ```bash
+   python demo.py
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role (or equivalent) to create Azure resources.
+- Access to invoke your deployed model endpoint.
+- Network/security approval if your org restricts outbound API traffic.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+- [National Weather Service API docs](https://www.weather.gov/documentation/services-web-api)
+
 ## Features
 
 - **Emergency Scenario Simulation**: Hurricane, fire, flood, winter storm, public health, earthquake

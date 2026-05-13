@@ -34,6 +34,48 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension.
+3. Open `Policy-Compliance-Checker` in VS Code.
+4. In the VS Code terminal run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Validate local mock execution:
+   ```bash
+   python demo.py
+   python -m pytest tests/ -v
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create Azure AI Foundry project/model endpoint and deploy your model.
+3. Add values to `.env`:
+   - `FOUNDRY_ENDPOINT`
+   - `FOUNDRY_API_KEY`
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
+   - `USE_MOCK_SERVICES=false`
+4. Re-run the demo.
+
+### C. Permissions you may need
+
+- **Contributor** role to create resources.
+- Permission to call the Foundry/OpenAI deployment.
+- Optional Key Vault access if your team stores secrets outside `.env`.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Document Parsing**: Support for PDF, DOCX, Markdown, and plain text
