@@ -29,7 +29,7 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-## 🧭 Beginner Walkthrough (VS Code + Azure)
+## Beginner Walkthrough (VS Code + Azure)
 
 ### A. Set up VS Code for first-time development
 1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
