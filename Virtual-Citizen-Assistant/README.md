@@ -48,9 +48,17 @@ python src/main.py
 
 ### B. Create Azure resources
 1. Sign in to [Azure Portal](https://portal.azure.com/).
-2. Create Azure AI Foundry model endpoint and deploy a chat model.
-3. Create Azure AI Search service and prepare your index.
-4. (Optional) Create Azure AI Language/Text Analytics for enrichment features.
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project.
+3. In Microsoft Foundry **Model catalog**, find and compare models by:
+   - Cost/token pricing
+   - Latency and expected throughput
+   - Context window and quality benchmark fit
+4. Deploy a model from **Deployments** and wait for status **Succeeded**.
+5. Create Azure AI Search service and prepare your index.
+6. (Optional) Create Azure AI Language/Text Analytics for enrichment features.
+7. Build agents either way:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select deployed model, tools, and grounding data.
+   - **Code path**: configure `.env` and extend agent/plugin logic in `src/`.
 
 ### C. Configure secrets and run in cloud mode
 1. Add credentials to `.env` (examples are in this README).
@@ -65,9 +73,11 @@ python src/main.py
 
 ### E. Official documentation
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
 - [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
 - [Azure AI Language docs](https://learn.microsoft.com/azure/ai-services/language-service/)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## 🎯 Hackathon Features
@@ -122,7 +132,7 @@ Edit `src/config/settings.py` for quick testing
 ### Getting API Keys
 
 #### Microsoft Foundry (Required)
-1. Create a Microsoft Foundry project in Azure AI Foundry
+1. Create a project in [Microsoft Foundry](https://ai.azure.com/)
 2. Deploy GPT-4 or GPT-3.5-turbo model
 3. Copy endpoint, deployment name, and API key
 

@@ -57,12 +57,23 @@ python -m pytest tests/ -v
 
 1. Sign in to [Azure Portal](https://portal.azure.com/).
 2. Create an **Azure AI Document Intelligence** resource.
-3. (Optional advanced flow) Create Azure AI Foundry model endpoint for additional agentic processing.
-4. Add secrets to `.env`:
+3. (Optional, recommended) Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project for agentic processing.
+4. In Microsoft Foundry **Model catalog**, compare candidate models by cost, context window, and quality benchmarks for extraction tasks.
+5. Deploy a model from **Deployments**:
+   - Choose model/version and region
+   - Set deployment name (for example `gpt-4o`)
+   - Wait until deployment status is **Succeeded**
+6. For agent creation, choose one path:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → attach deployed model and instructions.
+   - **Code path**: use Microsoft Agentic Framework plugins in `src/plugins/` and service logic in `src/services/`.
+7. Add secrets to `.env`:
    - `AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT`
    - `AZURE_DOCUMENT_INTELLIGENCE_KEY`
+   - `FOUNDRY_ENDPOINT` (if using Foundry)
+   - `FOUNDRY_API_KEY` (if using Foundry)
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME` (if using Foundry)
    - `USE_MOCK_SERVICES=false`
-5. Re-run:
+8. Re-run:
    ```bash
    python demo.py
    ```
@@ -77,7 +88,9 @@ python -m pytest tests/ -v
 
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Azure AI Document Intelligence docs](https://learn.microsoft.com/azure/ai-services/document-intelligence/)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## Features

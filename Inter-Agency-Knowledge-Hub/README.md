@@ -56,11 +56,16 @@ python -m pytest tests/ -v
 ### B. Azure resource setup (cloud mode)
 
 1. Sign in to [Azure Portal](https://portal.azure.com/).
-2. Create Azure AI Foundry model endpoint and deployment.
-3. Create Azure AI Search service and index.
-4. Register an Entra ID app for API access (tenant/client credentials).
-5. Add the required keys and IDs in `.env` and set `USE_MOCK_SERVICES=false`.
-6. Re-run:
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project.
+3. In Microsoft Foundry **Model catalog**, compare models for retrieval + synthesis based on cost, latency, context window, and quality.
+4. Deploy your selected model in **Deployments** and wait for status **Succeeded**.
+5. Create Azure AI Search service and index.
+6. Register an Entra ID app for API access (tenant/client credentials).
+7. Create agents either way:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → add search tool/knowledge grounding and instructions.
+   - **Code path**: extend Microsoft Agentic Framework plugins in `src/plugins/` and search/auth services in `src/services/`.
+8. Add the required keys and IDs in `.env` and set `USE_MOCK_SERVICES=false`.
+9. Re-run:
    ```bash
    python demo.py
    ```
@@ -75,9 +80,11 @@ python -m pytest tests/ -v
 ### D. Official documentation
 
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
 - [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
 - [Microsoft Entra app registration quickstart](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## Features
@@ -161,10 +168,10 @@ AZURE_CLIENT_SECRET=your-client-secret
 ```
 
 **Where to find these values:**
-1. **Foundry Models**: [Azure AI Foundry](https://ai.azure.com) → Your project → Keys and Endpoint
+1. **Foundry Models**: [Microsoft Foundry](https://ai.azure.com) → Your project → Keys and Endpoint
 2. **AI Search**: Azure Portal → Your Search resource → Keys
 3. **Entra ID**: Azure Portal → App registrations → Your app → Overview
-4. **Deployment Name**: Azure AI Foundry → Deployments (e.g., `gpt-4o`)
+4. **Deployment Name**: Microsoft Foundry → Deployments (e.g., `gpt-4o`)
 
 ## Search Modes
 
@@ -184,7 +191,7 @@ AZURE_CLIENT_SECRET=your-client-secret
 ## Tech Stack
 
 - **Azure AI Search**: Vector and hybrid search
-- **Foundry IQ**: Intelligent retrieval
+- **Microsoft Foundry Models**: Intelligent retrieval and response generation
 - **Entra ID**: Authentication and authorization
 - **Microsoft Agentic Framework**: AI orchestration
 - **Flask**: Web API framework

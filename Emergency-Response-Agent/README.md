@@ -55,14 +55,19 @@ python -m pytest tests/ -v
 ### B. Azure resource setup (cloud mode)
 
 1. Sign in to [Azure Portal](https://portal.azure.com/).
-2. Create Azure AI Foundry model endpoint and deploy a model (for example `gpt-4o`).
-3. Confirm weather API endpoint (default: `https://api.weather.gov`).
-4. Create `.env` and set:
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project.
+3. In Microsoft Foundry **Model catalog**, compare candidate models for planning workloads (cost, latency, context length, quality).
+4. Deploy a model in **Deployments** (for example `gpt-4o`) and wait for status **Succeeded**.
+5. Confirm weather API endpoint (default: `https://api.weather.gov`).
+6. Create agents using either approach:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select deployed model → configure tools and instructions.
+   - **Code path**: extend the Microsoft Agentic Framework orchestration in `src/agents/` and `src/orchestration/`.
+7. Create `.env` and set:
    - `FOUNDRY_ENDPOINT`
    - `FOUNDRY_API_KEY`
    - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
    - `USE_MOCK_SERVICES=false`
-5. Run again:
+8. Run again:
    ```bash
    python demo.py
    ```
@@ -76,7 +81,9 @@ python -m pytest tests/ -v
 ### D. Official documentation
 
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 - [National Weather Service API docs](https://www.weather.gov/documentation/services-web-api)
 
@@ -151,7 +158,7 @@ NWS_API_ENDPOINT=https://api.weather.gov
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 

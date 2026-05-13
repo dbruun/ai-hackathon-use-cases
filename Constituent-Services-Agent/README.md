@@ -62,9 +62,20 @@ Open http://localhost:5000 in your browser.
 ### B. Azure resource setup (cloud mode)
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/) with a subscription where you can create resources.
-2. Create an Azure AI Foundry project/model endpoint and deploy a chat model (for example `gpt-4o`).
-3. Copy your endpoint, key, and deployment name into `.env`.
-4. Set `USE_MOCK_SERVICES=false` and restart the app.
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create (or select) a project.
+3. In **Model catalog**, filter and compare models by:
+   - Cost and token pricing
+   - Latency and throughput targets
+   - Context window and quality benchmark fit for your scenario
+4. Deploy a model in **Deployments**:
+   - Select a model/version
+   - Choose region/sku
+   - Set deployment name (for example `gpt-4o`)
+   - Wait for deployment status to become **Succeeded**
+5. Create agents in either path:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → pick deployed model → add instructions/tools/knowledge.
+   - **Code path**: configure this project’s `FOUNDRY_*` settings and use the Microsoft Agentic Framework components in `src/agent/` and `src/services/`.
+6. Copy endpoint, key, and deployment name into `.env`, set `USE_MOCK_SERVICES=false`, then restart the app.
 
 ### C. Permissions you may need
 
@@ -75,7 +86,10 @@ Open http://localhost:5000 in your browser.
 ### D. Official documentation
 
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Foundry model deployment guide](https://learn.microsoft.com/azure/ai-foundry/how-to/deploy-models-serverless-availability)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## Features
@@ -124,12 +138,12 @@ FOUNDRY_ENDPOINT=https://your-foundry-resource.openai.azure.com
 FOUNDRY_API_KEY=your-api-key
 FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 
-# Azure AI Foundry (Optional)
+# Microsoft Foundry (Optional)
 AZURE_AI_PROJECT_CONNECTION_STRING=your-connection-string
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 

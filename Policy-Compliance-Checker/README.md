@@ -56,13 +56,21 @@ python -m pytest tests/ -v
 ### B. Azure resource setup (cloud mode)
 
 1. Sign in to [Azure Portal](https://portal.azure.com/).
-2. Create Azure AI Foundry project/model endpoint and deploy your model.
-3. Add values to `.env`:
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select your project.
+3. Use Microsoft Foundry **Model catalog** to compare models for policy analysis:
+   - Cost/token usage
+   - Latency and response quality
+   - Context length for long policy documents
+4. Deploy the selected model in **Deployments** and wait for status **Succeeded**.
+5. Create agents in either mode:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select deployed model and add compliance instructions.
+   - **Code path**: extend Microsoft Agentic Framework plugin code in `src/plugins/` and service logic in `src/services/`.
+6. Add values to `.env`:
    - `FOUNDRY_ENDPOINT`
    - `FOUNDRY_API_KEY`
    - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
    - `USE_MOCK_SERVICES=false`
-4. Re-run the demo.
+7. Re-run the demo.
 
 ### C. Permissions you may need
 
@@ -73,7 +81,9 @@ python -m pytest tests/ -v
 ### D. Official documentation
 
 - [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
-- [Azure AI Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
 - [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## Features
@@ -134,7 +144,7 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 
