@@ -34,6 +34,58 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension.
+3. Open `Policy-Compliance-Checker` in VS Code.
+4. In the VS Code terminal run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Validate local mock execution:
+   ```bash
+   python demo.py
+   python -m pytest tests/ -v
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select your project.
+3. Use Microsoft Foundry **Model catalog** to compare models for policy analysis:
+   - Cost/token usage
+   - Latency and response quality
+   - Context length for long policy documents
+4. Deploy the selected model in **Deployments** and wait for status **Succeeded**.
+5. Create agents in either mode:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select deployed model and add compliance instructions.
+   - **Code path**: extend Microsoft Agentic Framework plugin code in `src/plugins/` and service logic in `src/services/`.
+6. Add values to `.env`:
+   - `FOUNDRY_ENDPOINT`
+   - `FOUNDRY_API_KEY`
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
+   - `USE_MOCK_SERVICES=false`
+7. Re-run the demo.
+
+### C. Permissions you may need
+
+- **Contributor** role to create resources.
+- Permission to call the Foundry/OpenAI deployment.
+- Optional Key Vault access if your team stores secrets outside `.env`.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Document Parsing**: Support for PDF, DOCX, Markdown, and plain text
@@ -92,7 +144,7 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 
@@ -121,6 +173,12 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 - **python-docx**: Word document parsing
 - **Flask**: Web API framework
 - **Pydantic**: Data validation
+
+## Extension Ideas
+
+- Add a policy lifecycle workflow (draft → review → approval).
+- Add policy diff visualizations to explain compliance score changes over time.
+- Add export options for audit packages (PDF, CSV, signed reports).
 
 ## Hackathon Team
 

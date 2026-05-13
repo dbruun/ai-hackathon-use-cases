@@ -34,6 +34,59 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Emergency-Response-Agent` in VS Code.
+4. In the VS Code terminal:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Run locally in mock mode first:
+   ```bash
+   python demo.py
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project.
+3. In Microsoft Foundry **Model catalog**, compare candidate models for planning workloads (cost, latency, context length, quality).
+4. Deploy a model in **Deployments** (for example `gpt-4o`) and wait for status **Succeeded**.
+5. Confirm weather API endpoint (default: `https://api.weather.gov`).
+6. Create agents using either approach:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select deployed model → configure tools and instructions.
+   - **Code path**: extend the Microsoft Agentic Framework orchestration in `src/agents/` and `src/orchestration/`.
+7. Create `.env` and set:
+   - `FOUNDRY_ENDPOINT`
+   - `FOUNDRY_API_KEY`
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME`
+   - `USE_MOCK_SERVICES=false`
+8. Run again:
+   ```bash
+   python demo.py
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role (or equivalent) to create Azure resources.
+- Access to invoke your deployed model endpoint.
+- Network/security approval if your org restricts outbound API traffic.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+- [National Weather Service API docs](https://www.weather.gov/documentation/services-web-api)
+
 ## Features
 
 - **Emergency Scenario Simulation**: Hurricane, fire, flood, winter storm, public health, earthquake
@@ -105,7 +158,7 @@ NWS_API_ENDPOINT=https://api.weather.gov
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 
@@ -125,6 +178,12 @@ NWS_API_ENDPOINT=https://api.weather.gov
 - **NWS API**: Weather data integration
 - **Flask**: Web API framework
 - **Pydantic**: Data models
+
+## Extension Ideas
+
+- Add geospatial mapping for shelters, closures, and evacuation zones.
+- Add simulation playback to compare alternative response plans.
+- Add SMS/email alert integrations for citizen and agency notifications.
 
 ## Hackathon Team
 

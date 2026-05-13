@@ -36,6 +36,62 @@ python -m src.main
 
 Open http://localhost:5000 in your browser.
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. In VS Code, install the **Python** extension from Microsoft.
+3. Open this folder in VS Code: `Constituent-Services-Agent`.
+4. Open a new terminal in VS Code (**Terminal → New Terminal**).
+5. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   ```
+6. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+7. Run in mock mode first (no Azure needed):
+   ```bash
+   python demo.py
+   python -m src.main
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to the [Azure Portal](https://portal.azure.com/) with a subscription where you can create resources.
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create (or select) a project.
+3. In **Model catalog**, filter and compare models by:
+   - Cost and token pricing
+   - Latency and throughput targets
+   - Context window and quality benchmark fit for your scenario
+4. Deploy a model in **Deployments**:
+   - Select a model/version
+   - Choose region/sku
+   - Set deployment name (for example `gpt-4o`)
+   - Wait for deployment status to become **Succeeded**
+5. Create agents in either path:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → pick deployed model → add instructions/tools/knowledge.
+   - **Code path**: configure this project’s `FOUNDRY_*` settings and use the Microsoft Agentic Framework components in `src/agent/` and `src/services/`.
+6. Copy endpoint, key, and deployment name into `.env`, set `USE_MOCK_SERVICES=false`, then restart the app.
+
+### C. Permissions you may need
+
+- **Subscription/Resource Group access**: `Contributor` (or equivalent) to create resources.
+- **Model inference access**: permission to use the deployed Azure OpenAI/Foundry model.
+- If your team uses managed identities, grant the app identity access to the model endpoint.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Foundry model deployment guide](https://learn.microsoft.com/azure/ai-foundry/how-to/deploy-models-serverless-availability)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
+- [Azure role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Basic Q&A**: Ask questions about Georgia State services in plain language
@@ -82,12 +138,12 @@ FOUNDRY_ENDPOINT=https://your-foundry-resource.openai.azure.com
 FOUNDRY_API_KEY=your-api-key
 FOUNDRY_MODEL_DEPLOYMENT_NAME=gpt-4o
 
-# Azure AI Foundry (Optional)
+# Microsoft Foundry (Optional)
 AZURE_AI_PROJECT_CONNECTION_STRING=your-connection-string
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your Foundry project
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your Foundry project
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** → Note your deployment name (e.g., `gpt-4o`)
 
@@ -96,6 +152,12 @@ AZURE_AI_PROJECT_CONNECTION_STRING=your-connection-string
 - **DMV**: Driver licenses, vehicle registration, REAL ID
 - **DOL**: Unemployment insurance, paid family leave
 - **OTDA**: SNAP, HEAP, Medicaid
+
+## Extension Ideas
+
+- Add support for additional languages and localization.
+- Integrate live agency APIs for real-time service status and wait times.
+- Add analytics dashboards for unanswered questions and escalation trends.
 
 ## Hackathon Team
 

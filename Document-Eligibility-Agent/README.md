@@ -34,6 +34,65 @@ python demo.py
 python -m pytest tests/ -v
 ```
 
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [Python 3.11+](https://www.python.org/downloads/).
+2. Install the **Python** extension in VS Code.
+3. Open `Document-Eligibility-Agent` in VS Code.
+4. Open VS Code terminal and run:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows PowerShell: venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+5. Validate local setup first:
+   ```bash
+   python demo.py
+   python -m pytest tests/ -v
+   ```
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Create an **Azure AI Document Intelligence** resource.
+3. (Optional, recommended) Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project for agentic processing.
+4. In Microsoft Foundry **Model catalog**, compare candidate models by cost, context window, and quality benchmarks for extraction tasks.
+5. Deploy a model from **Deployments**:
+   - Choose model/version and region
+   - Set deployment name (for example `gpt-4o`)
+   - Wait until deployment status is **Succeeded**
+6. For agent creation, choose one path:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → attach deployed model and instructions.
+   - **Code path**: use Microsoft Agentic Framework plugins in `src/plugins/` and service logic in `src/services/`.
+7. Add secrets to `.env`:
+   - `AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT`
+   - `AZURE_DOCUMENT_INTELLIGENCE_KEY`
+   - `FOUNDRY_ENDPOINT` (if using Foundry)
+   - `FOUNDRY_API_KEY` (if using Foundry)
+   - `FOUNDRY_MODEL_DEPLOYMENT_NAME` (if using Foundry)
+   - `USE_MOCK_SERVICES=false`
+8. Re-run:
+   ```bash
+   python demo.py
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role on the target resource group/subscription to create resources.
+- **Cognitive Services User** or equivalent access to call Document Intelligence.
+- If using Key Vault for secrets, access to read secret values at runtime.
+
+### D. Official documentation
+
+- [VS Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Azure AI Document Intelligence docs](https://learn.microsoft.com/azure/ai-services/document-intelligence/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
+
 ## Features
 
 - **Document OCR**: Extract text from scanned documents using Azure Document Intelligence
@@ -103,6 +162,12 @@ AZURE_DOCUMENT_INTELLIGENCE_KEY=your-key
 - **Microsoft Foundry Models**: Intelligent extraction
 - **Flask**: Web API framework
 - **Pydantic**: Data validation
+
+## Extension Ideas
+
+- Add support for multilingual documents and translated extraction output.
+- Add human review queues for low-confidence classifications.
+- Add a rules editor UI so hackathon teams can configure eligibility logic live.
 
 ## Hackathon Team
 

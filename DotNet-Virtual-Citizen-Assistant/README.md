@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/badge/Tests-22%20Passing-brightgreen.svg)](#running-tests)
 [![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4.svg)](https://dotnet.microsoft.com)
 
-A RAG-powered AI assistant for Georgia government services built with .NET 9, Microsoft Agentic Framework, Azure AI Foundry, and Azure AI Services.
+A RAG-powered AI assistant for Georgia government services built with .NET 9, Microsoft Agentic Framework, Microsoft Foundry, and Azure AI Services.
 
 ## Features
 
@@ -35,7 +35,7 @@ DotNet-Virtual-Citizen-Assistant/
 
 - .NET 9.0 SDK
 - Azure AI Search (optional - mock mode available)
-- Azure AI Foundry model endpoint (optional - mock mode available)
+- Microsoft Foundry model endpoint (optional - mock mode available)
 
 ## Quick Start
 
@@ -94,7 +94,7 @@ export Foundry__UseMockService="false"
 ```
 
 **Where to find these values:**
-1. Go to [Azure AI Foundry](https://ai.azure.com) → Your model endpoint resource
+1. Go to [Microsoft Foundry](https://ai.azure.com) → Your model endpoint resource
 2. **Keys and Endpoint** → Copy Endpoint and Key
 3. **Model deployments** in Azure AI Studio → Note your deployment name (e.g., `gpt-4o`)
 
@@ -104,6 +104,58 @@ export Foundry__UseMockService="false"
 cd AzureSearchUploader
 dotnet run
 ```
+
+## Beginner Walkthrough (VS Code + Azure)
+
+### A. First-time local setup in VS Code
+
+1. Install [VS Code](https://code.visualstudio.com/) and [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
+2. Install the **C# Dev Kit** extension in VS Code.
+3. Open `DotNet-Virtual-Citizen-Assistant` in VS Code.
+4. Open a VS Code terminal and run:
+   ```bash
+   dotnet restore
+   dotnet test
+   dotnet run --project VirtualCitizenAgent
+   ```
+5. Open `http://localhost:5000` and verify the app loads in mock mode.
+
+### B. Azure resource setup (cloud mode)
+
+1. Sign in to [Azure Portal](https://portal.azure.com/).
+2. Open [Microsoft Foundry](https://ai.azure.com/) and create/select a project.
+3. Use Microsoft Foundry **Model catalog** to compare models by cost, latency, quality, and context length for your assistant use case.
+4. Deploy a model in **Deployments**:
+   - Select model/version and region
+   - Set deployment name (for example `gpt-4o`)
+   - Wait for status **Succeeded**
+5. Create Azure AI Search service and index (`citizen-services` or your custom name).
+6. Create agents in either path:
+   - **UI path**: Microsoft Foundry → **Agents** → Create agent → select your deployed model and tools/knowledge.
+   - **Code path**: update `VirtualCitizenAgent` configuration and extend orchestration in `VirtualCitizenAgent/Services/`.
+7. Update `VirtualCitizenAgent/appsettings.json` or use environment variables from this README.
+8. Set `UseMockService=false` for Foundry and Search configuration.
+9. Run again:
+   ```bash
+   dotnet run --project VirtualCitizenAgent
+   ```
+
+### C. Permissions you may need
+
+- **Contributor** role to create resources.
+- **Search Service Contributor** (or equivalent) for index operations.
+- Permission to call your Foundry/OpenAI deployment.
+- If deploying the web app to Azure, rights to create App Service and assign managed identity roles.
+
+### D. Official documentation
+
+- [VS Code for C# development](https://code.visualstudio.com/docs/csharp/get-started)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/azure/ai-foundry/)
+- [Microsoft Foundry model catalog and model selection](https://learn.microsoft.com/azure/ai-foundry/concepts/models-overview)
+- [Azure AI Search docs](https://learn.microsoft.com/azure/search/)
+- [Azure App Service deployment for ASP.NET Core](https://learn.microsoft.com/azure/app-service/quickstart-dotnetcore)
+- [Microsoft Agentic Framework documentation](https://learn.microsoft.com/agent-framework/)
+- [Azure RBAC overview](https://learn.microsoft.com/azure/role-based-access-control/overview)
 
 ## API Endpoints
 
@@ -140,7 +192,7 @@ dotnet test
 - **ASP.NET Core MVC** - Web application
 - **Microsoft Agentic Framework 1.65** - AI orchestration
 - **Azure AI Search** - Document search
-- **Azure AI Foundry Models** - Chat completions
+- **Microsoft Foundry Models** - Chat completions
 - **Bootstrap 5.3** - UI framework
 - **Font Awesome 6** - Icons
 - **xUnit + FluentAssertions** - Testing (22 tests)
@@ -167,10 +219,16 @@ dotnet test
          │
          ▼
 ┌─────────────────┐
-│ Azure AI Foundry│
+│ Microsoft Foundry│
 │ + Agentic Framework │
 └─────────────────┘
 ```
+
+## Extension Ideas
+
+- Add multilingual chat with automatic translation and locale-aware citations.
+- Add proactive recommendations based on user intent and service category.
+- Add an admin dashboard for search quality, latency, and unanswered intents.
 
 ## Hackathon Team
 
